@@ -1,0 +1,12 @@
+{
+  "name": "breakthrough",
+  "version": "1.0.0",
+  "description": "attendance app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Team Breakthrough Twin Cities",
+  "license": "ISC"
+}
