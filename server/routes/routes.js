@@ -4,6 +4,7 @@ module.exports = function(app, passport) {
 
     // show the home page (will also have our login links)
     app.get('/', function (req, res) {
+        //console.log(res.socket); this will help determine user agent for mobile
         res.send('hello');
     });
 
