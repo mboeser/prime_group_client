@@ -1,0 +1,67 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+h3, h4, h5{
+    font-weight: normal;
+}
+
+main {
+    padding: 20px;
+}
+#login-form {
+    padding: 20px;
+    width: 400px;
+    background-color: rgb(229, 228, 228);
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px #ccc;
+    margin-left: auto;
+    margin-right: auto;
+}
+.content-panel {
+    padding: 30px;
+    width: 40%;
+    margin-right: 30px;
+    margin-left: 90px;
+    margin-top: -30px;
+}
+.page-header-text {
+
+}
+
+section {
+    clear: both;
+}
+.ui-grid-header-cell-wrapper {
+    height: auto;
+}
+#google-logo{
+    text-align: center;
+}
+
+md-datepicker.md-default-theme, md-datepicker {
+    background: #f5f5f5;
+}
+
+
+.student-form-section{
+    background-color: #f5f5f5;
+    box-shadow: 2px 2px 4px #ccc;
+    padding: 25px;
+    margin-bottom: 35px;
+}
+.content-panel{
+    background-color: #f5f5f5;
+    text-align: center ;
+    box-shadow: 2px 2px 4px #ccc;
+    padding: 25px;
+
+}
+#top-buttons {
+    background-color: #f5f5f5;
+    text-align: center;
+    box-shadow: 2px 2px 4px #ccc;
+    border-radius: 5px;
+    margin-bottom: 50px;
+}

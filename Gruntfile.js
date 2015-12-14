@@ -5,14 +5,14 @@ module.exports = function(grunt) {
         uglify: {
             options: {
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+            },
+            build: {
+                src: ['client/assets/scripts/admin/controllers/*.js', 'client/assets/scripts/teacher/controllers/*.js'],
+                dest: 'server/public/assets/scripts/controllers.min.js'
             }
-            //build: {
-            //    src: 'client/app.js',
-            //    dest: 'server/public/assets/scripts/app.min.js'
-            //}
         },
         copy: {
-            main: {
+            vendor: {
                 expand: true,
 
                 // VENDORS
@@ -36,33 +36,51 @@ module.exports = function(grunt) {
                     "angular-ui-grid/ui-grid.min.css",
                     "angular-ui-grid/ui-grid.min.js"
                 ],
-                "dest": "server/public/vendors/",
+                "dest": "server/public/vendors/"
+            },
 
+            css: {
                 // STYLES
-
+                expand: true,
                 cwd: "client/assets/styles/",
                 src: "style.css",
-                "dest": "server/public/assets/styles",
-
+                "dest": "server/public/assets/styles"
+            },
                 // IMAGES
-
+            images: {
+                expand: true,
                 cwd: "client/images",
                 src: "*",
-                "dest": "server/public/assets/images",
+                "dest": "server/public/assets/images"
+            },
 
+            html: {
                 // VIEWS
-
+                expand: true,
                 cwd: "client/views/",
-                src: ["*", "*/*", "*/*/*"],
+                src: ["**"],
                 "dest": "server/public/views"
+            }
+        },
+
+        watch: {
+            options: {
+                spawn: false
+            },
+            scripts: {
+                files: ['client/**/ *.html','client/**/ *.js','client/**/ *.css'],
+                tasks: ['copy', 'uglify']
             }
         }
     });
 
+
+
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task(s).
-    grunt.registerTask('default', ['copy', 'uglify']);
+    grunt.registerTask('default', ['copy', 'uglify', 'watch']);
 
 };
