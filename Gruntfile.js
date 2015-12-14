@@ -58,19 +58,18 @@ module.exports = function(grunt) {
                 // VIEWS
                 expand: true,
                 cwd: "client/views/",
-                src: ["**"],
+                src: "**",
                 "dest": "server/public/views"
+            },
+
+            scripts: {
+                // SCRIPTS
+                expand: true,
+                cwd: "client/assets/scripts/",
+                src: ["*.js", "admin/admin.js", "teacher/teacher.js"],
+                "dest": "server/public/assets/scripts"
             }
         },
-
-        //    scripts: {
-        //        // SCRIPTS
-        //        expand: true,
-        //        cwd: "client/views/",
-        //        src: ["**"],
-        //        "dest": "server/public/"
-        //    }
-        //},
 
         watch: {
             options: {
