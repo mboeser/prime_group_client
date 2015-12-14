@@ -1,0 +1,117 @@
+<main>
+    <header id="AdminDashboardHeader" layout="column">
+        <h3>STUDENT PROFILE (High School)</h3>
+    </header>
+    <section class="student-form-section">
+        <div  layout="row" >
+            <div layout="column"  layout-align="center center">
+                <md-input-container class="student-form-column">
+                    <label>First Name</label>
+                    <input type="text">
+                </md-input-container>
+                <md-input-container class="student-form-column">
+                    <label>Last Name</label>
+                    <input type="text">
+                </md-input-container>
+            </div>
+            <div layout="column"   layout-align="center center" >
+                <md-input-container class="student-form-column">
+                    <label>Phone 1</label>
+                    <input type="text">
+                </md-input-container>
+                <md-input-container class="student-form-column">
+                    <label>Phone 2</label>
+                    <input type="text">
+                </md-input-container>
+            </div>
+        </div>
+        <div layout="column" >
+            <md-input-container>
+                <label>Street</label>
+                <input type="text">
+            </md-input-container>
+        </div>
+        <div >
+            <md-input-container>
+                <label>City</label>
+                <input type="text">
+            </md-input-container>
+            <md-input-container>
+                <label>State</label>
+                <input type="text">
+            </md-input-container>
+            <md-input-container>
+                <label>Zip</label>
+                <input type="text">
+            </md-input-container>
+        </div>
+    </section>
+    <section class="student-form-section">
+        <div >
+            <div layout="column">
+                <md-input-container>
+                    <label>Administration Notes</label>
+                    <textarea></textarea>
+                </md-input-container>
+            </div>
+            <div layout="column">
+                <md-input-container>
+                    <label>Attendance Notes</label>
+                    <textarea></textarea>
+                </md-input-container>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="student-form-section" id="first-half-contact">
+        <h5>First Half Of The Month</h5>
+        <div layout="column">
+            <label>Date Of Class</label>
+            <md-datepicker ng-model="myDate"></md-datepicker>
+        </div>
+        <div layout="column">
+            <md-input-container>
+                <label>Made Contact</label>
+                <input type="text">
+            </md-input-container>
+        </div>
+        <div layout="column">
+            <md-input-container>
+                <label>Medium Of Contact</label>
+                <input type="text">
+            </md-input-container>
+        </div>
+        <div layout="column">
+            <md-input-container>
+                <label>Questions / Concerns</label>
+                <textarea></textarea>
+            </md-input-container>
+        </div>
+    </section>
+    <section class="student-form-section" id="second-half-contact">
+        <h5>Second Half Of The Month</h5>
+        <div  layout="column">
+            <label>Date Of Class</label>
+            <md-datepicker ng-model="myDate" ></md-datepicker>
+        </div>
+        <div  layout="column" >
+            <md-input-container>
+                <label>Made Contact</label>
+                <input type="text">
+            </md-input-container>
+        </div>
+        <div  layout="column" >
+            <md-input-container>
+                <label>Medium Of Contact</label>
+                <input type="text">
+            </md-input-container>
+        </div>
+        <div  layout="column">
+            <md-input-container>
+                <label>Questions / Concerns</label>
+                <textarea></textarea>
+            </md-input-container>
+        </div>
+    </section>
+</main>
