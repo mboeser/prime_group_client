@@ -1,10 +1,11 @@
+//ADMIN APPLICATION
 var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMessages']);
 
 myApp.config(['$routeProvider', function($routeProvider){
     $routeProvider
-        .when('/', {
+        .when('/dashboard', {
             templateUrl: "/views/routes",
-            controller: ""
+            controller: "dashCtrl"
         })
         .when('/', {
             templateUrl: "/views/routes/",
