@@ -13,11 +13,14 @@ main {
 #login-form {
     padding: 20px;
     width: 400px;
-    background-color: rgb(229, 228, 228);
+    /*background-color: #aaa;*/
     border-radius: 5px;
-    box-shadow: 2px 2px 4px #ccc;
+    /*box-shadow: 2px 2px 4px #ccc;*/
     margin-left: auto;
     margin-right: auto;
+    color: #999;
+    /*text-shadow: 1px 1px 2px #000;*/
+    font-size: 20px;
 }
 .content-panel {
     padding: 30px;
@@ -64,4 +67,14 @@ md-datepicker.md-default-theme, md-datepicker {
     box-shadow: 2px 2px 4px #ccc;
     border-radius: 5px;
     margin-bottom: 50px;
+}
+footer{
+    margin-top: 25px;
+    color: #999;
+    text-align: center;
+}
+header{
+    margin-top: 10px;
+    color: #999;
+    text-align: center;
 }
