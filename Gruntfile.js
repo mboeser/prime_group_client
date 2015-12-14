@@ -63,6 +63,15 @@ module.exports = function(grunt) {
             }
         },
 
+        //    scripts: {
+        //        // SCRIPTS
+        //        expand: true,
+        //        cwd: "client/views/",
+        //        src: ["**"],
+        //        "dest": "server/public/"
+        //    }
+        //},
+
         watch: {
             options: {
                 spawn: false
