@@ -8,20 +8,20 @@ myApp.config(['$routeProvider', function($routeProvider){
             controller: "dashTCtrl"
         })
         .when('/attendance', {
-            templateUrl: "/views/routes/",
+            templateUrl: "/views/routes/attendance/attendance.html",
             controller: "attendanceTCtrl"
         })
         .when('/class', {
-            templateUrl: "/views/routes/",
+            templateUrl: "/views/routes/teacher/",
             controller: "classCtrl"
         })
         //two views, one controller for students?
-        .when('/student', {
-            templateUrl: "/views/routes/",
+        .when('/highschool', {
+            templateUrl: "/views/routes/student/student-hs.html",
             controller: "studentCtrl"
         })
-        .when('/student', {
-            templateUrl: "/views/routes/",
+        .when('/middleschool', {
+            templateUrl: "/views/routes/student/student-ms.html",
             controller: "studentCtrl"
         })
 
