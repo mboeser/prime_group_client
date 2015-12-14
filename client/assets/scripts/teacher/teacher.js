@@ -4,7 +4,7 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMessages']);
 myApp.config(['$routeProvider', function($routeProvider){
     $routeProvider
         .when('/dashboard', {
-            templateUrl: "/views/routes",
+            templateUrl: "/views/routes/teacher/teacher-dash.html",
             controller: "dashTCtrl"
         })
         .when('/attendance', {
