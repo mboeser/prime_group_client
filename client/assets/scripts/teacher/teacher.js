@@ -5,20 +5,25 @@ myApp.config(['$routeProvider', function($routeProvider){
     $routeProvider
         .when('/dashboard', {
             templateUrl: "/views/routes",
-            controller: "dashCtrl"
+            controller: "dashTCtrl"
         })
         .when('/attendance', {
             templateUrl: "/views/routes/",
-            controller: "attendanceCtrl"
+            controller: "attendanceTCtrl"
         })
         .when('/class', {
             templateUrl: "/views/routes/",
             controller: "classCtrl"
         })
+        //two views, one controller for students?
         .when('/student', {
             templateUrl: "/views/routes/",
             controller: "studentCtrl"
         })
-        //MAYBE NEED TWO ROUTES FOR STUDENTS?
+        .when('/student', {
+            templateUrl: "/views/routes/",
+            controller: "studentCtrl"
+        })
+
         .otherwise('dashboard');
 }]);
