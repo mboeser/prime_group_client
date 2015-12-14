@@ -52,9 +52,9 @@ module.exports = function(grunt) {
 
                 // VIEWS
 
-                cwd: "client/",
-                src: "views/*",
-                "dest": "server/public"
+                cwd: "client/views/",
+                src: ["*", "*/*", "*/*/*"],
+                "dest": "server/public/views"
             }
         }
     });
