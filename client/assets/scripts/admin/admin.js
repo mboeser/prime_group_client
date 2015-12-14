@@ -7,13 +7,25 @@ myApp.config(['$routeProvider', function($routeProvider){
             templateUrl: "/views/routes",
             controller: "dashCtrl"
         })
-        .when('/', {
+        .when('/teacher', {
             templateUrl: "/views/routes/",
-            controller: ""
+            controller: "teacherCtrl"
         })
-        .when('/queue', {
+        .when('/attendance', {
             templateUrl: "/views/routes/",
-            controller: ""
+            controller: "attendanceCtrl"
         })
-        .otherwise('');
+        .when('/absent', {
+            templateUrl: "/views/routes/",
+            controller: "absentCtrl"
+        })
+        .when('/prework', {
+            templateUrl: "/views/routes/",
+            controller: "preworkCtrl"
+        })
+        .when('/user', {
+            templateUrl: "/views/routes/",
+            controller: "userCtrl"
+        })
+        .otherwise('dashboard');
 }]);
