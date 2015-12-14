@@ -1,11 +1,11 @@
-module.exports = function(app, passport) {
+module.exports = function(app, path, passport) {
 
 // normal routes ===============================================================
 
     // show the home page (will also have our login links)
     app.get('/', function (req, res) {
         //console.log(res.socket); this will help determine user agent for mobile
-        res.send('hello');
+        res.sendFile(path.join(__dirname, "../public/views/index.html"));
     });
 
     // PROFILE SECTION =========================
@@ -28,22 +28,21 @@ module.exports = function(app, passport) {
     // google ---------------------------------
 
     // send to google to do the authentication
-//    app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
-//
-//    // the callback after google has authenticated the user
-//    app.get('/auth/google/callback',
-//        passport.authenticate('google', {
-//            successRedirect : '/profile',
-//            failureRedirect : '/'
-//        }));
-//
-//};
+    //app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
+    //
+    //// the callback after google has authenticated the user
+    //app.get('/auth/google/callback',
+    //    passport.authenticate('google', {
+    //        successRedirect : '/profile',
+    //        failureRedirect : '/'
+    //    }));
+
 
 // route middleware to ensure user is logged in
-//    function isLoggedIn(req, res, next) {
-//        if (req.isAuthenticated())
-//            return next();
-//
-//        res.redirect('/');
-//    };
+    function isLoggedIn(req, res, next) {
+        if (req.isAuthenticated())
+            return next();
+
+        res.redirect('/');
+    };
 };
