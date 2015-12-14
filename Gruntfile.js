@@ -14,6 +14,9 @@ module.exports = function(grunt) {
         copy: {
             main: {
                 expand: true,
+
+                // VENDORS
+
                 cwd: "node_modules/",
                 src: [
                     "angular/angular.min.js",
@@ -33,7 +36,25 @@ module.exports = function(grunt) {
                     "angular-ui-grid/ui-grid.min.css",
                     "angular-ui-grid/ui-grid.min.js"
                 ],
-                "dest": "server/public/vendors/"
+                "dest": "server/public/vendors/",
+
+                // STYLES
+
+                cwd: "client/assets/styles/",
+                src: "style.css",
+                "dest": "server/public/assets/styles",
+
+                // IMAGES
+
+                cwd: "client/images",
+                src: "*",
+                "dest": "server/public/assets/images",
+
+                // VIEWS
+
+                cwd: "client/",
+                src: "views/*",
+                "dest": "server/public"
             }
         }
     });
