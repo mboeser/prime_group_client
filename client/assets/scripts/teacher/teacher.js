@@ -12,7 +12,7 @@ myApp.config(['$routeProvider', function($routeProvider){
             controller: "attendanceTCtrl"
         })
         .when('/class', {
-            templateUrl: "/views/routes/teacher/",
+            templateUrl: "/views/routes/teacher/teacher-class.html", //NEED HTML
             controller: "classCtrl"
         })
         //two views, one controller for students?
