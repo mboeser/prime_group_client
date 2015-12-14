@@ -1,18 +1,31 @@
+//ADMIN APPLICATION
 var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMessages']);
 
 myApp.config(['$routeProvider', function($routeProvider){
     $routeProvider
-        .when('/', {
+        .when('/dashboard', {
             templateUrl: "/views/routes",
-            controller: ""
+            controller: "dashCtrl"
         })
-        .when('/', {
+        .when('/teacher', {
             templateUrl: "/views/routes/",
-            controller: ""
+            controller: "teacherCtrl"
         })
-        .when('/queue', {
+        .when('/attendance', {
             templateUrl: "/views/routes/",
-            controller: ""
+            controller: "attendanceCtrl"
         })
-        .otherwise('');
+        .when('/absent', {
+            templateUrl: "/views/routes/",
+            controller: "absentCtrl"
+        })
+        .when('/prework', {
+            templateUrl: "/views/routes/",
+            controller: "preworkCtrl"
+        })
+        .when('/user', {
+            templateUrl: "/views/routes/",
+            controller: "userCtrl"
+        })
+        .otherwise('dashboard');
 }]);
