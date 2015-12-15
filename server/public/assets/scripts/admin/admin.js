@@ -28,11 +28,8 @@ myApp.config(['$routeProvider', function($routeProvider){
             controller: "userCtrl"
         })
         .when('/upload', {
-<<<<<<< HEAD
-            templateUrl: "/views/routes/", //upload view NEEDED
-=======
+
             templateUrl: "/views/routes/admin/upload-csv.html",
->>>>>>> master
             controller: "uploadCtrl"
         })
         .otherwise('dashboard');
