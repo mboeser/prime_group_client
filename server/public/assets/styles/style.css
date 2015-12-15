@@ -44,9 +44,12 @@ section {
 }
 
 md-datepicker.md-default-theme, md-datepicker {
-    background: #f5f5f5;
+    background-color: #f5f5f5;
 }
-
+.md-datepicker-calendar-pane {
+    background-color: #fff;
+    opacity: .95;
+}
 
 .student-form-section{
     background-color: #f5f5f5;
@@ -83,6 +86,7 @@ header{
     border-radius: 0px;
     color: #fff;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
-    padding: 8px;
-    margin-top: 25px;
+    padding: 7px;
+    margin-top: 8px;
+    font-size: 12px;
 }
