@@ -2,7 +2,7 @@ myApp.controller('uploadCtrl', ['$scope', '$http', 'Upload', function($scope, $h
     console.log('on admin upload controller--uploadCtrl.js')
 
     $scope.upload = function (file) {
-        FileUploader.upload({
+        Upload.upload({
             url: '/upload',
             data: {file: file}
         }).then(function (resp) {
