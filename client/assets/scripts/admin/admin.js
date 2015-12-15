@@ -27,5 +27,9 @@ myApp.config(['$routeProvider', function($routeProvider){
             templateUrl: "/views/routes/admin-users.html", //make /change user permissions view
             controller: "userCtrl"
         })
+        .when('/upload', {
+            templateUrl: "/views/routes/",
+            controller: "uploadCtrl"
+        })
         .otherwise('dashboard');
 }]);
