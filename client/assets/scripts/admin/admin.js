@@ -4,7 +4,7 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMessages']);
 myApp.config(['$routeProvider', function($routeProvider){
     $routeProvider
         .when('/dashboard', {
-            templateUrl: "/views/routes/",
+            templateUrl: "/views/routes/admin/admin-dashboard.html",
             controller: "dashCtrl"
         })
         .when('/teacher', {
@@ -24,7 +24,7 @@ myApp.config(['$routeProvider', function($routeProvider){
             controller: "preworkCtrl"
         })
         .when('/user', {
-            templateUrl: "/views/routes/",
+            templateUrl: "/views/routes/admin-users.html",
             controller: "userCtrl"
         })
         .otherwise('dashboard');
