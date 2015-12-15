@@ -82,11 +82,31 @@ header{
     text-align: center;
 }
 #ChooseFile {
-    background-color: rgb(63,81,181);
+    background-color: #0082C8;
     border-radius: 0px;
     color: #fff;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
     padding: 7px;
     margin-top: 8px;
     font-size: 12px;
+}
+
+
+a.md-button.md-default-theme.md-primary.md-raised, a.md-button.md-primary.md-raised, a.md-button.md-default-theme.md-primary.md-fab, a.md-button.md-primary.md-fab, .md-button.md-default-theme.md-primary.md-raised, .md-button.md-primary.md-raised, .md-button.md-default-theme.md-primary.md-fab, .md-button.md-primary.md-fab {
+    color: rgba(255,255,255,0.87);
+    background-color: #0082C8;
+}
+a.md-button.md-default-theme.md-primary.md-raised:hover,
+a.md-button.md-primary.md-raised:hover,
+a.md-button.md-default-theme.md-primary.md-fab:hover,
+a.md-button.md-primary.md-fab:hover,
+.md-button.md-default-theme.md-primary.md-raised:hover,
+.md-button.md-primary.md-raised:hover,
+.md-button.md-default-theme.md-primary.md-fab:hover,
+.md-button.md-primary.md-fab {
+    background-color: #0082C8;
+}
+
+md-input-container{
+    padding: 2px 2px 5px 2px;
 }
