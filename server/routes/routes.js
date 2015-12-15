@@ -1,3 +1,6 @@
+// load all the things we need
+var checkRole = require('../module/checkRole.js');
+
 module.exports = function(app, path, passport) {
 
 // normal routes ===============================================================
@@ -29,7 +32,7 @@ module.exports = function(app, path, passport) {
 
     // send to google to do the authentication
     app.get('/auth/google', passport.authenticate('google',
-        { prompt: ['select_account'], scope : ['profile', 'email'], login_hint : 'email' }));
+        { prompt: ['select_account'], scope: ['profile', 'email'], login_hint: 'email address' }));
 
     // the callback after google has authenticated the user
     app.get('/auth/google/callback',
@@ -56,5 +59,5 @@ module.exports = function(app, path, passport) {
             return next();
 
         res.redirect('/');
-    };
+    }
 };
