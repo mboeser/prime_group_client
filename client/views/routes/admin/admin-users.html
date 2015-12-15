@@ -2,14 +2,14 @@
     <form>
         <h3>Add User</h3>
         <label>
-            Add User Email<input type="text"/>
+            Add User Email<input ng-model="newUser.email" type="text"/>
         </label>
-        <select>
+        <select ng-model="newUser.role">
             <option>Admin</option>
             <option>Teacher</option>
         </select>
         <md-input-container>
-            <md-button  class="md-raised md-primary" >Add User</md-button>
+            <md-button  class="md-raised md-primary" ng-click="submitForm()">Add User</md-button>
         </md-input-container>
     </form>
 </section>
