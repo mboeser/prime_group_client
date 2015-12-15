@@ -27,5 +27,9 @@ myApp.config(['$routeProvider', function($routeProvider){
             templateUrl: "/views/routes/",
             controller: "userCtrl"
         })
+        .when('/upload', {
+            templateUrl: "/views/routes/",
+            controller: "uploadCtrl"
+        })
         .otherwise('dashboard');
 }]);
