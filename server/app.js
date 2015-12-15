@@ -17,7 +17,7 @@ var session      = require('express-session');
 // configuration ===============================================================
 //pg.connect(connectionString.url); // connect to our database PLACE HOLDER VAR FOR PAGES THAT ONLY NEED IT THEN DELETE THIS LINE FROM APP.JS
 
-//require('./config/passport')(passport); // pass passport for configuration
+require('./config/passport')(passport); // pass passport for configuration
 
 // set up our express application
 app.use(morgan('dev')); // log every request to the console

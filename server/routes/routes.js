@@ -28,14 +28,23 @@ module.exports = function(app, path, passport) {
     // google ---------------------------------
 
     // send to google to do the authentication
-    //app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
-    //
-    //// the callback after google has authenticated the user
-    //app.get('/auth/google/callback',
-    //    passport.authenticate('google', {
-    //        successRedirect : '/profile',
-    //        failureRedirect : '/'
-    //    }));
+    app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
+
+    // the callback after google has authenticated the user
+    app.get('/auth/google/callback',
+        passport.authenticate('google', {
+            failureRedirect : '/'
+        }),
+        function(req, res){
+            console.log(req.user.emails[0].value);
+        if (req.user.emails[0].value === 'prime1@breakthroughtwincities.org') {
+            res.redirect('/views/routes/admin/admin.html');
+        } else if (req.user.role === 'teacher') {
+            res.redirect('/views/routes/student/student.html');
+        }
+    }
+
+    );
 
 
 // route middleware to ensure user is logged in
