@@ -8,7 +8,7 @@ myApp.config(['$routeProvider', function($routeProvider){
             controller: "dashCtrl"
         })
         .when('/teacher', {
-            templateUrl: "/views/routes/", //select teacher view NEEDED
+            templateUrl: "/views/routes/admin/select-teacher.html", //select teacher view NEEDED
             controller: "teacherCtrl"
         })
         .when('/attendance', {
@@ -16,11 +16,11 @@ myApp.config(['$routeProvider', function($routeProvider){
             controller: "attendanceCtrl"
         })
         .when('/absent', {
-            templateUrl: "/views/routes/", //absent view NEEDED
+            templateUrl: "/views/routes/admin/absent-report.html", //absent view NEEDED
             controller: "absentCtrl"
         })
         .when('/prework', {
-            templateUrl: "/views/routes/", //prework view NEEDED
+            templateUrl: "/views/routes/admin/prework-report.html", //prework view NEEDED
             controller: "preworkCtrl"
         })
         .when('/user', {
@@ -28,7 +28,7 @@ myApp.config(['$routeProvider', function($routeProvider){
             controller: "userCtrl"
         })
         .when('/upload', {
-            templateUrl: "/views/routes/",
+            templateUrl: "/views/routes/admin/upload-csv.html",
             controller: "uploadCtrl"
         })
         .otherwise('dashboard');
