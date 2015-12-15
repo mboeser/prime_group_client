@@ -8,7 +8,7 @@ myApp.config(['$routeProvider', function($routeProvider){
             controller: "dashCtrl"
         })
         .when('/teacher', {
-            templateUrl: "/views/routes/", //select teacher view
+            templateUrl: "/views/routes/", //select teacher view NEEDED
             controller: "teacherCtrl"
         })
         .when('/attendance', {
@@ -16,11 +16,11 @@ myApp.config(['$routeProvider', function($routeProvider){
             controller: "attendanceCtrl"
         })
         .when('/absent', {
-            templateUrl: "/views/routes/", //absent view
+            templateUrl: "/views/routes/", //absent view NEEDED
             controller: "absentCtrl"
         })
         .when('/prework', {
-            templateUrl: "/views/routes/", //prework view
+            templateUrl: "/views/routes/", //prework view NEEDED
             controller: "preworkCtrl"
         })
         .when('/user', {
