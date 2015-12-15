@@ -1,11 +1,9 @@
-<header >
+
     <div class="page-header-text">
         <h3>ADMINISTRATOR DASHBOARD</h3>
     </div>
-
-</header>
 <section>
-    <section id="top-buttons" layout="row">
+    <section id="top-buttons"  layout="row" >
         <div class="header-button">
             <md-input-container >
                 <md-button class="md-raised md-primary" >Add User </md-button>
@@ -24,8 +22,8 @@
 
     </section>
 
-    <section  layout="row">
-        <div class="content-panel" >
+    <section   layout-xs="column" layout="row">
+        <div class="content-panel" flex>
             <div>
                 Pre-Work Report
             </div>
@@ -37,7 +35,7 @@
             </div>
 
         </div>
-        <div  class="content-panel" >
+        <div  class="content-panel" flex>
             <div>Absent Report</div>
             <div>
                 <md-datepicker ng-model="absentDate" md-placeholder="Enter date"></md-datepicker>

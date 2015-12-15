@@ -3,8 +3,9 @@
 body{
     font-family: 'Roboto', sans-serif;
 }
-h3, h4, h5{
+h3, h4, h5 {
     font-weight: normal;
+    color: #999;
 }
 
 main {
@@ -24,10 +25,7 @@ main {
 }
 .content-panel {
     padding: 30px;
-    width: 40%;
     margin-right: 30px;
-    margin-left: 90px;
-    margin-top: -30px;
 }
 .page-header-text {
 
@@ -69,7 +67,8 @@ md-datepicker.md-default-theme, md-datepicker {
     text-align: center;
     box-shadow: 2px 2px 4px #ccc;
     border-radius: 5px;
-    margin-bottom: 50px;
+    margin-bottom: 15px;
+
 }
 footer{
     margin-top: 25px;
@@ -96,17 +95,18 @@ a.md-button.md-default-theme.md-primary.md-raised, a.md-button.md-primary.md-rai
     color: rgba(255,255,255,0.87);
     background-color: #0082C8;
 }
-a.md-button.md-default-theme.md-primary.md-raised:hover,
-a.md-button.md-primary.md-raised:hover,
-a.md-button.md-default-theme.md-primary.md-fab:hover,
-a.md-button.md-primary.md-fab:hover,
-.md-button.md-default-theme.md-primary.md-raised:hover,
-.md-button.md-primary.md-raised:hover,
-.md-button.md-default-theme.md-primary.md-fab:hover,
-.md-button.md-primary.md-fab {
-    background-color: #0082C8;
+a.md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover, a.md-button.md-primary.md-raised:not([disabled]):hover, a.md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover, a.md-button.md-primary.md-fab:not([disabled]):hover, .md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover, .md-button.md-primary.md-raised:not([disabled]):hover, .md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover, .md-button.md-primary.md-fab:not([disabled]):hover {
+    background-color: #fff;
+    color:#0082C8;
 }
 
 md-input-container{
     padding: 2px 2px 5px 2px;
+}
+#mainLogo {
+    width: 310px;
+    margin-bottom: -25px;
+}
+.page-header-text {
+    text-align: center;
 }
