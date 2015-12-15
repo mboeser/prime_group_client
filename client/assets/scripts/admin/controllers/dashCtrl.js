@@ -5,10 +5,15 @@ myApp.controller('dashCtrl', ['$scope', '$http', function($scope, $http){
 
     $scope.getAbsences = function(){
         console.log($scope.absent);
+        $http.get('/absent', {params: {date: $scope.absent.date }}).then(function(response){
+           console.log(response);
+        });
     };
 
     $scope.getPrework = function(){
-        console.log($scope.prework);
+        $http.get('/prework', {params: {date: $scope.prework.date}}).then(function(response) {
+            console.log(response);
+        });
     };
 
 
