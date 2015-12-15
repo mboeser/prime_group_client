@@ -41,8 +41,8 @@ module.exports = function (passport) {
     // =========================================================================
     passport.use(new GoogleStrategy({
 
-            clientID: configAuth.googleAuth.clientID,
-            clientSecret: configAuth.googleAuth.clientSecret,
+            clientID: process.env.CLIENT_ID || configAuth.googleAuth.clientID,
+            clientSecret: process.env.CLIENT_SECRET || configAuth.googleAuth.clientSecret,
             callbackURL: configAuth.googleAuth.callbackURL,
             //passReqToCallback: true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
 
