@@ -2,7 +2,7 @@
 <html ng-app="myApp">
 <head>
     <meta charset="UTF-8">
-
+    <meta name="google-signin-client_id" content="538493733132-m7aij3rbjtkgk5mg9p8sic8gdgr3vkpe.apps.googleusercontent.com">
     <title>Breakthrough Twin Cities</title>
     <link rel="stylesheet" href="/vendors/angular-material/angular-material.layouts.min.css"/>
     <link rel="stylesheet" href="/vendors/angular-material/angular-material.min.css"/>
@@ -19,16 +19,18 @@
     <div>
         <img style="width: 300px; margin: 25px;" src="assets/images/btc-logo.png"/>
     </div>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
     <div>
-        <a href="#">
+        <a href="/auth/google">
             <img id="sign-in-google-logo" style="width: 300px;" src="/assets/images/google-sign-in-dk.svg"/>
         </a>
     </div>
+    <a href="#" onclick="signOut();">Sign out</a>
 </section>
 <footer ng-include="'/views/templates/footer.html'">
 
 </footer>
-
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 <script src="/vendors/angular/angular.min.js"></script>
 <script src="/vendors/angular-animate/angular-animate.min.js"></script>
 <script src="/vendors/angular-material/angular-material.min.js"></script>
