@@ -4,27 +4,27 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMessages']);
 myApp.config(['$routeProvider', function($routeProvider){
     $routeProvider
         .when('/dashboard', {
-            templateUrl: "/views/routes/",
+            templateUrl: "/views/routes/admin/admin-dashboard.html", //main dashboard view
             controller: "dashCtrl"
         })
         .when('/teacher', {
-            templateUrl: "/views/routes/",
+            templateUrl: "/views/routes/", //select teacher view
             controller: "teacherCtrl"
         })
         .when('/attendance', {
-            templateUrl: "/views/routes/",
+            templateUrl: "/views/routes/attendance/attendance.html", //take attendance view
             controller: "attendanceCtrl"
         })
         .when('/absent', {
-            templateUrl: "/views/routes/",
+            templateUrl: "/views/routes/", //absent view
             controller: "absentCtrl"
         })
         .when('/prework', {
-            templateUrl: "/views/routes/",
+            templateUrl: "/views/routes/", //prework view
             controller: "preworkCtrl"
         })
         .when('/user', {
-            templateUrl: "/views/routes/",
+            templateUrl: "/views/routes/admin-users.html", //make /change user permissions view
             controller: "userCtrl"
         })
         .otherwise('dashboard');

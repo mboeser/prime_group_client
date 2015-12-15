@@ -28,7 +28,8 @@ module.exports = function(app, path, passport) {
     // google ---------------------------------
 
     // send to google to do the authentication
-    app.get('/auth/google', passport.authenticate('google', { prompt: ['select_account'], scope : ['profile', 'email'] }));
+    app.get('/auth/google', passport.authenticate('google',
+        { prompt: ['select_account'], scope : ['profile', 'email'], login_hint : 'email' }));
 
     // the callback after google has authenticated the user
     app.get('/auth/google/callback',
@@ -41,6 +42,8 @@ module.exports = function(app, path, passport) {
             res.redirect('/views/routes/admin/admin.html');
         } else if (req.user.role === 'teacher') {
             res.redirect('/views/routes/student/student.html');
+        } else {
+            res.redirect('/');
         }
     }
 
