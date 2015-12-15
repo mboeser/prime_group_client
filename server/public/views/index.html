@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/assets/styles/style.css"/>
 
 </head>
-<body>
+<body ng-controller="loginCtrl">
 <header ng-include="'/views/templates/header.html'">
 
 </header>
@@ -18,10 +18,12 @@
     <div>
         Welcome To Breakthrough Twin Cities
     </div>
+    <div>
 
-    <a href="/auth/google">
-        <img id="sign-in-google-logo" style="width: 75%;" src="/assets/images/google-sign-in-dk.svg"/>
-    </a>
+            <a href="/auth/google">
+            <img id="sign-in-google-logo" style="width: 75%;" src="/assets/images/google-sign-in-dk.svg"/>
+
+        </a>
     </div>
 </section>
 <footer ng-include="'/views/templates/footer.html'">
