@@ -5,16 +5,18 @@ myApp.controller('userCtrl', ['$scope', '$http', function($scope, $http){
     $scope.newUser = {};
 
     $scope.submitForm = function() {
-        $http.post('/users', $scope.userList).then(function(response){
+        $http.post('/roles', $scope.userList).then(function(response){
             console.log(response);
         });
         console.log($scope.newUser);
     };
 
     $scope.getUserList = function(){
-        $http.get('/users').then(function(response){
+        $http.get('/roles').then(function(response){
             console.log(response);
         })
     }
+
+
 
 }]);
