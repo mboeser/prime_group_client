@@ -25,12 +25,9 @@ main {
 }
 .content-panel {
     padding: 30px;
-    margin-right: 30px;
-    margin-bottom: 10px;
+    margin: 10px 30px;
 }
-.page-header-text {
 
-}
 
 section {
     clear: both;
