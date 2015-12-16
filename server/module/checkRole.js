@@ -19,8 +19,15 @@ module.exports = function (req, res, next) {
         query.on('end', function () {
             client.end();
             console.log(results);
-            return res.json(results);
+            if (results[0].role === 'admin') {
+                res.redirect('/views/routes/admin/admin.html');
+            } else if (results[0].role === 'teacher') {
+                res.redirect('/views/routes/teacher/teacher.html');
+            } else {
+                res.redirect('/');
+            }
         });
+
 
         // Handle Errors
         if (err) {
