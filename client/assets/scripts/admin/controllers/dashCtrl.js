@@ -1,7 +1,8 @@
-myApp.controller('dashCtrl', ['$scope', '$http', 'DataService', function($scope, $http, DataService) {
+myApp.controller('dashCtrl',['$scope', '$http', 'DataService', function ($scope, $http, DataService) {
 
     $scope.dataService = DataService;
     $scope.user = {};
+    $scope.date = $scope.dataService.getDate();
 
     $scope.user = $scope.dataService.peopleData();
 
@@ -11,6 +12,8 @@ myApp.controller('dashCtrl', ['$scope', '$http', 'DataService', function($scope,
             console.log($scope.user);
         });
     }
+
+
 
 
 
