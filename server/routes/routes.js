@@ -28,6 +28,10 @@ module.exports = function (app, path, passport) {
 // AUTHENTICATE (FIRST LOGIN) ==================================================
 // =============================================================================
 
+    app.get('/user', isLoggedIn, function(req, res){
+       res.send(req.user);
+    });
+
     // google ---------------------------------
 
     // send to google to do the authentication
@@ -39,17 +43,6 @@ module.exports = function (app, path, passport) {
         passport.authenticate('google', {
             failureRedirect: '/'
         }), checkRole
-        //function (req, res) {
-        //    console.log(req.user.emails[0].value);
-        //    if (req.user.emails[0].value === 'prime1@breakthroughtwincities.org') {
-        //        res.redirect('/views/routes/admin/admin.html');
-        //    } else if (req.user.role === 'teacher') {
-        //        res.redirect('/views/routes/student/student.html');
-        //    } else {
-        //        res.redirect('/');
-        //    }
-        //}
-
     );
 
 
