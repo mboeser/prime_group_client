@@ -3,6 +3,7 @@ myApp.controller('preworkCtrl', ['$scope', '$http', 'DataService', function($sco
 
     $scope.dataService = DataService;
     $scope.user = {};
+    $scope.user = $scope.dataService.peopleData();
 
     if($scope.dataService.peopleData() === undefined){
         $scope.dataService.retrieveData().then(function(){

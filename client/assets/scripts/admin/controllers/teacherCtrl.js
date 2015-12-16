@@ -2,6 +2,7 @@ myApp.controller('teacherCtrl', ['$scope', '$http', 'DataService', function($sco
     console.log('on admin teacher select controller--teacherCtrl.js');
     $scope.dataService = DataService;
     $scope.user = {};
+    $scope.user = $scope.dataService.peopleData();
 
     if($scope.dataService.peopleData() === undefined){
         $scope.dataService.retrieveData().then(function(){

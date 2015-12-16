@@ -3,6 +3,7 @@ myApp.controller('uploadCtrl', ['$scope', '$http', 'Upload', 'DataService', func
 
     $scope.dataService = DataService;
     $scope.user = {};
+    $scope.user = $scope.dataService.peopleData();
 
     if($scope.dataService.peopleData() === undefined){
         $scope.dataService.retrieveData().then(function(){

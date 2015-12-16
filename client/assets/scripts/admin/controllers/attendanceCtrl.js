@@ -3,6 +3,7 @@ myApp.controller('attendanceCtrl', ['$scope', '$http', 'DataService', function($
 
     $scope.dataService = DataService;
     $scope.user = {};
+    $scope.user = $scope.dataService.peopleData();
 
     if($scope.dataService.peopleData() === undefined){
         $scope.dataService.retrieveData().then(function(){
