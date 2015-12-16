@@ -2,11 +2,13 @@ myApp.controller('dashCtrl', ['$scope', '$http', 'DataService', function($scope,
 
     $scope.dataService = DataService;
     $scope.user = {};
+
     $scope.user = $scope.dataService.peopleData();
 
     if($scope.dataService.peopleData() === undefined){
         $scope.dataService.retrieveData().then(function(){
             $scope.user = $scope.dataService.peopleData();
+            console.log($scope.user);
         });
     }
 
@@ -30,5 +32,6 @@ myApp.controller('dashCtrl', ['$scope', '$http', 'DataService', function($scope,
     };
 
 
-    console.log('on admin dashboard controller--dashCtrl.js')
+    console.log('on admin dashboard controller--dashCtrl.js');
+
 }]);

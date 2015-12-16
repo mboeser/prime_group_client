@@ -1,7 +1,7 @@
-myApp.service('DataService', [function(){
+myApp.service('DataService', ['$http', function($http){
 
     var formData = {};
-    var user = {};
+    var user = undefined;
 
     return {
         getData: function () {
