@@ -10,7 +10,7 @@ module.exports = function (app, req, res, next) {
         var results = [];
 
         //SQL Query > SELECT data from table
-        pg.connect(connectionString, function (err, client, done) {
+        pg.connect(connectionString.url, function (err, client, done) {
             var query = client.query("SELECT id, email, firstname, lastname, role FROM users ORDER BY lastname ASC");
 
             // Stream results back one row at a time, push into results array
@@ -35,15 +35,18 @@ module.exports = function (app, req, res, next) {
 
     // NEW
 
-    app.put('/roles', isLoggedIn, function (req, res) {
+    app.post('/roles', isLoggedIn, function (req, res) {
+
+        console.log(req.body);
+
         var results = [];
-        var email = '';
-        var firstname = '';
-        var lastname = '';
-        var role = '';
+        var email = req.body.email;
+        var firstname = req.body.firstname;
+        var lastname = req.body.lastname;
+        var role = req.body.role;
 
         //SQL Query > SELECT data from table
-        pg.connect(connectionString, function (err, client, done) {
+        pg.connect(connectionString.url, function (err, client, done) {
             client.query("INSERT INTO users (email, firstname, lastname, role) " +
                 "VALUES ($1, $2, $3, $4)", [email, firstname, lastname, role],
                 function (err, result) {
@@ -65,14 +68,14 @@ module.exports = function (app, req, res, next) {
 
         var results = [];
 
-        var email = '';
-        var firstname = '';
-        var lastname = '';
-        var role = '';
-        var id = '';
+        var email = req.body.email;
+        var firstname = req.body.firstname;
+        var lastname = req.body.lastname;
+        var role = req.body.role;
+        var id = 'req.body.role';
 
         //SQL Query > SELECT data from table
-        pg.connect(connectionString, function (err, client, done) {
+        pg.connect(connectionString.url, function (err, client, done) {
             var query = client.query("UPDATE users SET email=$1, firstname=$2, lastname=$3, role=$4 " +
             "WHERE id=$5", [email, firstname, lastname, role, id]);
 
@@ -102,7 +105,7 @@ module.exports = function (app, req, res, next) {
         console.log(req);
         var results = [];
         var email = req.body.id;
-        pg.connect(connectionString, function (err, client, done) {
+        pg.connect(connectionString.url, function (err, client, done) {
 
             if (err) {
                 done();
