@@ -1,7 +1,8 @@
-myApp.service('DataService', ['$http', function($http){
+myApp.service('DataService', ['$http', '$filter', function($http, $filter){
 
     var formData = {};
     var user = undefined;
+    var date = $filter('date')((new Date()), 'yyyy-MM-dd');
 
     return {
         getData: function () {
@@ -24,10 +25,14 @@ myApp.service('DataService', ['$http', function($http){
                 return response.data;
             });
         },
-        peopleData: function(){
+        peopleData: function() {
             //give user info to controller
             return user;
-        }
+        },
+        getDate: function(){
+        //give user info to controller
+        return date;
+    }
 
 
 

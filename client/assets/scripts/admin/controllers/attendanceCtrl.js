@@ -11,13 +11,5 @@ myApp.controller('attendanceCtrl', ['$scope', '$http', 'DataService', function($
         });
     }
 
-    $scope.teachers = [];
 
-    $scope.getTeachers = function(classdate){
-        $http.get('/admin/teachers', {params: {date: classdate}}).then(function(response){
-           response.push($scope.teachers);
-        });
-    };
-
-    $scope.getTeachers();
 }]);
