@@ -28,7 +28,10 @@ module.exports = function (app, path, req, res, next) {
                     client.query("DROP TABLE IF EXISTS newvals;" +
                         "CREATE TEMPORARY TABLE newvals(id varchar, firstname varchar, lastname varchar, phone1 varchar, phone2 varchar, email varchar, grade integer, street varchar, city varchar, state varchar, zip integer, class_date date, teacher_email varchar)",
                         function (err, result) {
-                            if (err) console.log("This is a table creation error", err);
+                            if (err) {
+                                console.log("This is a table creation error", err);
+                                res.send(false);
+                            }
 
                             //use fs to create a filestream to feed the info in csv to newvals table. The FROM STDIN is saying this is a copy from client.
                             //CSV HEADER very important because lets system know it is a csv file with a comma delimiter, table columns in header.
@@ -39,7 +42,11 @@ module.exports = function (app, path, req, res, next) {
                                 .on('error', done)
                                 .on('finish', function (err, result){
                                     //yet another callback. All other calls will be made after the filestream is done and values in csv fully copied to newvals table.
-                                    if (err) console.log(err);
+                                    if (err) {
+                                        console.log("This is a stream error", err);
+                                        res.send(false);
+                                    }
+                                    res.send(true);
                                     client.query(
                                         //All current values that exist in both newvals and students updated to newvals values in students.
                                         "UPDATE students " +
@@ -88,7 +95,7 @@ module.exports = function (app, path, req, res, next) {
                                                     "SELECT id FROM students " +
                                                     "WHERE id IN (" + addedstudents + ") " +
                                                     "AND grade < 9;"), function(err){
-                                                    if (err) console.log(err)
+                                                    if (err) console.log(err);
                                                     client.end();
                                                 };
                                             }
@@ -99,6 +106,7 @@ module.exports = function (app, path, req, res, next) {
                                                 "SELECT id FROM students;"), function(err){
                                                 if (err) console.log(err);
                                                 client.end();
+
                                             };
 
                                         });
