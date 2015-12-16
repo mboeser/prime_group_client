@@ -5,7 +5,7 @@ module.exports = function (app, req, res, next) {
 
 
 
-    app.get('/prework', function (req, res) {
+    app.get('/prework', isLoggedIn,  function (req, res) {
 
         console.log('admin',req.query.date);
 
@@ -40,3 +40,12 @@ module.exports = function (app, req, res, next) {
         })
     })
 };
+
+// route middleware to ensure user is logged in
+function isLoggedIn(req, res, next) {
+    console.log('prework loggin')
+    if (req.isAuthenticated())
+        return next();
+
+    res.redirect('/');
+}

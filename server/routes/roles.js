@@ -1,8 +1,146 @@
+var pg = require('pg');
+var connectionString = require('../config/database.js');
 
-get // return all users
+module.exports = function (app, req, res, next) {
 
-post // new user
+    // GET ALL
 
-put // update user
+    app.get('/roles', isLoggedIn, function (req, res) {
 
-//delete // remove user
+        var results = [];
+
+        //SQL Query > SELECT data from table
+        pg.connect(connectionString, function (err, client, done) {
+            var query = client.query("SELECT id, email, firstname, lastname, role FROM users ORDER BY lastname ASC");
+
+            // Stream results back one row at a time, push into results array
+            query.on('row', function (row) {
+                results.push(row);
+            });
+
+            // After all data is returned, close connection and return results
+            query.on('end', function () {
+                client.end();
+                return res.json(results);
+            });
+
+            // Handle Errors
+            if (err) {
+                console.log(err);
+            }
+        });
+
+
+    });
+
+    // NEW
+
+    app.put('/roles', isLoggedIn, function (req, res) {
+        var results = [];
+        var email = '';
+        var firstname = '';
+        var lastname = '';
+        var role = '';
+
+        //SQL Query > SELECT data from table
+        pg.connect(connectionString, function (err, client, done) {
+            client.query("INSERT INTO users (email, firstname, lastname, role) " +
+                "VALUES ($1, $2, $3, $4)", [email, firstname, lastname, role],
+                function (err, result) {
+                    if (err) {
+                        console.log("Error inserting data: ", err);
+                        res.send(false);
+                    }
+
+                    res.send(true);
+                });
+
+        });
+    });
+
+
+    // UPDATE
+
+    app.put('/roles', isLoggedIn, function (req, res) {
+
+        var results = [];
+
+        var email = '';
+        var firstname = '';
+        var lastname = '';
+        var role = '';
+        var id = '';
+
+        //SQL Query > SELECT data from table
+        pg.connect(connectionString, function (err, client, done) {
+            var query = client.query("UPDATE users SET email=$1, firstname=$2, lastname=$3, role=$4 " +
+            "WHERE id=$5", [email, firstname, lastname, role, id]);
+
+            // Stream results back one row at a time, push into results array
+            query.on('row', function (row) {
+                results.push(row);
+            });
+
+            // After all data is returned, close connection and return results
+            query.on('end', function () {
+                client.end();
+                return res.json(results);
+            });
+
+            // Handle Errors
+            if (err) {
+                console.log(err);
+            }
+        });
+
+
+    });
+
+    // DELETE
+
+    app.delete('/roles', function (req, res) {
+        console.log(req);
+        var results = [];
+        var email = req.body.id;
+        pg.connect(connectionString, function (err, client, done) {
+
+            if (err) {
+                done();
+                console.log(err);
+                return res.status(500).json({success: false, data: err});
+            }
+
+            client.query("DELETE FROM users WHERE email=$1", [id], function (err) {
+                if (err) {
+                    console.log(err);
+                }
+                client.end();
+                return res.send(true);
+            });
+            //
+            //// SQL Query > Select Data
+            //var query = client.query("SELECT * FROM people ORDER BY id ASC");
+            //
+            //// Stream results back one row at a time
+            //query.on('row', function (row) {
+            //    results.push(row);
+            //});
+            //
+            //// After all data is returned, close connection and return results
+            //query.on('end', function () {
+            //    done();
+            //    return res.json(results);
+            //});
+            //
+
+        });
+    });
+
+};
+
+// route middleware to ensure user is logged in
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated())
+        return next();
+    res.redirect('/');
+};

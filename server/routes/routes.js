@@ -19,7 +19,12 @@ module.exports = function (app, path, passport) {
     //    });
     //});
 
-    require('./administration.js', isLoggedIn)(app, path);
+    require('./absent.js', isLoggedIn)(app);
+
+    require('./administration.js', isLoggedIn)(app);
+
+    require('./roles.js', isLoggedIn)(app);
+
 
     // LOGOUT ==============================
     app.get('/logout', function (req, res) {
@@ -27,7 +32,7 @@ module.exports = function (app, path, passport) {
         res.redirect('/');
     });
 
-    require('./upload.js', isLoggedIn)(app, path);
+    require('./upload.js', isLoggedIn)(app);
 
 // =============================================================================
 // AUTHENTICATE (FIRST LOGIN) ==================================================
@@ -55,8 +60,9 @@ module.exports = function (app, path, passport) {
 // route middleware to ensure user is logged in
     function isLoggedIn(req, res, next) {
         if (req.isAuthenticated())
-            return next();
-
+        return next();
         res.redirect('/');
     }
 };
+
+
