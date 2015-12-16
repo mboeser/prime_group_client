@@ -10,6 +10,9 @@ h3, h4, h5 {
 
 main {
     padding: 20px;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
 }
 #login-form {
     padding: 20px;
@@ -77,6 +80,9 @@ header{
     margin-top: 10px;
     color: #999;
     text-align: center;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
 }
 #ChooseFile {
     background-color: #0082C8;
@@ -113,4 +119,8 @@ md-input-container{
 }
 .add-user.label {
 
+}
+#add-user-form{
+    margin-left: auto;
+    margin-right: auto;
 }
