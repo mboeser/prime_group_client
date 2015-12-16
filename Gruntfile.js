@@ -6,9 +6,13 @@ module.exports = function(grunt) {
             options: {
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
-            build: {
+            controllers: {
                 src: ['client/assets/scripts/admin/controllers/*.js', 'client/assets/scripts/teacher/controllers/*.js'],
                 dest: 'server/public/assets/scripts/controllers.min.js'
+            },
+            factories: {
+                src: ['client/assets/scripts/admin/factories/*.js', 'client/assets/scripts/teacher/factories/*.js'],
+                dest: 'server/public/assets/scripts/factories.min.js'
             }
         },
         copy: {
