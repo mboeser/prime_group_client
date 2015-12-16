@@ -17,7 +17,7 @@ myApp.service('DataService', [function(){
             //To be called when the data stored needs to be discarded
             formData = {};
         },
-        retriveData: function(){
+        retrieveData: function(){
             //Call server to access req.user after login for persistent user information.
             return $http.get('/user').then(function(response){
                 user = response.data;
