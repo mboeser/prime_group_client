@@ -34,4 +34,7 @@
 
 <section>
     List Of Users Here
+    <div ng-repeat="user in userList" ng-blur="updateUser(user)">
+        <span ng-click="deleteUser(user)">DELETE BUTTON</span>
+    </div>
 </section>
