@@ -9,10 +9,25 @@ h3, h4, h5 {
 }
 
 main {
-    padding: 20px;
     width: 75%;
     margin-left: auto;
     margin-right: auto;
+}
+footer{
+    margin-top: 25px;
+    color: #999;
+    text-align: center;
+}
+header{
+    margin-top: 10px;
+    color: #999;
+    text-align: center;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+section {
+    clear: both;
 }
 #login-form {
     padding: 20px;
@@ -32,9 +47,7 @@ main {
 }
 
 
-section {
-    clear: both;
-}
+
 .ui-grid-header-cell-wrapper {
     height: auto;
 }
@@ -71,19 +84,7 @@ md-datepicker.md-default-theme, md-datepicker {
     margin-bottom: 15px;
     margin-top: 35px;
 }
-footer{
-    margin-top: 25px;
-    color: #999;
-    text-align: center;
-}
-header{
-    margin-top: 10px;
-    color: #999;
-    text-align: center;
-    width: 75%;
-    margin-left: auto;
-    margin-right: auto;
-}
+
 #ChooseFile {
     background-color: #0082C8;
     border-radius: 0px;
