@@ -19,5 +19,5 @@ myApp.controller('attendanceCtrl', ['$scope', '$http', 'DataService', function($
         });
     };
 
-    $scope.teachers();
+    $scope.getTeachers();
 }]);
