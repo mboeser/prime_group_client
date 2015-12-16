@@ -21,7 +21,6 @@ myApp.service('DataService', [function(){
             //Call server to access req.user after login for persistent user information.
             return $http.get('/user').then(function(response){
                 user = response.data;
-                console.log("Async Data Response: ", user);
                 return response.data;
             });
         },
