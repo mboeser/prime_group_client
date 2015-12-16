@@ -1,5 +1,15 @@
-myApp.controller('uploadCtrl', ['$scope', '$http', 'Upload', function($scope, $http, Upload){
-    console.log('on admin upload controller--uploadCtrl.js')
+myApp.controller('uploadCtrl', ['$scope', '$http', 'Upload', 'DataService', function($scope, $http, Upload, DataService){
+    console.log('on admin upload controller--uploadCtrl.js');
+
+    $scope.dataService = DataService;
+    $scope.user = {};
+    $scope.user = $scope.dataService.peopleData();
+
+    if($scope.dataService.peopleData() === undefined){
+        $scope.dataService.retrieveData().then(function(){
+            $scope.user = $scope.dataService.peopleData();
+        });
+    }
 
     $scope.upload = function (file) {
         Upload.upload({

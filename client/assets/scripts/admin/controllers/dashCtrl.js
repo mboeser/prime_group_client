@@ -1,4 +1,19 @@
-myApp.controller('dashCtrl', ['$scope', '$http', function($scope, $http){
+myApp.controller('dashCtrl', ['$scope', '$http', 'DataService', function($scope, $http, DataService) {
+
+    $scope.dataService = DataService;
+    $scope.user = {};
+
+    $scope.user = $scope.dataService.peopleData();
+
+    if($scope.dataService.peopleData() === undefined){
+        $scope.dataService.retrieveData().then(function(){
+            $scope.user = $scope.dataService.peopleData();
+            console.log($scope.user);
+        });
+    }
+
+
+
 
     $scope.prework = {};
     $scope.absent = {};
@@ -17,5 +32,6 @@ myApp.controller('dashCtrl', ['$scope', '$http', function($scope, $http){
     };
 
 
-    console.log('on admin dashboard controller--dashCtrl.js')
+    console.log('on admin dashboard controller--dashCtrl.js');
+
 }]);
