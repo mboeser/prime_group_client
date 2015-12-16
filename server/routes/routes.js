@@ -1,7 +1,7 @@
 // load all the things we need
 var checkRole = require('../module/checkRole.js');
 
-module.exports = function(app, path, passport) {
+module.exports = function (app, path, passport) {
 
 // normal routes ===============================================================
 
@@ -32,23 +32,23 @@ module.exports = function(app, path, passport) {
 
     // send to google to do the authentication
     app.get('/auth/google', passport.authenticate('google',
-        { prompt: ['select_account'], scope: ['profile', 'email'], login_hint: 'email address' }));
+        {prompt: ['select_account'], scope: ['profile', 'email'], login_hint: 'email address'}));
 
     // the callback after google has authenticated the user
     app.get('/auth/google/callback',
         passport.authenticate('google', {
-            failureRedirect : '/'
-        }),
-        function(req, res){
-            console.log(req.user.emails[0].value);
-        if (req.user.emails[0].value === 'prime1@breakthroughtwincities.org') {
-            res.redirect('/views/routes/admin/admin.html');
-        } else if (req.user.role === 'teacher') {
-            res.redirect('/views/routes/student/student.html');
-        } else {
-            res.redirect('/');
-        }
-    }
+            failureRedirect: '/'
+        }), checkRole
+        //function (req, res) {
+        //    console.log(req.user.emails[0].value);
+        //    if (req.user.emails[0].value === 'prime1@breakthroughtwincities.org') {
+        //        res.redirect('/views/routes/admin/admin.html');
+        //    } else if (req.user.role === 'teacher') {
+        //        res.redirect('/views/routes/student/student.html');
+        //    } else {
+        //        res.redirect('/');
+        //    }
+        //}
 
     );
 
