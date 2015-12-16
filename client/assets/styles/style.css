@@ -145,3 +145,6 @@ md-switch.md-hue-1.md-checked .md-thumb {
 md-switch.md-default-theme.md-hue-1.md-checked, md-switch.md-hue-1.md-checked .md-bar {
     background-color: #8DC73F;
 }
+.spacer {
+    padding: 30px;
+}
