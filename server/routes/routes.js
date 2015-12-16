@@ -19,6 +19,8 @@ module.exports = function (app, path, passport) {
     //    });
     //});
 
+    require('./administration.js', isLoggedIn)(app, path);
+
     // LOGOUT ==============================
     app.get('/logout', function (req, res) {
         req.logout();
