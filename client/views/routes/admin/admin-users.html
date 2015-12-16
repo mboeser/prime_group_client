@@ -1,22 +1,40 @@
 <section id="add-user-form">
-    <form>
-        <h3>Add User</h3>
-        <div class="add-user">
-            <label>Email: </label>
-            <input ng-model="newUser.email" type="text"/>
-        </div>
-        <div class="add-user">
-            <label>Role: </label>
-            <select ng-model="newUser.role">
-                <option>Admin</option>
-                <option>Teacher</option>
-            </select>
-        </div>
-        <div>
-            <md-button  layout="column" flex="auto" class="md-raised md-primary" ng-click="submitForm()">Add User</md-button>
-        </div>
-    </form>
+    <md-content>
+        <form>
+            <h3>Add User</h3>
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>First Name</label>
+                    <input ng-model="newUser.firstname">
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Last Name</label>
+                    <input ng-model="newUser.lastname">
+                </md-input-container>
+            </div>
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Email</label>
+                    <input ng-model="newUser.email">
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Select Role</label>
+                    <md-select ng-model="newUser.role">
+                        <md-option>Admin</md-option>
+                        <md-option>Teacher</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+            <div>
+                <md-button  layout="column" flex="auto" class="md-raised md-primary" ng-click="submitForm()">Add User</md-button>
+            </div>
+        </form>
+    </md-content>
 </section>
+
 <section>
     List Of Users Here
+    <div ng-repeat="user in userList" ng-blur="updateUser(user)">
+        <span ng-click="deleteUser(user)">DELETE BUTTON</span>
+    </div>
 </section>

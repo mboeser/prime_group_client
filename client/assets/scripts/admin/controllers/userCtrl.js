@@ -1,12 +1,12 @@
-myApp.controller('userCtrl', ['$scope', '$http', 'DataService', function($scope, $http, DataService) {
+myApp.controller('userCtrl', ['$scope', '$http', 'DataService', function ($scope, $http, DataService) {
     console.log('on admin user controller--userCtrl.js');
 
     $scope.dataService = DataService;
     $scope.user = {};
     $scope.user = $scope.dataService.peopleData();
 
-    if($scope.dataService.peopleData() === undefined){
-        $scope.dataService.retrieveData().then(function(){
+    if ($scope.dataService.peopleData() === undefined) {
+        $scope.dataService.retrieveData().then(function () {
             $scope.user = $scope.dataService.peopleData();
         });
     }
@@ -14,19 +14,31 @@ myApp.controller('userCtrl', ['$scope', '$http', 'DataService', function($scope,
     $scope.userList = [];
     $scope.newUser = {};
 
-    $scope.submitForm = function() {
-        $http.post('/roles', $scope.userList).then(function(response){
-            console.log(response);
+    $scope.submitForm = function () {
+        $http.post('/roles', $scope.newUser).then(function (response) {
+            console.log('post response :', response);
         });
-        console.log($scope.newUser);
     };
 
-    $scope.getUserList = function(){
-        $http.get('/roles').then(function(response){
-            console.log(response);
+    $scope.getUserList = function () {
+        $http.get('/roles').then(function (response) {
+            console.log('get response:', response);
         })
-    }
+    };
+
+    $scope.updateUser = function (person) {
+        $http.put('/roles', person).then(function (response) {
+            console.log('put response :', response);
+        });
+    };
+
+    $scope.deleteUser = function (person) {
+        $http.delete('/roles', {params: {deleteMe: person}}).then(function (response) {
+            console.log('delete response :', response);
+            $scope.getUserList();
+        });
+    };
 
 
-
+    $scope.getUserList();
 }]);
