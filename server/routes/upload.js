@@ -8,9 +8,10 @@ var fs = require('fs');
 var copyFrom = require('pg-copy-streams').from;
 
 
-module.exports = function (req, res, next) {
+module.exports = function (app, path, req, res, next) {
 
-    app.post('/', type, function (req, res, next) {
+    app.post('/upload', type, function (req, res, next) {
+        console.log(req.file);
         //The file sent by the client is coming through on type. And being stored in the uploads folder on the root as specified in the required vars above.
         //tmp_path is finding the stored file. Multer is making it available on req.file. The full path to the file + file name is in req.file.path.
         var tmp_path = req.file.path;
@@ -21,7 +22,7 @@ module.exports = function (req, res, next) {
             fs.writeFile('uploads/students.csv', data, function (err) {
                 //pg.connect is in the callback of the write to make certain that all of the database calls occur after the
                 //fs has written all of the files.
-                pg.connect(connectionString, function(err, client, done) {
+                pg.connect(connectionString.url, function(err, client, done) {
                     if (err) console.log(err);
                     //Drop new vals if it exists. Create a new newvals table.
                     client.query("DROP TABLE IF EXISTS newvals;" +
