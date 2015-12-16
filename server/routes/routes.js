@@ -1,6 +1,6 @@
 // load all the things we need
 var checkRole = require('../module/checkRole.js');
-var upload = require('./upload.js');
+
 
 module.exports = function (app, path, passport) {
 
@@ -25,7 +25,7 @@ module.exports = function (app, path, passport) {
         res.redirect('/');
     });
 
-    app.use('/upload', isLoggedIn, upload);
+    require('./upload.js', isLoggedIn)(app, path);
 
 // =============================================================================
 // AUTHENTICATE (FIRST LOGIN) ==================================================
