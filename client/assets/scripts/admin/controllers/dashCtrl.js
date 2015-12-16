@@ -1,4 +1,4 @@
-myApp.controller('dashCtrl', ['$scope', '$http', function($scope, $http){
+myApp.controller('dashCtrl', ['$scope', '$http', 'DataService', function($scope, $http, DataService) {
 
     $scope.prework = {};
     $scope.absent = {};

@@ -1,4 +1,4 @@
-myApp.controller('attendanceCtrl', ['$scope', '$http', function($scope, $http){
+myApp.controller('attendanceCtrl', ['$scope', '$http', 'DataService', function($scope, $http, DataService) {
     console.log('on admin attendance controller--attendanceCtrl.js');
 
     $scope.teachers = [];

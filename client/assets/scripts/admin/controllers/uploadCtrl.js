@@ -1,4 +1,4 @@
-myApp.controller('uploadCtrl', ['$scope', '$http', 'Upload', function($scope, $http, Upload){
+myApp.controller('uploadCtrl', ['$scope', '$http', 'Upload', 'DataService', function($scope, $http, Upload, DataService){
     console.log('on admin upload controller--uploadCtrl.js')
 
     $scope.upload = function (file) {
