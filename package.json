@@ -27,6 +27,7 @@
     "grunt-contrib-copy": "^0.8.0",
     "grunt-contrib-uglify": "^0.9.1",
     "morgan": "^1.6.1",
+    "ng-file-upload": "^10.1.9",
     "nodemon": "^1.8.1",
     "passport": "^0.2.2",
     "passport-google": "^0.3.0",

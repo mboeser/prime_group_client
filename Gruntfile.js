@@ -34,7 +34,8 @@ module.exports = function(grunt) {
                     "angular-route/angular-route.min.js",
                     "angular-route/angular-route.min.js.map",
                     "angular-ui-grid/ui-grid.min.css",
-                    "angular-ui-grid/ui-grid.min.js"
+                    "angular-ui-grid/ui-grid.min.js",
+                    "ng-file-upload/dist/ng-file-upload.min.js",
                 ],
                 "dest": "server/public/vendors/"
             },
