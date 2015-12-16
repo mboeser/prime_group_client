@@ -34,7 +34,7 @@ module.exports = function (passport) {
 
             clientID: process.env.CLIENT_ID || configAuth.googleAuth.clientID,
             clientSecret: process.env.CLIENT_SECRET || configAuth.googleAuth.clientSecret,
-            callbackURL: configAuth.googleAuth.callbackURL
+            callbackURL: process.env.CALLBACK_URL || configAuth.googleAuth.callbackURL
 
         },
 
