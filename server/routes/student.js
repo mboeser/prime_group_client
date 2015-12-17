@@ -4,13 +4,11 @@ var connectionString = require('../config/database.js');
 module.exports = function (app, req, res, next) {
 
 
-
     app.get('/student', isLoggedIn,  function (req, res) {
 
-        console.log('admin',req.query.date);
-
-        var studentId = 'sbaker';
+        var studentId = req.query.student;
         var results = [];
+        console.log("This is req.query", req.query);
 
         pg.connect(connectionString.url, function (err, client, done) {
 
