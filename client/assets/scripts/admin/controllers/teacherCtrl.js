@@ -1,4 +1,4 @@
-myApp.controller('teacherCtrl', ['$scope', '$http', 'DataService', function ($scope, $http, DataService) {
+myApp.controller('teacherCtrl', ['$scope', '$http', '$location','DataService', function ($scope, $http, $location, DataService) {
     console.log('on admin teacher select controller--teacherCtrl.js');
 
     $scope.dataService = DataService;
