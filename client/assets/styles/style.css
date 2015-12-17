@@ -105,10 +105,10 @@ a.md-button.md-primary.md-fab,
 .md-button.md-default-theme.md-primary.md-fab,
 .md-button.md-primary.md-fab {
     color: #FFF;
+    /* make buttons color of company blue*/
+    /*background-color: #00A4E4;*/
     /* make buttons color of logo blue*/
-    background-color: #00A4E4;
-    /* make buttons color of document blue*/
-    /*background-color: #0082C9;*/
+    background-color: #0082C9;
 
 }
 a.md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover, a.md-button.md-primary.md-raised:not([disabled]):hover, a.md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover, a.md-button.md-primary.md-fab:not([disabled]):hover, .md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover, .md-button.md-primary.md-raised:not([disabled]):hover, .md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover, .md-button.md-primary.md-fab:not([disabled]):hover {
