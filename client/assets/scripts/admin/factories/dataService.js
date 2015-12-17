@@ -4,6 +4,7 @@ myApp.service('DataService', ['$http', '$filter', function($http, $filter){
     var user = undefined;
     var date = $filter('date')((new Date()), 'yyyy-MM-dd');
 
+
     return {
         getData: function () {
             //You could also return specific attribute of the form data instead
