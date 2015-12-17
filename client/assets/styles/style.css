@@ -5,7 +5,7 @@ body{
 }
 h3, h4, h5 {
     font-weight: normal;
-    color: #999;
+    color: #555;
 }
 
 main {
@@ -15,12 +15,12 @@ main {
 }
 footer{
     margin-top: 25px;
-    color: #999;
+    color: #555;
     text-align: center;
 }
 header{
     margin-top: 10px;
-    color: #999;
+    color: #555;
     text-align: center;
     width: 90%;
     margin-left: auto;
@@ -35,7 +35,7 @@ section {
     border-radius: 5px;
     margin-left: auto;
     margin-right: auto;
-    color: #999;
+    color: #555;
     font-size: 20px;
     margin-top: 50px;
 }
