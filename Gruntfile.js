@@ -54,9 +54,9 @@ module.exports = function(grunt) {
                 // IMAGES
             images: {
                 expand: true,
-                cwd: "client/images",
-                src: "*",
-                "dest": "server/public/assets/images"
+                cwd: "client/images/",
+                src: "**",
+                "dest": "server/public/images"
             },
 
             html: {

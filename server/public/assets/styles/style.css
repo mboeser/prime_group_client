@@ -105,14 +105,14 @@ a.md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover, a.md-bu
     color:#0082C8;
 }
 
-a.md-button.md-default-theme.md-primary.md-raised:not([disabled]):active,
-a.md-button.md-primary.md-raised:not([disabled]):active,
-a.md-button.md-default-theme.md-primary.md-fab:not([disabled]):active,
-a.md-button.md-primary.md-fab:not([disabled]):active,
-.md-button.md-default-theme.md-primary.md-raised:not([disabled]):active,
-.md-button.md-primary.md-raised:not([disabled]):active,
-.md-button.md-default-theme.md-primary.md-fab:not([disabled]):active,
-.md-button.md-primary.md-fab:not([disabled]):active {
+a.md-button.md-default-theme.md-primary.md-raised:not([disabled]).md-button:active,
+a.md-button.md-primary.md-raised:not([disabled]).md-button:active,
+a.md-button.md-default-theme.md-primary.md-fab:not([disabled]).md-button:active,
+a.md-button.md-primary.md-fab:not([disabled]).md-button:active,
+.md-button.md-default-theme.md-primary.md-raised:not([disabled]).md-button:active,
+.md-button.md-primary.md-raised:not([disabled])md-button:active,
+.md-button.md-default-theme.md-primary.md-fab:not([disabled]).md-button:active,
+.md-button.md-primary.md-fab:not([disabled])md-button:active {
     background-color: #8dc73f;
     color:#0082C8;
 }
@@ -148,3 +148,4 @@ md-switch.md-default-theme.md-hue-1.md-checked, md-switch.md-hue-1.md-checked .m
 .spacer {
     padding: 30px;
 }
+

@@ -1,36 +1,43 @@
 
         <div>
-
-            <a href="#dashboard"><img id="mainLogo" src="btc-logo.png"/>
-
+            <a href="#dashboard">
+                <img id="mainLogo" ng-src="../../../images/btc-logo.png"/>
             </a>
         </div>
-        <section  layout-sm="column" layout="row" id="top-buttons"  >
+        <section layout-sm="column" layout="row" id="top-buttons"  >
             <div class="header-button" flex>
                 <md-input-container >
-                    <md-button href="#user" class="md-raised md-primary" >Add User </md-button>
-
+                    <md-button href="#user" class="md-raised md-primary" >
+                        Add User&nbsp;&nbsp;
+                        <md-icon ng-style="{color: font.color}" md-svg-src="../../../images/svg/add-user.svg" class="users-icon" aria-label="Upload"></md-icon>
+                    </md-button>
                 </md-input-container>
             </div>
             <div class="header-button" flex>
                 <md-input-container >
 
-                    <md-button  href="#upload" class="md-raised md-primary" >Import CSV</md-button>
+                    <md-button  href="#upload" class="md-raised md-primary" >
+                        Import CSV&nbsp;&nbsp;
+                        <md-icon ng-style="{color: font.color}" md-svg-src="../../../images/svg/upload-icon.svg" class="upload-icon" aria-label="Upload"></md-icon>
+                    </md-button>
 
                 </md-input-container>
             </div>
             <div class="header-button" flex>
                 <md-input-container >
-
-                    <md-button  href="#attendance" class="md-raised md-primary" >Attendance</md-button>
+                    <md-button  href="#attendance" class="md-raised md-primary" >
+                        Attendance&nbsp;&nbsp;
+                        <md-icon ng-style="{color: font.color}" md-svg-src="../../../images/svg/checkbox-icon.svg" class="attendance-icon" aria-label="Attendance"></md-icon>
+                    </md-button>
 
                 </md-input-container>
             </div>
             <div class="header-button" flex>
                 <md-input-container >
-
-                    <md-button  href="/logout" class="md-raised md-primary" >Logout</md-button>
-
+                    <md-button  href="#logout" class="md-raised md-primary" >
+                        Logout&nbsp;&nbsp;
+                        <md-icon ng-style="{color: font.color}" md-svg-src="../../../images/svg/logout-white.svg" class="logout-icon" aria-label="Log Out"></md-icon>
+                    </md-button>
                 </md-input-container>
             </div>
         </section>

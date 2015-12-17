@@ -1,12 +1,13 @@
 <section>
     <md-content class="import-button">
-        <h3>Import A CSV File</h3>
+        <h3> <md-icon ng-style="{color: font.color}" md-svg-src="../../../images/svg/upload-icon.svg" class="upload-icon" aria-label="Upload"></md-icon>
+            &nbsp;Import A CSV File</h3>
         <form name="form" method="post" enctype="multipart/form-data">
             <md-input-container >
                 <input  type="file" ngf-select="" ng-model="picFile" name="file" required/>
             </md-input-container>
             <md-input-container >
-                <md-button flex="50" class="md-raised md-primary"  ng-click="upload(picFile)">Start Upload</md-button>
+                <md-button flex="30" class="md-raised md-primary"  ng-click="upload(picFile)">Start Upload</md-button>
             </md-input-container>
         </form>
     </md-content>

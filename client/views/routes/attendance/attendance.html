@@ -1,14 +1,29 @@
 <section>
-    <h3>Take Attendance Test</h3>
+    <h3>
+        <md-icon ng-style="{color: font.color}" md-svg-src="../../../images/svg/checkbox-icon.svg" class="attendance-icon" aria-label="Attendance"></md-icon>
+        &nbsp;Attendance</h3>
+
+    <h5>Select Class</h5>
+    <div>
+        List Of Classes to select
+    </div>
+
+    <div class="spacer">
+        <md-input-container>
+            <md-divider md-inset></md-divider>
+        </md-input-container>
+    </div>
+
+    <h3>Attendance App Test:</h3>
     <div class="inset"  ng-cloak>
         <md-switch ng-model="attendance.name1" aria-label="Batman" ng-true-value="'Present'" ng-false-value="'Absent'" class="md-hue-1">
             Batman <strong>{{ attendance.name1 }}</strong>
         </md-switch>
         <md-switch ng-model="attendance.name2" aria-label="Iron Man" ng-true-value="'Present'" ng-false-value="'Absent'" class="md-hue-1">
-           Iron Man  <strong>{{ attendance.name2 }}</strong>
+            Iron Man  <strong>{{ attendance.name2 }}</strong>
         </md-switch>
         <md-switch ng-model="attendance.name3" aria-label="Superman" ng-true-value="'Present'" ng-false-value="'Absent'" class="md-hue-1">
-           Superman  <strong>{{ attendance.name3 }}</strong>
+            Superman  <strong>{{ attendance.name3 }}</strong>
         </md-switch>
         <md-switch ng-model="attendance.name4" aria-label=" Hulk" ng-true-value="'Present'" ng-false-value="'Absent'" class="md-hue-1">
             Hulk  <strong>{{ attendance.name4 }}</strong>
@@ -26,10 +41,11 @@
             Wonder Woman <strong>{{ attendance.name8 }}</strong>
         </md-switch>
         <md-switch ng-model="attendance.name9" aria-label="Aquaman" ng-true-value="'Present'" ng-false-value="'Absent'" class="md-hue-1">
-           Aquaman <strong>{{ attendance.name9 }}</strong>
+            Aquaman <strong>{{ attendance.name9 }}</strong>
         </md-switch>
         <md-switch ng-model="attendance.name10" aria-label="The Flash" ng-true-value="'Present'" ng-false-value="'Absent'" class="md-hue-1">
             The Flash <strong>{{ attendance.name10 }}</strong>
         </md-switch>
     </div>
+
 </section>
