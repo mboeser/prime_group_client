@@ -29,7 +29,9 @@ module.exports = function (app, path, passport) {
 
     require('./admin_attendance.js', isLoggedIn)(app);
 
+    require('./teacher.js', isLoggedIn)(app);
 
+    require('./teacher_prework.js', isLoggedIn)(app);
 
 
     // LOGOUT ==============================
