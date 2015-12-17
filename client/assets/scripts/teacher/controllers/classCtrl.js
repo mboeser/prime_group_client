@@ -1,4 +1,4 @@
-myApp.controller('classCtrl', ['$scope', '$http', 'DataService', function ($scope, $http, DataService) {
+myApp.controller('classCtrl', ['$scope', '$http', 'DataService', '$location', function ($scope, $http, DataService, $location) {
     console.log('on teacher class controller--classCtrl.js');
 
     $scope.dataService = DataService;
@@ -6,6 +6,7 @@ myApp.controller('classCtrl', ['$scope', '$http', 'DataService', function ($scop
     $scope.date = $scope.dataService.getDate();
     $scope.students = $scope.dataService.getData();
     $scope.classdate = ($scope.students[0].class_date).slice(0, 10);
+    $scope.student;
     console.log("This is your student data", $scope.students);
 
     $scope.user = $scope.dataService.peopleData();
@@ -24,9 +25,15 @@ myApp.controller('classCtrl', ['$scope', '$http', 'DataService', function ($scop
             $scope.dataService.getStudent();
             console.log("This is response.data", response.data[0]);
             console.log("This is the student in the factory", $scope.dataService.getStudent());
+            $scope.student=$scope.dataService.getStudent();
+            if($scope.student.grade < 9){
+                $location.path('/middleschool');
+            }else {
+                $location.path('/highschool');
+            }
         });
     };
 
-    $scope.selectStudent('sbaker');//hard coded for now
+    $scope.selectStudent('bgates');//hard coded for now
 
 }]);
