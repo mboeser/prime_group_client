@@ -71,7 +71,7 @@ module.exports = function(grunt) {
                 // SCRIPTS
                 expand: true,
                 cwd: "client/assets/scripts/",
-                src: ["*.js", "admin/admin_attendance.js", "teacher/teacher.js"],
+                src: ["*.js", "admin/admin.js", "teacher/teacher.js"],
                 "dest": "server/public/assets/scripts"
             }
         },
