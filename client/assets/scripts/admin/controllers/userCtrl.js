@@ -25,10 +25,11 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location','DataService', func
         },
         columnDefs: [
             { name:'id', field: 'id', enableCellEdit: false},
-            { name:'Role', field: 'role' , editDropdownValueLabel: 'Role',
+            { name:'role', field: 'role' , editableCellTemplate: 'ui-grid/dropdownEditor', editDropdownValueLabel: 'role',
+
                 editDropdownOptionsArray: [
-                { id: 1, role: 'Admin' },
-                { id: 2, role: 'female' }
+                { id: 'admin', role: 'Admin' },
+                { id: 'teacher', role: 'Teacher' }
             ]},
             { name:'First Name', field: 'firstname' , enableCellEdit: true},
             { name:'Last Name', field: 'lastname' , enableCellEdit: true},
