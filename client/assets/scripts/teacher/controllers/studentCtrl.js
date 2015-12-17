@@ -23,5 +23,26 @@ myApp.controller('studentCtrl', ['$scope', '$http', 'DataService', function ($sc
         });
     };
 
+    $scope.updateAttendanceNotes = function(attendanceNotes){
+        $http.put('/updateStudent', {params: {'column': 'attendance_notes', 'value': attendanceNotes, 'id': $scope.student.id}}).then(function(){
+            console.log("student data updated");
+            $scope.student.attendance_notes=attendanceNotes;
+        });
+    };
+
+    $scope.updateConfirm = function(saturday_attendance){
+        $http.put('/updateStudent', {params: {'column': 'saturday_attendance', 'value': saturday_attendance, 'id': $scope.student.id}}).then(function(){
+            console.log("student data updated");
+            $scope.student.saturday_attendance=saturday_attendance;
+        });
+    };
+
+    $scope.updateContactStatus = function(contact_status){
+        $http.put('/updateStudent', {params: {'column': 'contact_status', 'value': contact_status, 'id': $scope.student.id}}).then(function(){
+            console.log("student data updated");
+            $scope.student.contact_status=contact_status;
+        });
+    };
+
     //before switching to the next page, don't forget to update the student factory information?
 }]);
