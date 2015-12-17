@@ -1,5 +1,5 @@
 //ADMIN APPLICATION
-var myApp = angular.module('myApp', ['ngRoute',  'ngMaterial', 'ngMessages', 'ngFileUpload','ui.grid']);
+var myApp = angular.module('myApp', ['ngRoute',  'ngMaterial', 'ngMessages', 'ngFileUpload','ui.grid', 'ui.grid.edit']);
 
 myApp.config(['$routeProvider', function($routeProvider){
     $routeProvider
