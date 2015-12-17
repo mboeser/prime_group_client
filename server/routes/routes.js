@@ -31,6 +31,7 @@ module.exports = function (app, path, passport) {
 
     require('./teacher.js', isLoggedIn)(app);
 
+    require('./teacher_prework.js', isLoggedIn)(app);
 
 
     // LOGOUT ==============================

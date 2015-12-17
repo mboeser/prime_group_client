@@ -4,17 +4,22 @@ var connectionString = require('../config/database.js');
 module.exports = function (app, req, res, next) {
 
 
-    app.get('/teacher', isLoggedIn, function (req, res) {
+    app.get('/teacher_prework', isLoggedIn,  function (req, res) {
 
-        console.log('teacher', req.query.date);
-
-        var teacherEmail = 'hlutz@breakthroughtwincities.org';
-        var results = [];
+        console.log('teacher prework',req.query.date);
 
         pg.connect(connectionString.url, function (err, client, done) {
 
-            var query = client.query("SELECT DISTINCT class_date FROM students " +
-                "WHERE teacher_email = $1;", [teacherEmail]);
+            var date = '2015-01-09';
+            var teacherEmail = 'hlutz@breakthroughtwincities.org';
+            var results = [];
+
+            var query = client.query("SELECT students.class_date, students.firstname, " +
+                "students.lastname, students.phone1, students.teacher_email, attendance.* " +
+                "FROM students " +
+                "JOIN attendance ON (students.id=attendance.id) " +
+                "JOIN users ON (students.teacher_email=users.email) " +
+                "WHERE students.class_date = $1 AND students.teacher_email = $2;", [date, teacherEmail]);
 
             // Stream results back one row at a time, push into results array
             query.on('row', function (row) {
@@ -38,8 +43,9 @@ module.exports = function (app, req, res, next) {
 
 // route middleware to ensure user is logged in
 function isLoggedIn(req, res, next) {
+    console.log('prework loggin')
     if (req.isAuthenticated())
         return next();
+
     res.redirect('/');
 }
-
