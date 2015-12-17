@@ -1,11 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
 body{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', Helvetica, arial, sans-serif;
 }
 h3, h4, h5 {
     font-weight: normal;
-    color: #999;
+    color: #555;
 }
 
 main {
@@ -15,12 +15,12 @@ main {
 }
 footer{
     margin-top: 25px;
-    color: #999;
+    color: #555;
     text-align: center;
 }
 header{
     margin-top: 10px;
-    color: #999;
+    color: #555;
     text-align: center;
     width: 90%;
     margin-left: auto;
@@ -32,14 +32,12 @@ section {
 #login-form {
     padding: 20px;
     width: 400px;
-    /*background-color: #aaa;*/
     border-radius: 5px;
-    /*box-shadow: 2px 2px 4px #ccc;*/
     margin-left: auto;
     margin-right: auto;
-    color: #999;
-    /*text-shadow: 1px 1px 2px #000;*/
+    color: #555;
     font-size: 20px;
+    margin-top: 50px;
 }
 .content-panel {
     padding: 30px;
@@ -96,25 +94,37 @@ md-datepicker.md-default-theme, md-datepicker {
 }
 
 
-a.md-button.md-default-theme.md-primary.md-raised, a.md-button.md-primary.md-raised, a.md-button.md-default-theme.md-primary.md-fab, a.md-button.md-primary.md-fab, .md-button.md-default-theme.md-primary.md-raised, .md-button.md-primary.md-raised, .md-button.md-default-theme.md-primary.md-fab, .md-button.md-primary.md-fab {
-    color: rgba(255,255,255,0.87);
-    background-color: #0082C8;
+a.md-button.md-default-theme.md-primary.md-raised,
+a.md-button.md-primary.md-raised,
+a.md-button.md-default-theme.md-primary.md-fab,
+a.md-button.md-primary.md-fab,
+.md-button.md-default-theme.md-primary.md-raised,
+.md-button.md-primary.md-raised,
+.md-button.md-default-theme.md-primary.md-fab,
+.md-button.md-primary.md-fab {
+    color: #FFF;
+    /* make buttons color of company blue*/
+    /*background-color: #00A4E4;*/
+    /* make buttons color of logo blue*/
+    background-color: #0082C9;
+
 }
 a.md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover, a.md-button.md-primary.md-raised:not([disabled]):hover, a.md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover, a.md-button.md-primary.md-fab:not([disabled]):hover, .md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover, .md-button.md-primary.md-raised:not([disabled]):hover, .md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover, .md-button.md-primary.md-fab:not([disabled]):hover {
-    background-color: #F9A32B;
-    color:#0082C8;
+    background-color: #FAA333;
+    color:#FFF;
 }
 
-a.md-button.md-default-theme.md-primary.md-raised:not([disabled]):active,
-a.md-button.md-primary.md-raised:not([disabled]):active,
-a.md-button.md-default-theme.md-primary.md-fab:not([disabled]):active,
-a.md-button.md-primary.md-fab:not([disabled]):active,
-.md-button.md-default-theme.md-primary.md-raised:not([disabled]):active,
-.md-button.md-primary.md-raised:not([disabled]):active,
-.md-button.md-default-theme.md-primary.md-fab:not([disabled]):active,
-.md-button.md-primary.md-fab:not([disabled]):active {
-    background-color: #8dc73f;
-    color:#0082C8;
+a.md-button.md-default-theme.md-primary.md-raised:not([disabled]).md-button:active,
+a.md-button.md-primary.md-raised:not([disabled]).md-button:active,
+a.md-button.md-default-theme.md-primary.md-fab:not([disabled]).md-button:active,
+a.md-button.md-primary.md-fab:not([disabled]).md-button:active,
+.md-button.md-default-theme.md-primary.md-raised:not([disabled]).md-button:active,
+.md-button.md-primary.md-raised:not([disabled])md-button:active,
+.md-button.md-default-theme.md-primary.md-fab:not([disabled]).md-button:active,
+.md-button.md-primary.md-fab:not([disabled])md-button:active {
+    background-color: #8DC73F;
+    color:#FFF;
+    /*color:#0082C8;*/
 }
 
 md-input-container{
@@ -145,3 +155,7 @@ md-switch.md-hue-1.md-checked .md-thumb {
 md-switch.md-default-theme.md-hue-1.md-checked, md-switch.md-hue-1.md-checked .md-bar {
     background-color: #8DC73F;
 }
+.spacer {
+    padding: 30px;
+}
+

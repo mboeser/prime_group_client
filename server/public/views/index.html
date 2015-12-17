@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/vendors/angular-material/angular-material.min.css"/>
     <link rel="stylesheet" href="/vendors/angular-ui-grid/ui-grid.min.css"/>
     <link rel="stylesheet" href="/assets/styles/style.css"/>
-    <link rel="shortcut icon" type="image/png" href="favicon.ico"/>
+    <link rel="shortcut icon" type="image/png" href="../images/favicon.ico"/>
 </head>
 <body ng-controller="loginCtrl">
 <header ng-include="'/views/templates/header.html'">
@@ -18,11 +18,14 @@
     <div>
         Welcome To Breakthrough Twin Cities
     </div>
+    <div class="spacer">
+        <md-input-container>
+            <md-divider md-inset></md-divider>
+        </md-input-container>
+    </div>
     <div>
-
-            <a href="/auth/google">
-            <img id="sign-in-google-logo" style="width: 75%;" src="/assets/images/google-sign-in-dk.svg"/>
-
+        <a href="/auth/google">
+            <img id="sign-in-google-logo" style="width: 75%;" src="../images/google-sign-in-dk.svg"/>
         </a>
     </div>
 </section>

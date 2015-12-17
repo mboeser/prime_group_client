@@ -29,7 +29,7 @@
             </g>
             <path d="M20,23 L20,25.4 L23.97,25.4 C23.81,26.43 22.77,28.42 20,28.42 C17.61,28.42 15.66,26.44 15.66,24 C15.66,21.56 17.61,19.58 20,19.58 C21.36,19.58 22.27,20.16 22.79,20.66 L24.69,18.83 C23.47,17.69 21.89,17 20,17 C16.13,17 13,20.13 13,24 C13,27.87 16.13,31 20,31 C24.04,31 26.72,28.16 26.72,24.16 C26.72,23.7 26.67,23.35 26.61,23 L20,23 L20,23 Z" id="Shape" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
             <path d="M35,23 L33,23 L33,21 L31,21 L31,23 L29,23 L29,25 L31,25 L31,27 L33,27 L33,25 L35,25" id="Shape-Copy" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
-            <text id="Sign-in-with-Google" sketch:type="MSTextLayer" font-family="Roboto" font-size="14" font-weight="420" letter-spacing="0.21875" fill="#FFFFFF">
+            <text id="Sign-in-with-Google" sketch:type="MSTextLayer" font-family="arial" font-size="14" font-weight="420" letter-spacing="0.21875" fill="#FFFFFF">
                 <tspan x="54" y="29">Sign in with Google</tspan>
             </text>
         </g>
