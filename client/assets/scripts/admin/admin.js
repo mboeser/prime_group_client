@@ -1,5 +1,5 @@
 //ADMIN APPLICATION
-var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngFileUpload']);
+var myApp = angular.module('myApp', ['ngRoute',  'ngMaterial', 'ngMessages', 'ngFileUpload','ui.grid']);
 
 myApp.config(['$routeProvider', function($routeProvider){
     $routeProvider
@@ -28,7 +28,6 @@ myApp.config(['$routeProvider', function($routeProvider){
             controller: "userCtrl"
         })
         .when('/upload', {
-
             templateUrl: "/views/routes/admin/upload-csv.html",
             controller: "uploadCtrl"
         })
