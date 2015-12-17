@@ -25,6 +25,13 @@ module.exports = function (app, path, passport) {
 
     require('./roles.js', isLoggedIn)(app);
 
+    require('./attendance.js', isLoggedIn)(app);
+
+    require('./admin_attendance.js', isLoggedIn)(app);
+
+    require('./teacher.js', isLoggedIn)(app);
+
+
 
     // LOGOUT ==============================
     app.get('/logout', function (req, res) {

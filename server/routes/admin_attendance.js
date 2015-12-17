@@ -1,31 +1,21 @@
-get // serve html
-
-
-get // /classes dates per teacher email login
-
-get // /prework lists all students for class date & teacher
-
-// /student
-
-
 var pg = require('pg');
 var connectionString = require('../config/database.js');
 
 module.exports = function (app, req, res, next) {
 
 
-    app.get('/teacher', isLoggedIn, function (req, res) {
+    app.get('/admin_attendance', isLoggedIn, function (req, res) {
 
-        console.log('teacher', req.query.date);
+        console.log('admin', req.query.date);
 
         var date = '2015-01-09';
-        var teacherEmail = 'hlutz@breakthroughtwincities.com';
         var results = [];
 
         pg.connect(connectionString.url, function (err, client, done) {
 
-            var query = client.query("SELECT DISTINCT class_date FROM students " +
-                "WHERE teacher_email = $1;", [teacherEmail]);
+            var query = client.query("SELECT DISTINCT students.class_date, students.teacher_email, users.firstname FROM students " +
+                "JOIN users ON (students.teacher_email=users.email) " +
+                "WHERE students.class_date = $1", [date]);
 
             // Stream results back one row at a time, push into results array
             query.on('row', function (row) {
@@ -46,3 +36,13 @@ module.exports = function (app, req, res, next) {
         })
     })
 };
+
+
+// route middleware to ensure user is logged in
+function isLoggedIn(req, res, next) {
+    console.log('prework loggin');
+    if (req.isAuthenticated())
+        return next();
+
+    res.redirect('/');
+}
