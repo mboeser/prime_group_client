@@ -1,4 +1,4 @@
-myApp.controller('attendanceCtrl', ['$scope', '$http', 'DataService', function($scope, $http, DataService) {
+myApp.controller('attendanceCtrl', ['$scope', '$http', '$location','DataService', function ($scope, $http, $location, DataService) {
     console.log('on admin attendance controller--attendanceCtrl.js');
 
     $scope.dataService = DataService;

@@ -14,10 +14,6 @@ myApp.controller('dashCtrl',['$scope', '$http', '$location','DataService', funct
     }
 
 
-
-
-
-
     $scope.prework = {};
     $scope.absent = {};
 

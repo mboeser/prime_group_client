@@ -1,4 +1,4 @@
-myApp.controller('userCtrl', ['$scope', '$http', 'DataService', function ($scope, $http, DataService) {
+myApp.controller('userCtrl', ['$scope', '$http', '$location','DataService', function ($scope, $http, $location, DataService) {
     console.log('on admin user controller--userCtrl.js');
 
     $scope.dataService = DataService;

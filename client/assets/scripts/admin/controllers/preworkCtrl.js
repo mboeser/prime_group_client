@@ -1,4 +1,4 @@
-myApp.controller('preworkCtrl', ['$scope', '$http', 'DataService', function($scope, $http, DataService) {
+myApp.controller('preworkCtrl', ['$scope', '$http', '$location','DataService', function ($scope, $http, $location, DataService) {
     console.log('on admin prework controller--preworkCtrl.js');
 
     $scope.dataService = DataService;
@@ -13,4 +13,16 @@ myApp.controller('preworkCtrl', ['$scope', '$http', 'DataService', function($sco
             console.log($scope.user);
         });
     }
+
+    $scope.studentList = $scope.dataService.getData();
+    console.log($scope.studentList);
+
+    $scope.openStudent = function(student){
+        $http.get('/student', {params: {who: student}}).then(function(response){
+            console.log(response.data);
+            $scope.dataService.setData(response.data);
+
+        });
+    }
+
 }]);
