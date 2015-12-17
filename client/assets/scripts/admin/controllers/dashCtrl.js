@@ -24,13 +24,14 @@ myApp.controller('dashCtrl',['$scope', '$http', 'DataService', function ($scope,
     $scope.getAbsences = function(){
         console.log($scope.absent);
         $http.get('/absent', {params: {date: $scope.absent.date }}).then(function(response){
-           console.log(response);
+           console.log(response.data);
         });
     };
 
     $scope.getPrework = function(){
         $http.get('/prework', {params: {date: $scope.prework.date}}).then(function(response) {
-            console.log(response);
+
+            console.log('Here is the prework for date:', $scope.prework.date, response.data);
         });
     };
 

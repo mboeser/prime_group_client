@@ -20,18 +20,22 @@ myApp.controller('userCtrl', ['$scope', '$http', 'DataService', function ($scope
     $scope.submitForm = function () {
         $http.post('/roles', $scope.newUser).then(function (response) {
             console.log('post response :', response);
+            $scope.getUserList();
         });
     };
 
     $scope.getUserList = function () {
         $http.get('/roles').then(function (response) {
-            console.log('get response:', response);
+
+            $scope.userList = response.data;
+            //console.log('this is userList :', $scope.userList);
         })
     };
 
     $scope.updateUser = function (person) {
         $http.put('/roles', person).then(function (response) {
             console.log('put response :', response);
+            $scope.getUserList();
         });
     };
 
