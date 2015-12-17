@@ -28,7 +28,20 @@ myApp.controller('userCtrl', ['$scope', '$http', 'DataService', function ($scope
         $http.get('/roles').then(function (response) {
 
             $scope.userList = response.data;
-            //console.log('this is userList :', $scope.userList);
+
+            console.log('this is userList :', $scope.userList);
+
+            $scope.usersTable = {
+                enableSorting: true,
+                columnDefs: [
+                    { name:'id', field: 'id', enableCellEdit:true},
+                    { name:'Role', field: 'role' , enableCellEdit:true},
+                    { name:'First Name', field: 'firstname' , enableCellEdit:true},
+                    { name:'Last Name', field: 'lastname' , enableCellEdit:true},
+                    { name:'Email', field: 'email' , enableCellEdit:true}
+                ],
+                data : $scope.userList
+            };
         })
     };
 
@@ -45,7 +58,5 @@ myApp.controller('userCtrl', ['$scope', '$http', 'DataService', function ($scope
             $scope.getUserList();
         });
     };
-
-
     $scope.getUserList();
 }]);
