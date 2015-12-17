@@ -7,8 +7,9 @@ module.exports = function (app, req, res, next) {
     app.get('/teacher', isLoggedIn, function (req, res) {
 
         console.log('teacher', req.query.date);
+        console.log("This is req.user", req.user.emails[0]['value']);
 
-        var teacherEmail = 'hlutz@breakthroughtwincities.org';
+        var teacherEmail = req.user.emails[0]['value'];
         var results = [];
 
         pg.connect(connectionString.url, function (err, client, done) {
