@@ -10,11 +10,11 @@ module.exports = function (app, req, res, next) {
 
         pg.connect(connectionString.url, function (err, client, done) {
 
-            var date = '2015-01-09';
-            var teacherEmail = 'hlutz@breakthroughtwincities.org';
+            var date = req.query.date;
+            var teacherEmail = req.user.emails[0]['value'];
             var results = [];
 
-            var query = client.query("SELECT student.id, students.class_date, students.student_firstname, " +
+            var query = client.query("SELECT students.id, students.class_date, students.student_firstname, " +
                 "students.student_lastname, students.phone1, students.teacher_email, attendance.* " +
                 "FROM students " +
                 "JOIN attendance ON (students.id=attendance.id) " +
