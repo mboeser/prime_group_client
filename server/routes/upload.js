@@ -26,7 +26,7 @@ module.exports = function (app, path, req, res, next) {
                     if (err) console.log(err);
                     //Drop new vals if it exists. Create a new newvals table.
                     client.query("DROP TABLE IF EXISTS newvals;" +
-                        "CREATE TEMPORARY TABLE newvals(id varchar, firstname varchar, lastname varchar, phone1 varchar, phone2 varchar, email varchar, grade integer, street varchar, city varchar, state varchar, zip integer, class_date date, teacher_email varchar)",
+                        "CREATE TEMPORARY TABLE newvals(id varchar, student_firstname varchar, student_lastname varchar, phone1 varchar, phone2 varchar, student_email varchar, grade integer, street varchar, city varchar, state varchar, zip integer, class_date date, teacher_email varchar)",
                         function (err, result) {
                             if (err) {
                                 console.log("This is a table creation error", err);
@@ -50,7 +50,7 @@ module.exports = function (app, path, req, res, next) {
                                     client.query(
                                         //All current values that exist in both newvals and students updated to newvals values in students.
                                         "UPDATE students " +
-                                        "SET firstname=newvals.firstname, lastname=newvals.lastname, phone1=newvals.phone1, phone2=newvals.phone2, email=newvals.email, grade=newvals.grade, street=newvals.street, city=newvals.city, state=newvals.state, zip=newvals.zip, class_date=newvals.class_date, teacher_email=newvals.teacher_email " +
+                                        "SET student_firstname=newvals.student_firstname, student_lastname=newvals.student_lastname, phone1=newvals.phone1, phone2=newvals.phone2, student_email=newvals.student_email, grade=newvals.grade, street=newvals.street, city=newvals.city, state=newvals.state, zip=newvals.zip, class_date=newvals.class_date, teacher_email=newvals.teacher_email " +
                                         "FROM newvals " +
                                         "WHERE newvals.id = students.id;" +
                                             //All values not in newvals but on students are deleted from students.
@@ -64,7 +64,7 @@ module.exports = function (app, path, req, res, next) {
                                             //All values on newvals but not on students added to students.
 
                                         "INSERT INTO students " +
-                                        "SELECT newvals.id, newvals.firstname, newvals.lastname, newvals.phone1, newvals.phone2, newvals.email, newvals.grade, newvals.street, newvals.city, newvals.state, newvals.zip, newvals.class_date, newvals.teacher_email " +
+                                        "SELECT newvals.id, newvals.student_firstname, newvals.student_lastname, newvals.phone1, newvals.phone2, newvals.student_email, newvals.grade, newvals.street, newvals.city, newvals.state, newvals.zip, newvals.class_date, newvals.teacher_email " +
                                         "FROM newvals " +
                                         "LEFT OUTER JOIN students ON (students.id = newvals.id) " +
                                         "WHERE students.id IS NULL " +

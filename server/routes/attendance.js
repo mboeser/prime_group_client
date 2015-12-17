@@ -20,7 +20,7 @@ module.exports = function (app, req, res, next) {
 
         pg.connect(connectionString.url, function (err, client, done) {
 
-            var query = client.query("SELECT students.id, students.firstname, students.lastname, attendance.* FROM students " +
+            var query = client.query("SELECT students.id, students.student_firstname, students.student_lastname, attendance.* FROM students " +
                 "JOIN attendance ON (students.id = attendance.id) " +
                 "WHERE students.teacher_email = $1 AND students.class_date = $2;", [teacherEmail, date]);
 

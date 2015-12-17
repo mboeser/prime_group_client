@@ -14,8 +14,8 @@ module.exports = function (app, req, res, next) {
             var teacherEmail = 'hlutz@breakthroughtwincities.org';
             var results = [];
 
-            var query = client.query("SELECT students.class_date, students.firstname, " +
-                "students.lastname, students.phone1, students.teacher_email, attendance.* " +
+            var query = client.query("SELECT students.class_date, students.student_firstname, " +
+                "students.student_lastname, students.phone1, students.teacher_email, attendance.* " +
                 "FROM students " +
                 "JOIN attendance ON (students.id=attendance.id) " +
                 "JOIN users ON (students.teacher_email=users.email) " +
