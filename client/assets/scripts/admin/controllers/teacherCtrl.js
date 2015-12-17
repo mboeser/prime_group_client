@@ -17,9 +17,9 @@ myApp.controller('teacherCtrl', ['$scope', '$http', 'DataService', function ($sc
 
     $scope.teachers = [];
 
-    $scope.getTeachers = function(classdate){
+    $scope.getTeachers = function(){
         //Retrieve all teachers for a classdate for selection
-        $http.get('/admin/teachers', {params: {date: classdate}}).then(function(response){
+        $http.get('/admin/teachers', {params: {date: $scope.date}}).then(function(response){
             response.push($scope.teachers);
         });
     };
