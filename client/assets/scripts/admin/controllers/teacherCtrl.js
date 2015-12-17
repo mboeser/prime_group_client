@@ -28,7 +28,7 @@ myApp.controller('teacherCtrl', ['$scope', '$http', 'DataService', function ($sc
       $http.get('/prework', {params:{date: $scope.date,
                                       who: teacher}}).then(function(response){
           console.log(response);
-      })
+      });
     };
 
     $scope.getTeachers();
