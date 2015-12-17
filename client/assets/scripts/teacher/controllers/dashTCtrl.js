@@ -13,4 +13,11 @@ myApp.controller('dashTCtrl', ['$scope', '$http', 'DataService', function ($scop
             console.log($scope.user);
         });
     }
+
+    $scope.getAttendance = function(){
+        $http.get('/attendance', {params: {date: $scope.date, who: $scope.user}}).then(function(response){
+            console.log(response);
+        })
+    };
+
 }]);
