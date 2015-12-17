@@ -19,16 +19,20 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location','DataService', func
 
     $scope.gridOptions = {
         enableSorting: true,
-        enableCellEdit: true,
+
         dataUpdated: function(){
             console.log('edited!')
         },
         columnDefs: [
-            { name:'id', field: 'id', enableCellEdit:true},
-            { name:'Role', field: 'role' , enableCellEdit:true},
-            { name:'First Name', field: 'firstname' , enableCellEdit:true},
-            { name:'Last Name', field: 'lastname' , enableCellEdit:true},
-            { name:'Email', field: 'email' , enableCellEdit:true}
+            { name:'id', field: 'id', enableCellEdit: false},
+            { name:'Role', field: 'role' , editDropdownValueLabel: 'Role',
+                editDropdownOptionsArray: [
+                { id: 1, role: 'Admin' },
+                { id: 2, role: 'female' }
+            ]},
+            { name:'First Name', field: 'firstname' , enableCellEdit: true},
+            { name:'Last Name', field: 'lastname' , enableCellEdit: true},
+            { name:'Email', field: 'email' , enableCellEdit: true}
         ]
     };
 
