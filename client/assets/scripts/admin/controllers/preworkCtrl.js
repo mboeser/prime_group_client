@@ -13,4 +13,8 @@ myApp.controller('preworkCtrl', ['$scope', '$http', 'DataService', function($sco
             console.log($scope.user);
         });
     }
+
+    $scope.studentList = $scope.dataService.getData();
+    console.log($scope.studentList);
+
 }]);
