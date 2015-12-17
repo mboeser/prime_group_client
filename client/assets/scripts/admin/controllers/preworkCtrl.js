@@ -17,4 +17,10 @@ myApp.controller('preworkCtrl', ['$scope', '$http', 'DataService', function($sco
     $scope.studentList = $scope.dataService.getData();
     console.log($scope.studentList);
 
+    $scope.openStudent = function(student){
+        $http.get('/student', {params: {who: student}}).then(function(response){
+            console.log(response);
+        });
+    }
+
 }]);
