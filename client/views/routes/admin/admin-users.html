@@ -36,13 +36,26 @@
         <md-divider md-inset></md-divider>
     </md-input-container>
 </div>
-DATA GRID
-<div id="userList" ui-grid="userList" ui-grid-edit class="grid"></div>
+<div>
+    UI DATA GRID
+    <!--<div id="userList" ui-grid="gridOptions" ui-grid-edit class="grid"></div>-->
+    <!-- From Demo -->
+    <div id="grid1" ui-grid="{ data: myData }" class="grid"></div>
+</div>
 
-<section>
-    User List
-    <div ng-repeat="user in userList track by $index" ng-blur="updateUser(user)">
-        <!--<span ng-click="deleteUser(user)">DELETE BUTTON</span>-->
-        {{user | json}}
-    </div>
-</section>
+
+<div class="spacer">
+    <md-input-container>
+        <md-divider md-inset></md-divider>
+    </md-input-container>
+</div>
+DATA TABLE
+<table>
+    <tr ng-repeat="user in userList">
+        <td>{{user.id}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.firstname}}</td>
+        <td>{{user.lastname}}</td>
+        <td>{{user.role}}</td>
+    </tr>
+</table>
