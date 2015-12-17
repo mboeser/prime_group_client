@@ -25,7 +25,9 @@ myApp.controller('userCtrl', ['$scope', '$http', 'DataService', function ($scope
 
     $scope.getUserList = function () {
         $http.get('/roles').then(function (response) {
-            console.log('get response:', response);
+
+            $scope.userList = response.data;
+            console.log('this is userList :', $scope.userList);
         })
     };
 
