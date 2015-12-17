@@ -29,14 +29,15 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location','DataService', func
 
             //$scope.gridOptions = {  };
 
-            $scope.userList = response.data;
+            //$scope.userList = response.data;
+            $scope.myData = response.data;
 
             console.log('this is userList :', $scope.userList);
 
             //$scope.gridOptions = {
             //    enableSorting: true,
             //    columnDefs: [
-            //        { name:'id', field: 'id', enableCellEdit:true},
+            //        { name:'id', field: 'id', enableCel lEdit:true},
             //        { name:'Role', field: 'role' , enableCellEdit:true},
             //        { name:'First Name', field: 'firstname' , enableCellEdit:true},
             //        { name:'Last Name', field: 'lastname' , enableCellEdit:true},
@@ -45,26 +46,24 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location','DataService', func
             //    , data : [$scope.userList]
             //};
 
-            $scope.myData = [
-                {
-                    "firstName": "Cox",
-                    "lastName": "Carney",
-                    "company": "Enormo",
-                    "employed": true
-                },
-                {
-                    "firstName": "Lorraine",
-                    "lastName": "Wise",
-                    "company": "Comveyer",
-                    "employed": false
-                },
-                {
-                    "firstName": "Nancy",
-                    "lastName": "Waters",
-                    "company": "Fuelton",
-                    "employed": false
-                }
-            ];
+
+            //$scope.gridOptions = {
+            //    enableSorting: true,
+            //    columnDefs: [
+            //        { name:'id', field: 'id', enableCel lEdit:true},
+            //        { name:'Role', field: 'role' , enableCellEdit:true},
+            //        { name:'First Name', field: 'firstname' , enableCellEdit:true},
+            //        { name:'Last Name', field: 'lastname' , enableCellEdit:true},
+            //        { name:'Email', field: 'email' , enableCellEdit:true}
+            //    ]
+            //    , data : [$scope.userList]
+            //};
+
+
+
+
+
+
         })
     };
 
