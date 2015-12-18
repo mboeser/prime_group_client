@@ -43,7 +43,7 @@ myApp.controller('preworkCtrl', ['$scope', '$http', '$location','DataService', f
 
 
     $scope.saveRow = function( rowEntity ) {
-        var promise = $http.put('/updateStudent/inline', rowEntity).then(function(response){
+        var promise = $http.put('/adminPrework', rowEntity).then(function(response){
            console.log(response);
         });
         $scope.gridApi.rowEdit.setSavePromise( rowEntity, promise);

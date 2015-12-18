@@ -39,7 +39,55 @@ module.exports = function (app, req, res, next) {
             }
         })
     })
+
+    app.put('/adminPrework', isLoggedIn, function(req, res){
+
+        console.log("req.body in adminPrework", req.body);
+        var teachername = req.body.lastname;
+        console.log(teachername);
+        var studentID = req.body.id;
+        var sfirstname = req.body.student_firstname;
+        var slastname = req.body.student_lastname;
+        var phone = req.body.phone1;
+        var contact_status = req.body.contact_status;
+        var admin_notes = req.body.admin_notes;
+
+
+        pg.connect(connectionString.url, function(err, client){
+            //update the users table if firstname of teacher is changed
+            client.query("UPDATE users " +
+            "SET lastname='$1' " +
+            "FROM students " +
+            "WHERE students.id=$2 " +
+            "AND users.email=students.teacher_email", [teachername, studentID],
+                function(err){
+                if (err) console.log(err);
+                    client.end();
+            });
+
+            //update the students table if student information is changed.
+            client.query("UPDATE students " +
+            "SET (student_firstname, student_lastname, phone1) = ($3, $4, $5) " +
+            "WHERE id=$2;", [sfirstname, slastname, phone],
+            function(err){
+                if (err) console.log(err);
+                client.end();
+            });
+
+            //update the attendance table.
+            client.query("UPDATe attendance " +
+            "SET (contact_status, admin_notes) = ($6, $7) " +
+            "WHERE id=$2;", [contact_status, admin_notes],
+            function(err){
+                if (err) console.log(err);
+                client.end();
+            });
+        });
+        res.send(true);
+    });
 };
+
+
 
 // route middleware to ensure user is logged in
 function isLoggedIn(req, res, next) {
