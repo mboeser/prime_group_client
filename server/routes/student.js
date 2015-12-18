@@ -35,7 +35,18 @@ module.exports = function (app, req, res, next) {
                 console.log(err);
             }
         })
-    })
+    });
+
+    app.put('/updateStudent/inline', isLoggedIn, function(req, res){
+        console.log("This is req.body", req.body);
+        res.send(true);
+
+        //pg.connect(connectionString.url, function(err, client, done){
+        //    client.query("UPDATE attendance SET " + column + "=$1 WHERE id=$2", [value, id], function(err){
+        //        if (err) console.log(err);
+        //        client.end();
+        //    });
+        });
 
     app.put('/updateStudent', isLoggedIn, function(req, res){
         console.log("This is req.body", req.body);
@@ -47,6 +58,7 @@ module.exports = function (app, req, res, next) {
             client.query("UPDATE attendance SET " + column + "=$1 WHERE id=$2", [value, id], function(err){
                 if (err) console.log(err);
                 client.end();
+                res.send(true);
             });
         });
     });

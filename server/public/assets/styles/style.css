@@ -38,6 +38,7 @@ section {
     color: #555;
     font-size: 20px;
     margin-top: 50px;
+    text-align: center;
 }
 .content-panel {
     padding: 30px;
@@ -157,5 +158,9 @@ md-switch.md-default-theme.md-hue-1.md-checked, md-switch.md-hue-1.md-checked .m
 }
 .spacer {
     padding: 30px;
+    text-align: center;
+}
+#sign-in-google-logo{
+    width: 75%;
 }
 
