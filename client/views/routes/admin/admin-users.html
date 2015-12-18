@@ -1,6 +1,6 @@
 <section id="add-user-form">
     <md-content>
-        <form>
+        <form ng-submit="submitForm()">
             <h3><md-icon ng-style="{color: font.color}" md-svg-src="../../../images/svg/add-user.svg" class="users-icon" aria-label="Upload"></md-icon>&nbsp;Add User</h3>
             <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm>
@@ -26,23 +26,23 @@
                 </md-input-container>
             </div>
             <div>
-                <md-button  layout="column" flex="auto" class="md-raised md-primary" ng-click="submitForm()">Add User</md-button>
+                <md-button  layout="column" flex="auto" class="md-raised md-primary">Add User</md-button>
             </div>
         </form>
     </md-content>
 </section>
 <div class="spacer">
     <md-input-container>
-        <md-divider md-inset></md-divider>
+        <md-divider></md-divider>
     </md-input-container>
 </div>
 <div>
     <h3>User List</h3>
-    <div id="grid1" ui-grid="gridOptions" ui-grid-edit class="grid"></div>
+    <div id="grid1" ui-grid="gridOptions" ui-grid-edit ui-grid-row-edit ui-grid-resize-columns="true" class="grid"></div>
 </div>
 
 <div class="spacer">
     <md-input-container>
-        <md-divider md-inset></md-divider>
+        <md-divider></md-divider>
     </md-input-container>
 </div>

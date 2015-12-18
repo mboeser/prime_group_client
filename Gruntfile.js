@@ -40,6 +40,8 @@ module.exports = function(grunt) {
                     "angular-ui-grid/ui-grid.min.css",
                     "angular-ui-grid/ui-grid.min.js",
                     "ng-file-upload/dist/ng-file-upload.min.js",
+                    "angular-touch/angular-touch.min.js",
+                    "angular-touch/angular-touch.min.js.map"
                 ],
                 "dest": "server/public/vendors/"
             },
@@ -81,7 +83,7 @@ module.exports = function(grunt) {
                 spawn: false
             },
             scripts: {
-                files: ['client/**/ *.html','client/**/ *.js','client/**/ *.css'],
+                files: ['client/**/*.html','client/**/*.js','client/**/*.css'],
                 tasks: ['copy', 'uglify']
             }
         }
@@ -94,6 +96,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task(s).
-    grunt.registerTask('default', ['copy', 'uglify']);
+    grunt.registerTask('default', ['copy', 'uglify', 'watch']);
 
 };

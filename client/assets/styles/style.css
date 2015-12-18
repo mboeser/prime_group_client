@@ -1,8 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
-body{
+body {
     font-family: 'Roboto', Helvetica, arial, sans-serif;
 }
+
 h3, h4, h5 {
     font-weight: normal;
     color: #555;
@@ -13,12 +14,14 @@ main {
     margin-left: auto;
     margin-right: auto;
 }
-footer{
+
+footer {
     margin-top: 25px;
     color: #555;
     text-align: center;
 }
-header{
+
+header {
     margin-top: 10px;
     color: #555;
     text-align: center;
@@ -26,9 +29,11 @@ header{
     margin-left: auto;
     margin-right: auto;
 }
+
 section {
     clear: both;
 }
+
 #login-form {
     padding: 20px;
     width: 400px;
@@ -38,42 +43,46 @@ section {
     color: #555;
     font-size: 20px;
     margin-top: 50px;
+    text-align: center;
 }
+
 .content-panel {
     padding: 30px;
     margin: 10px 30px;
 }
 
-
-
 .ui-grid-header-cell-wrapper {
     height: auto;
 }
-#google-logo{
+
+#google-logo {
     text-align: center;
 }
 
 md-datepicker.md-default-theme, md-datepicker {
     background-color: #f5f5f5;
 }
+
 .md-datepicker-calendar-pane {
     background-color: #fff;
     opacity: .95;
 }
 
-.student-form-section{
+.student-form-section {
     background-color: #f5f5f5;
     box-shadow: 2px 2px 4px #ccc;
     padding: 25px;
     margin-bottom: 35px;
 }
-.content-panel{
+
+.content-panel {
     background-color: #f5f5f5;
-    text-align: center ;
+    text-align: center;
     box-shadow: 2px 2px 4px #ccc;
     padding: 25px;
 
 }
+
 #top-buttons {
     background-color: #f5f5f5;
     text-align: center;
@@ -87,12 +96,11 @@ md-datepicker.md-default-theme, md-datepicker {
     background-color: #0082C8;
     border-radius: 0px;
     color: #fff;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
     padding: 7px;
     margin-top: 8px;
     font-size: 12px;
 }
-
 
 a.md-button.md-default-theme.md-primary.md-raised,
 a.md-button.md-primary.md-raised,
@@ -109,9 +117,10 @@ a.md-button.md-primary.md-fab,
     background-color: #0082C9;
 
 }
+
 a.md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover, a.md-button.md-primary.md-raised:not([disabled]):hover, a.md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover, a.md-button.md-primary.md-fab:not([disabled]):hover, .md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover, .md-button.md-primary.md-raised:not([disabled]):hover, .md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover, .md-button.md-primary.md-fab:not([disabled]):hover {
     background-color: #FAA333;
-    color:#FFF;
+    color: #FFF;
 }
 
 a.md-button.md-default-theme.md-primary.md-raised:not([disabled]).md-button:active,
@@ -119,31 +128,36 @@ a.md-button.md-primary.md-raised:not([disabled]).md-button:active,
 a.md-button.md-default-theme.md-primary.md-fab:not([disabled]).md-button:active,
 a.md-button.md-primary.md-fab:not([disabled]).md-button:active,
 .md-button.md-default-theme.md-primary.md-raised:not([disabled]).md-button:active,
-.md-button.md-primary.md-raised:not([disabled])md-button:active,
+.md-button.md-primary.md-raised:not([disabled]) md-button:active,
 .md-button.md-default-theme.md-primary.md-fab:not([disabled]).md-button:active,
-.md-button.md-primary.md-fab:not([disabled])md-button:active {
+.md-button.md-primary.md-fab:not([disabled]) md-button:active {
     background-color: #8DC73F;
-    color:#FFF;
+    color: #FFF;
     /*color:#0082C8;*/
 }
 
-md-input-container{
+md-input-container {
     padding: 2px 2px 5px 2px;
 }
+
 #mainLogo {
     width: 310px;
     margin-bottom: -25px;
 }
+
 .page-header-text {
     text-align: center;
 }
+
 .add-user {
     margin-bottom: 10px;
 }
+
 .add-user.label {
 
 }
-#add-user-form{
+
+#add-user-form {
     margin-left: auto;
     margin-right: auto;
 }
@@ -155,7 +169,20 @@ md-switch.md-hue-1.md-checked .md-thumb {
 md-switch.md-default-theme.md-hue-1.md-checked, md-switch.md-hue-1.md-checked .md-bar {
     background-color: #8DC73F;
 }
+
 .spacer {
     padding: 30px;
+    text-align: center;
 }
 
+#sign-in-google-logo {
+    width: 75%;
+}
+
+.delete-button {
+    color: #fff;
+    background-color: #0082C9;
+    border: 0px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
+
+}

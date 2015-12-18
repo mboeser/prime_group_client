@@ -1,4 +1,4 @@
-myApp.controller('userCtrl', ['$scope', '$http', '$location','DataService', function ($scope, $http, $location, DataService) {
+myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', function ($scope, $http, $location, DataService) {
     console.log('on admin user controller--userCtrl.js');
 
     $scope.dataService = DataService;
@@ -7,8 +7,8 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location','DataService', func
 
     $scope.user = $scope.dataService.peopleData();
 
-    if($scope.dataService.peopleData() === undefined){
-        $scope.dataService.retrieveData().then(function(){
+    if ($scope.dataService.peopleData() === undefined) {
+        $scope.dataService.retrieveData().then(function () {
             $scope.user = $scope.dataService.peopleData();
             console.log($scope.user);
         });
@@ -19,22 +19,44 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location','DataService', func
 
     $scope.gridOptions = {
         enableSorting: true,
+        enableColumnResizing: true,
 
-        dataUpdated: function(){
-            console.log('edited!')
-        },
         columnDefs: [
-            { name:'id', field: 'id', enableCellEdit: false},
-            { name:'role', field: 'role' , editableCellTemplate: 'ui-grid/dropdownEditor', editDropdownValueLabel: 'role',
+
+            {name: 'First Name', field: 'firstname', width: '20%', enableCellEdit: true},
+            {name: 'Last Name', field: 'lastname', width: '20%', enableCellEdit: true},
+
+            {
+                name: 'role',
+                field: 'role',
+                minWidth: 80,
+                width: 90,
+                enableColumnResizing: false,
+                editableCellTemplate: 'ui-grid/dropdownEditor',
+                editDropdownValueLabel: 'role',
 
                 editDropdownOptionsArray: [
-                { id: 'admin', role: 'Admin' },
-                { id: 'teacher', role: 'Teacher' }
-            ]},
-            { name:'First Name', field: 'firstname' , enableCellEdit: true},
-            { name:'Last Name', field: 'lastname' , enableCellEdit: true},
-            { name:'Email', field: 'email' , enableCellEdit: true}
+                    {id: 'admin', role: 'Admin'},
+                    {id: 'teacher', role: 'Teacher'}
+                ]
+            },
+
+            { name: 'Email', field: 'email', minWidth: 200, maxWidth: 350, enableCellEdit: true},
+            {  name: 'Delete User', field: 'DeleteUser',
+                cellTemplate:'<button style="margin-left: 40%; " class="delete-button" ng-click="grid.appScope.deleteUser(person)">Delete</button>' }
         ]
+    };
+    $scope.saveRow = function( rowEntity ) {
+        var promise = $http.put('/roles', rowEntity).then(function(response){
+            console.log(response);
+        });
+        $scope.gridApi.rowEdit.setSavePromise( rowEntity, promise);
+    };
+
+    $scope.gridOptions.onRegisterApi = function(gridApi){
+        //set gridApi on scope
+        $scope.gridApi = gridApi;
+        gridApi.rowEdit.on.saveRow($scope, $scope.saveRow);
     };
 
 
@@ -42,26 +64,15 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location','DataService', func
         $http.post('/roles', $scope.newUser).then(function (response) {
             console.log('post response :', response);
             $scope.getUserList();
+            $scope.newUser = {};
         });
     };
 
     $scope.getUserList = function () {
         $http.get('/roles').then(function (response) {
-
-            //$scope.gridOptions = {  };
-
-            //$scope.userList = response.data;
             $scope.gridOptions.data = response.data;
 
             console.log('this is userList :', $scope.userList);
-
-
-
-
-
-
-
-
 
 
         })
