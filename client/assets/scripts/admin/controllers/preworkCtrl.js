@@ -22,7 +22,8 @@ myApp.controller('preworkCtrl', ['$scope', '$http', '$location','DataService', f
         enableSorting: true,
 
         columnDefs: [
-            { name:'id', field: 'id', enableCellEdit: false },
+            { name:'id', field: 'id', enableCellEdit: false,
+                cellTemplate: '<button class="btn primary" ng-click="grid.appScope.getDetails(row.entity)">{{row.entity.id}}</button>'  },
             { name:'Teacher', field: 'lastname' , enableCellEdit:true},
             { name:'First Name', field: 'student_firstname' , enableCellEdit:true},
             { name:'Last Name', field: 'student_lastname' , enableCellEdit:true},
@@ -56,12 +57,13 @@ myApp.controller('preworkCtrl', ['$scope', '$http', '$location','DataService', f
     };
 
 
-    $scope.openStudent = function(student){
-        $http.get('/student', {params: {who: student}}).then(function(response){
-            console.log(response.data);
-            $scope.dataService.setData(response.data);
-
-        });
+    $scope.getDetails = function(student){
+        console.log(student);
+        //$http.get('/student', {params: {who: student}}).then(function(response){
+        //    console.log(response.data);
+        //    $scope.dataService.setData(response.data);
+        //
+        //});
     }
 
 }]);
