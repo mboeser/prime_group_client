@@ -90,9 +90,8 @@ module.exports = function (app, req, res, next) {
     // DELETE
 
     app.delete('/roles', function (req, res) {
-        console.log(req);
-        var results = [];
-        var email = req.body.id;
+        console.log(req.query);
+        var email = req.query.id;
         pg.connect(connectionString.url, function (err, client, done) {
 
             if (err) {
@@ -100,7 +99,7 @@ module.exports = function (app, req, res, next) {
                 return res.status(500).json({success: false, data: err});
             }
 
-            client.query("DELETE FROM users WHERE email=$1", [id], function (err) {
+            client.query("DELETE FROM users WHERE email=$1", [email], function (err) {
                 if (err) {
                     console.log(err);
                     return res.status(500).json({success: false, data: err})
