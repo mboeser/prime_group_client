@@ -108,21 +108,6 @@ module.exports = function (app, req, res, next) {
                 client.end();
                 return res.send(true);
             });
-            //
-            //// SQL Query > Select Data
-            //var query = client.query("SELECT * FROM people ORDER BY id ASC");
-            //
-            //// Stream results back one row at a time
-            //query.on('row', function (row) {
-            //    results.push(row);
-            //});
-            //
-            //// After all data is returned, close connection and return results
-            //query.on('end', function () {
-            //    done();
-            //    return res.json(results);
-            //});
-            //
 
         });
     });
@@ -134,4 +119,4 @@ function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();
     res.redirect('/');
-};
+}
