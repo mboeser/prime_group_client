@@ -37,9 +37,6 @@ module.exports = function (app, req, res, next) {
 
     app.post('/roles', isLoggedIn, function (req, res) {
 
-        console.log(req.body);
-
-        var results = [];
         var email = req.body.email;
         var firstname = req.body.firstname;
         var lastname = req.body.lastname;
@@ -65,35 +62,26 @@ module.exports = function (app, req, res, next) {
     // UPDATE
 
     app.put('/roles', isLoggedIn, function (req, res) {
-
-        var results = [];
-
         var email = req.body.email;
         var firstname = req.body.firstname;
         var lastname = req.body.lastname;
         var role = req.body.role;
-        var id = 'req.body.role';
+        var id = req.body.id;
 
         //SQL Query > SELECT data from table
         pg.connect(connectionString.url, function (err, client, done) {
-            var query = client.query("UPDATE users SET email=$1, firstname=$2, lastname=$3, role=$4 " +
-            "WHERE id=$5", [email, firstname, lastname, role, id]);
-
-            // Stream results back one row at a time, push into results array
-            query.on('row', function (row) {
-                results.push(row);
-            });
-
-            // After all data is returned, close connection and return results
-            query.on('end', function () {
-                client.end();
-                return res.json(results);
-            });
-
-            // Handle Errors
             if (err) {
-                console.log(err);
+                return res.status(500).json({success: false, data: err});
             }
+            client.query("UPDATE users SET email=$1, firstname=$2, lastname=$3, role=$4 " +
+                "WHERE id=$5", [email, firstname, lastname, role, id], function(err, response){
+                    if (err) {
+                        console.log ('error inserting to db', err);
+                        return res.status(500).json({success: false, data: err});
+                    }
+                res.send(true);
+
+            });
         });
 
 
@@ -102,39 +90,23 @@ module.exports = function (app, req, res, next) {
     // DELETE
 
     app.delete('/roles', function (req, res) {
-        console.log(req);
-        var results = [];
-        var email = req.body.id;
+        console.log(req.query);
+        var email = req.query.id;
         pg.connect(connectionString.url, function (err, client, done) {
 
             if (err) {
-                done();
                 console.log(err);
                 return res.status(500).json({success: false, data: err});
             }
 
-            client.query("DELETE FROM users WHERE email=$1", [id], function (err) {
+            client.query("DELETE FROM users WHERE email=$1", [email], function (err) {
                 if (err) {
                     console.log(err);
+                    return res.status(500).json({success: false, data: err})
                 }
                 client.end();
                 return res.send(true);
             });
-            //
-            //// SQL Query > Select Data
-            //var query = client.query("SELECT * FROM people ORDER BY id ASC");
-            //
-            //// Stream results back one row at a time
-            //query.on('row', function (row) {
-            //    results.push(row);
-            //});
-            //
-            //// After all data is returned, close connection and return results
-            //query.on('end', function () {
-            //    done();
-            //    return res.json(results);
-            //});
-            //
 
         });
     });
@@ -146,4 +118,4 @@ function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();
     res.redirect('/');
-};
+}
