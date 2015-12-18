@@ -83,7 +83,7 @@ module.exports = function(grunt) {
                 spawn: false
             },
             scripts: {
-                files: ['client/**/ *.html','client/**/ *.js','client/**/ *.css'],
+                files: ['client/**/*.html','client/**/*.js','client/**/*.css'],
                 tasks: ['copy', 'uglify']
             }
         }
@@ -96,6 +96,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task(s).
-    grunt.registerTask('default', ['copy', 'uglify']);
+    grunt.registerTask('default', ['copy', 'uglify', 'watch']);
 
 };
