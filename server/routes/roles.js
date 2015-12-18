@@ -37,7 +37,7 @@ module.exports = function (app, req, res, next) {
 
     app.post('/roles', isLoggedIn, function (req, res) {
 
-        console.log(req.body);
+        console.log('post' ,req.body);
 
         var results = [];
         var email = req.body.email;
@@ -65,35 +65,26 @@ module.exports = function (app, req, res, next) {
     // UPDATE
 
     app.put('/roles', isLoggedIn, function (req, res) {
-
+        console.log(req.body);
         var results = [];
 
         var email = req.body.email;
         var firstname = req.body.firstname;
         var lastname = req.body.lastname;
         var role = req.body.role;
-        var id = 'req.body.role';
+        var id = req.body.id;
 
         //SQL Query > SELECT data from table
         pg.connect(connectionString.url, function (err, client, done) {
-            var query = client.query("UPDATE users SET email=$1, firstname=$2, lastname=$3, role=$4 " +
-            "WHERE id=$5", [email, firstname, lastname, role, id]);
-
-            // Stream results back one row at a time, push into results array
-            query.on('row', function (row) {
-                results.push(row);
+            client.query("UPDATE users SET email=$1, firstname=$2, lastname=$3, role=$4 " +
+                "WHERE id=$5", [email, firstname, lastname, role, id], function(err, response){
+                    if (err) {
+                        console.log ('error inserting to db', err);
+                        res.send(false);
+                    } else if (!err) {
+                        res.send(true);
+                    }
             });
-
-            // After all data is returned, close connection and return results
-            query.on('end', function () {
-                client.end();
-                return res.json(results);
-            });
-
-            // Handle Errors
-            if (err) {
-                console.log(err);
-            }
         });
 
 
