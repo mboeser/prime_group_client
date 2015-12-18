@@ -24,11 +24,16 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location','DataService', func
             console.log('edited!')
         },
         columnDefs: [
-            { name:'id', field: 'id', enableCellEdit:true},
-            { name:'Role', field: 'role' , enableCellEdit:true},
-            { name:'First Name', field: 'firstname' , enableCellEdit:true},
-            { name:'Last Name', field: 'lastname' , enableCellEdit:true},
-            { name:'Email', field: 'email' , enableCellEdit:true}
+            { name:'id', field: 'id', enableCellEdit: false},
+            { name:'role', field: 'role' , editableCellTemplate: 'ui-grid/dropdownEditor', editDropdownValueLabel: 'role',
+
+                editDropdownOptionsArray: [
+                { id: 'admin', role: 'Admin' },
+                { id: 'teacher', role: 'Teacher' }
+            ]},
+            { name:'First Name', field: 'firstname' , enableCellEdit: true},
+            { name:'Last Name', field: 'lastname' , enableCellEdit: true},
+            { name:'Email', field: 'email' , enableCellEdit: true}
         ]
     };
 

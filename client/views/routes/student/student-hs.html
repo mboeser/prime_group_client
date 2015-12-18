@@ -7,42 +7,42 @@
             <div layout="column"  layout-align="center center">
                 <md-input-container class="student-form-column">
                     <label>First Name</label>
-                    <input type="text">
+                    <input type="text" value={{student.student_firstname}}>
                 </md-input-container>
                 <md-input-container class="student-form-column">
                     <label>Last Name</label>
-                    <input type="text">
+                    <input type="text" value={{student.student_lastname}}>
                 </md-input-container>
             </div>
             <div layout="column"   layout-align="center center" >
                 <md-input-container class="student-form-column">
                     <label>Phone 1</label>
-                    <input type="text">
+                    <input type="text" value={{student.phone1}}>
                 </md-input-container>
                 <md-input-container class="student-form-column">
                     <label>Phone 2</label>
-                    <input type="text">
+                    <input type="text" value={{student.phone2}}>
                 </md-input-container>
             </div>
         </div>
         <div layout="column" >
             <md-input-container>
                 <label>Street</label>
-                <input type="text">
+                <input type="text" value={{student.street}}>
             </md-input-container>
         </div>
         <div >
             <md-input-container>
                 <label>City</label>
-                <input type="text">
+                <input type="text" value={{student.city}}>
             </md-input-container>
             <md-input-container>
                 <label>State</label>
-                <input type="text">
+                <input type="text" value={{student.state}}>
             </md-input-container>
             <md-input-container>
                 <label>Zip</label>
-                <input type="text">
+                <input type="text" value={{student.zip}}>
             </md-input-container>
         </div>
     </section>
@@ -51,13 +51,13 @@
             <div layout="column">
                 <md-input-container>
                     <label>Administration Notes</label>
-                    <textarea></textarea>
+                    <textarea>{{student.admin_notes}}</textarea>
                 </md-input-container>
             </div>
             <div layout="column">
                 <md-input-container>
                     <label>Attendance Notes</label>
-                    <textarea></textarea>
+                    <textarea>{{student.attendance_notes}}</textarea>
                 </md-input-container>
             </div>
         </div>
@@ -73,19 +73,19 @@
         <div layout="column">
             <md-input-container>
                 <label>Made Contact</label>
-                <input type="text">
+                <input type="text" value={{student.contact_1st}}>
             </md-input-container>
         </div>
         <div layout="column">
             <md-input-container>
                 <label>Medium Of Contact</label>
-                <input type="text">
+                <input type="text" value={{student.medium_1st}}>
             </md-input-container>
         </div>
         <div layout="column">
             <md-input-container>
                 <label>Questions / Concerns</label>
-                <textarea></textarea>
+                <textarea>{{student.questions_1st}}</textarea>
             </md-input-container>
         </div>
     </section>
@@ -98,19 +98,19 @@
         <div  layout="column" >
             <md-input-container>
                 <label>Made Contact</label>
-                <input type="text">
+                <input type="text" value={{student.contact_2nd}}>
             </md-input-container>
         </div>
         <div  layout="column" >
             <md-input-container>
                 <label>Medium Of Contact</label>
-                <input type="text">
+                <input type="text" value={{student.medium_2nd}}>
             </md-input-container>
         </div>
         <div  layout="column">
             <md-input-container>
                 <label>Questions / Concerns</label>
-                <textarea></textarea>
+                <textarea>{{student.questions_2nd}}</textarea>
             </md-input-container>
         </div>
     </section>
