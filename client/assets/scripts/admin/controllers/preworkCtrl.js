@@ -40,8 +40,21 @@ myApp.controller('preworkCtrl', ['$scope', '$http', '$location','DataService', f
     };
 
     $scope.gridOptions.data = $scope.dataService.getData();
-    console.log($scope.gridOptions.data);
-    console.log($scope.studentList);
+
+
+    $scope.saveRow = function( rowEntity ) {
+        var promise = $http.put('/student', rowEntity).then(function(response){
+           console.log(response);
+        });
+        $scope.gridApi.rowEdit.setSavePromise( rowEntity, promise);
+    };
+
+    $scope.gridOptions.onRegisterApi = function(gridApi){
+        //set gridApi on scope
+        $scope.gridApi = gridApi;
+        gridApi.rowEdit.on.saveRow($scope, $scope.saveRow);
+    };
+
 
     $scope.openStudent = function(student){
         $http.get('/student', {params: {who: student}}).then(function(response){
