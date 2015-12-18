@@ -1,4 +1,6 @@
 <section>
     <h3>Select A Teacher</h3>
-    <div ng-repeat="teacher in teachers track by $index" ng-click="selectTeacher(teacher)"></div>
+    <div ng-repeat="teacher in teachers track by $index" ng-click="selectTeacher(teacher)">
+        <p>{{teacher.firstname}} , {{teacher.teacher_email}}</p>
+    </div>
 </section>
