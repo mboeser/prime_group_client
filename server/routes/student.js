@@ -63,6 +63,20 @@ module.exports = function (app, req, res, next) {
             });
         });
 
+        app.put('/updateBus', isLoggedIn, function(req, res){
+            var column = req.body['params']['column'];
+            var value = req.body['params']['value'];
+            var id = req.body['params']['id'];
+
+            pg.connect(connectionString.url, function (err, client, done) {
+                client.query("UPDATE busses SET " + column + "=$1 WHERE id=$2", [value, id], function (err) {
+                    if (err) console.log(err);
+                    client.end();
+                    res.send(true);
+                });
+            });
+        });
+
     });
 };
 
