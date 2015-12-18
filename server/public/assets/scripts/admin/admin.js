@@ -1,5 +1,9 @@
 //ADMIN APPLICATION
+<<<<<<< HEAD
 var myApp = angular.module('myApp', ['ngTouch', 'ngRoute', 'ngMaterial', 'ngMessages', 'ngFileUpload','ui.grid', 'ui.grid.edit', 'ui.grid.resizeColumns', 'ui.grid.moveColumns']);
+=======
+var myApp = angular.module('myApp', ['ngRoute',  'ngMaterial', 'ngMessages', 'ngFileUpload','ui.grid', 'ui.grid.edit', 'ui.grid.rowEdit']);
+>>>>>>> master
 
 myApp.config(['$routeProvider', function($routeProvider){
     $routeProvider

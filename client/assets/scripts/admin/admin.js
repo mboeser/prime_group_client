@@ -1,5 +1,5 @@
 //ADMIN APPLICATION
-var myApp = angular.module('myApp', ['ngTouch', 'ngRoute', 'ngMaterial', 'ngMessages', 'ngFileUpload','ui.grid', 'ui.grid.edit', 'ui.grid.resizeColumns', 'ui.grid.moveColumns']);
+var myApp = angular.module('myApp', ['ngTouch', 'ngRoute', 'ngMaterial', 'ngMessages', 'ngFileUpload','ui.grid', 'ui.grid.edit', 'ui.grid.rowEdit', 'ui.grid.resizeColumns', 'ui.grid.moveColumns']);
 
 myApp.config(['$routeProvider', function($routeProvider){
     $routeProvider
