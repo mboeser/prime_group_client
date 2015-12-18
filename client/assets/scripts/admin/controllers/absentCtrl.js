@@ -47,7 +47,7 @@ myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', function($scop
 
 
     $scope.saveRow = function( rowEntity ) {
-        var promise = $http.put('/updateStudent/inline', rowEntity).then(function(response){
+        var promise = $http.put('/updateAbsent', rowEntity).then(function(response){
             console.log(response);
         });
         $scope.gridApi.rowEdit.setSavePromise( rowEntity, promise);
