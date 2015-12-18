@@ -4,7 +4,9 @@
         Classes
         <hr/>
         <div>List Of Upcoming Classes Here </div>
-        <div ng-repeat="class in classes track by $index" ng-click="selectClass(class)"></div>
+        <div ng-repeat="class in classes">
+           <class-profile info="class"></class-profile>
+        </div>
         <div>
             <md-input-container>
                 <md-button  class="md-raised md-primary" >Today's Attendance</md-button>

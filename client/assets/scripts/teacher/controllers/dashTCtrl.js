@@ -1,4 +1,4 @@
-myApp.controller('dashTCtrl', ['$scope', '$http', 'DataService', function ($scope, $http, DataService) {
+myApp.controller('dashTCtrl', ['$scope', '$http', 'DataService', '$location', function ($scope, $http, DataService, $location) {
     console.log('on teacher dash controller--dashTCtrl.js');
 
     $scope.dataService = DataService;
@@ -23,16 +23,17 @@ myApp.controller('dashTCtrl', ['$scope', '$http', 'DataService', function ($scop
             for (var i=0; i<response.data.length; i++){
                 $scope.classes.push((response.data[i].class_date).slice(0, 10));
             };
-            console.log($scope.classes);
+            console.log("This is classes", $scope.classes);
         });
     };
 
 //Teacher selects a class. DataService form data reset to match incoming students for next page.
     $scope.selectClass = function(date){
-        date='2015-01-09';//hard coded for testing.
+        console.log("This is date", date);
         $http.get('/teacher_prework', {params: {'date': date}}).then(function(response){
             $scope.dataService.setData(response.data);
             console.log("This is getData", $scope.dataService.getData());
+            $location.path('/class');
         });
     };
 
@@ -45,6 +46,7 @@ myApp.controller('dashTCtrl', ['$scope', '$http', 'DataService', function ($scop
 
 
     $scope.getClasses();
-    $scope.selectClass();//only present for testing at the moment.
+
 
 }]);
+

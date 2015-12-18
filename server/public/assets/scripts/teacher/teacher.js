@@ -27,3 +27,16 @@ myApp.config(['$routeProvider', function($routeProvider){
 
         .otherwise('dashboard');
 }]);
+
+myApp.directive('classProfile',
+    function(){
+        return{
+            controller: 'dashTCtrl',
+            restrict: 'E',
+            scope: {
+                info: '='
+            },
+            templateUrl: 'classProfile.html'
+        }
+    }
+);
