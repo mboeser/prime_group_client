@@ -76,6 +76,10 @@ module.exports = function (app, req, res, next) {
 
         //SQL Query > SELECT data from table
         pg.connect(connectionString.url, function (err, client, done) {
+            if (err) {
+                console.log(err);
+                res.send(false);
+            }
             client.query("UPDATE users SET email=$1, firstname=$2, lastname=$3, role=$4 " +
                 "WHERE id=$5", [email, firstname, lastname, role, id], function(err, response){
                     if (err) {
