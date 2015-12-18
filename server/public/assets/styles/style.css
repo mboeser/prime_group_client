@@ -174,19 +174,15 @@ md-switch.md-default-theme.md-hue-1.md-checked, md-switch.md-hue-1.md-checked .m
     padding: 30px;
     text-align: center;
 }
-<<<<<<< HEAD
-=======
-#sign-in-google-logo{
-    width: 75%;
-}
-.delete-button{
-    color: #FFF;
-    background-color: #0082C9;
-    border: 0px;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
-}
->>>>>>> master
 
 #sign-in-google-logo {
     width: 75%;
+}
+
+.delete-button {
+    color: #fff;
+    background-color: #0082C9;
+    border: 0px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
+
 }
