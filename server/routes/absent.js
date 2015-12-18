@@ -45,7 +45,7 @@ module.exports = function (app, req, res, next) {
 
         console.log("req.body in adminPrework", req.body);
         var teachername = req.body.lastname;
-        console.log(teachername);
+        console.log("This is teachername", teachername);
         var studentID = req.body.id;
         var sfirstname = req.body.student_firstname;
         var slastname = req.body.student_lastname;
@@ -78,7 +78,7 @@ module.exports = function (app, req, res, next) {
             //update the attendance table.
             client.query("UPDATE attendance " +
                 "SET (contact_status, homework_sent, excused, attendance_notes) = ($1, $2, $3, $4) " +
-                "WHERE id=$3;", [contact_status, homework, excused, attendance_notes, studentID],
+                "WHERE id=$5;", [contact_status, homework, excused, attendance_notes, studentID],
                 function(err){
                     if (err) console.log(err);
                     client.end();
