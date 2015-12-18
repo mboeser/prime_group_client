@@ -4,6 +4,7 @@ myApp.controller('preworkCtrl', ['$scope', '$http', '$location','DataService', f
     $scope.dataService = DataService;
     $scope.user = {};
     $scope.date = $scope.dataService.getDate();
+    console.log("This is the date you are asking for", $scope.date);
 
     $scope.user = $scope.dataService.peopleData();
 
