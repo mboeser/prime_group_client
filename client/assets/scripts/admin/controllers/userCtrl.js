@@ -42,7 +42,7 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', fun
             },
 
             { name: 'Email', field: 'email', minWidth: 200, maxWidth: 350, enableCellEdit: true},
-            {  name: 'Delete User', field: 'DeleteUser', width: '10%', enableSorting: false, enableHiding: false, enableColumnResizing: false,
+            {  name: '', field: 'DeleteUser', width: '10%', enableSorting: false, enableHiding: false, enableColumnResizing: false,
                 cellTemplate:'<button style="margin-left: 40%; " class="delete-button" ng-click="grid.appScope.deleteUser(person)">Delete</button>' }
         ]
     };

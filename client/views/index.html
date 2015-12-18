@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="/vendors/angular-ui-grid/ui-grid.min.css"/>
     <link rel="stylesheet" href="/assets/styles/style.css"/>
     <link rel="shortcut icon" type="image/png" href="../images/favicon.ico"/>
+    <script src="/vendors/angular/angular.min.js"></script>
 </head>
 <body ng-controller="loginCtrl">
 <header ng-include="'/views/templates/header.html'">
 </header>
 
-<section id="login-form" ng-cloak>
+<section id="login-form" ng-cloak="">
     <div>
         Welcome To Breakthrough Twin Cities
     </div>
@@ -31,7 +32,7 @@
 <footer ng-include="'/views/templates/footer.html'">
 
 </footer>
-<script src="/vendors/angular/angular.min.js"></script>
+
 <script src="/vendors/angular-animate/angular-animate.min.js"></script>
 <script src="/vendors/angular-material/angular-material.min.js"></script>
 <script src="/vendors/angular-route/angular-route.min.js"></script>
