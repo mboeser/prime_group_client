@@ -56,28 +56,26 @@ module.exports = function (app, req, res, next) {
         pg.connect(connectionString.url, function(err, client){
             //update the users table if firstname of teacher is changed
             client.query("UPDATE users " +
-            "SET lastname='$1' " +
-            "FROM students " +
-            "WHERE students.id=$2 " +
-            "AND users.email=students.teacher_email", [teachername, studentID],
+            "SET lastname='" + teachername +
+            "' FROM students " +
+            "WHERE students.id=$1 " +
+            "AND users.email=students.teacher_email", [studentID],
                 function(err){
                 if (err) console.log(err);
-                    client.end();
             });
 
             //update the students table if student information is changed.
             client.query("UPDATE students " +
-            "SET (student_firstname, student_lastname, phone1) = ($3, $4, $5) " +
-            "WHERE id=$2;", [sfirstname, slastname, phone],
+            "SET (student_firstname, student_lastname, phone1) = ($1, $2, $3) " +
+            "WHERE id=$4;", [sfirstname, slastname, phone, studentID],
             function(err){
                 if (err) console.log(err);
-                client.end();
             });
 
             //update the attendance table.
             client.query("UPDATe attendance " +
-            "SET (contact_status, admin_notes) = ($6, $7) " +
-            "WHERE id=$2;", [contact_status, admin_notes],
+            "SET (contact_status, admin_notes) = ($1, $2) " +
+            "WHERE id=$3;", [contact_status, admin_notes, studentID],
             function(err){
                 if (err) console.log(err);
                 client.end();
