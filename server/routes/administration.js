@@ -9,7 +9,8 @@ module.exports = function (app, req, res, next) {
 
         console.log('admin',req.query.date);
 
-        var date = '2015-01-09';
+        var date = req.query.date;
+        console.log("This is the date you requested",date);
         var results = [];
 
         pg.connect(connectionString.url, function (err, client, done) {
