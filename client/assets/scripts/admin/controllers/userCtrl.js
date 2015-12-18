@@ -19,7 +19,7 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location','DataService', func
 
     $scope.gridOptions = {
         enableSorting: true,
-        enableCellEdit: true,
+
         dataUpdated: function(){
             console.log('edited!')
         },
