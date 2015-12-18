@@ -33,6 +33,4 @@ myApp.controller('teacherCtrl', ['$scope', '$http', '$location','DataService', f
     };
 
     $scope.getTeachers();
-
-
 }]);
