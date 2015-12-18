@@ -40,6 +40,8 @@ module.exports = function(grunt) {
                     "angular-ui-grid/ui-grid.min.css",
                     "angular-ui-grid/ui-grid.min.js",
                     "ng-file-upload/dist/ng-file-upload.min.js",
+                    "angular-touch/angular-touch.min.js",
+                    "angular-touch/angular-touch.min.js.map"
                 ],
                 "dest": "server/public/vendors/"
             },
