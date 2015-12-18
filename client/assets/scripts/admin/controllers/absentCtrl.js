@@ -17,9 +17,8 @@ myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', function($scop
     var notCalledTemplate = '<div ng-if="row.entity.contact_status">{{row.entity.contact_status}}</div>' +
         '<div ng-if="!row.entity.contact_status">Not Yet Called</div>';
 
-    var excusedCheckbox = '<md-checkbox ng-true-value="Yes" ng-false-value="No" type="checkbox" name="excused" >Yes</md-checkbox>';
-    var homeworkCheckbox = '<md-checkbox ng-true-value="Yes" ng-false-value="No" type="checkbox" name="homework_sent" >Yes</md-checkbox>';
-
+    var excusedCheckbox = "<md-checkbox ng-model='excused.yes' ng-true-value='1' ng-false-value='0' class='md-warn md-hue2' type='checkbox' name='excused' >Yes</md-checkbox>"; 
+    var homeworkCheckbox = "<md-checkbox  ng-model='homework_sent.yes' ng-true-value='1' ng-false-value='0' class='md-warn md-hue2' type='checkbox' name='homework_sent' >Yes</md-checkbox>";
 
     $scope.gridOptions = {
         enableSorting: true,
