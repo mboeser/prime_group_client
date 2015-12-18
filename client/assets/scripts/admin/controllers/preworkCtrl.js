@@ -13,8 +13,29 @@ myApp.controller('preworkCtrl', ['$scope', '$http', '$location','DataService', f
             console.log($scope.user);
         });
     }
+    $scope.gridOptions = {
+        enableSorting: true,
 
-    $scope.studentList = $scope.dataService.getData();
+        columnDefs: [
+            { name:'id', field: 'id', enableCellEdit: false },
+            { name:'Teacher', field: 'teacher_name' , enableCellEdit:true},
+            { name:'First Name', field: 'firstname' , enableCellEdit:true},
+            { name:'Last Name', field: 'lastname' , enableCellEdit:true},
+            { name:'Phone 1', field: 'phone1' , enableCellEdit:true},
+            { name:'Call Status', field: 'contact_status' , enableCellEdit:true,
+                editableCellTemplate: 'ui-grid/dropdownEditor',
+                editDropdownValueLabel: 'contact_status',
+                editDropdownOptionsArray: [
+                    { id: 'notyet', contact_status: 'Not Yet Called' },
+                    { id: 'reached', contact_status: 'Reached' },
+                    { id: 'leftmessage', contact_status: 'Left Message' }
+                ]},
+            { name:'Administration Notes', field: 'admin_notes' , enableCellEdit:true}
+        ]
+    };
+
+    $scope.gridOptions.data = $scope.dataService.getData();
+    console.log($scope.gridOptions.data);
     console.log($scope.studentList);
 
     $scope.openStudent = function(student){

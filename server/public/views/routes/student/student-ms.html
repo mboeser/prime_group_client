@@ -76,7 +76,7 @@
         <div layout="column">
             <md-input-container>
                 <label>Contact Status</label>
-                <input type="text" value={{student.contact_status}}>
+                <input type="text" ng-blur="updateContactStatus(contact_status)" ng-model="contact_status" value={{student.contact_status}}>
             </md-input-container>
         </div>
         <div layout="column">
@@ -88,13 +88,13 @@
         <div layout="column">
             <md-input-container>
                 <label>Attendance Notes</label>
-                <textarea>{{student.attedance_notes}}</textarea>
+                <textarea ng-blur="updateAttendanceNotes(attendanceNotes)" ng-model="attendanceNotes">{{student.attedance_notes}}</textarea>
             </md-input-container>
         </div>
         <section layout="column">
             <md-input-container>
                 <label>Confirmed For Saturday</label>
-                <input type="text" value={{student.saturday_attendance}}>
+                <input type="text" ng-blur="updateConfirm(saturday_attendance)" ng-model="saturday_attendance" value={{student.saturday_attendance}}>
             </md-input-container>
         </section>
     </section>
