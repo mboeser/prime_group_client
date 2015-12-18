@@ -21,9 +21,6 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', fun
         enableSorting: true,
         enableColumnResizing: true,
 
-        dataUpdated: function () {
-            console.log('edited!')
-        },
         columnDefs: [
 
             {name: 'First Name', field: 'firstname', width: '20%', enableCellEdit: true},
