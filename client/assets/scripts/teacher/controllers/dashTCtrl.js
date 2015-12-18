@@ -22,7 +22,7 @@ myApp.controller('dashTCtrl', ['$scope', '$http', 'DataService', '$location', fu
             console.log("response from server", response.data);
             for (var i=0; i<response.data.length; i++){
                 $scope.classes.push((response.data[i].class_date).slice(0, 10));
-            };
+            }
             console.log("This is classes", $scope.classes);
         });
     };

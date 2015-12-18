@@ -17,16 +17,18 @@ myApp.controller('preworkCtrl', ['$scope', '$http', '$location','DataService', f
     var notCalledTemplate = '<div ng-if="row.entity.contact_status">{{row.entity.contact_status}}</div>' +
         '<div ng-if="!row.entity.contact_status">Not Yet Called</div>';
 
+    var expandStudentTemplate = '<div class="ui-grid-cell-contents" ng-click="grid.appScope.getDetails(row.entity)">{{row.entity.id}}</div>'
+
 
     $scope.gridOptions = {
         enableSorting: true,
 
         columnDefs: [
             { name:'id', field: 'id', enableCellEdit: false,
-                cellTemplate: '<button class="btn primary" ng-click="grid.appScope.getDetails(row.entity)">{{row.entity.id}}</button>'  },
-            { name:'Teacher', field: 'lastname' , enableCellEdit:true},
-            { name:'First Name', field: 'student_firstname' , enableCellEdit:true},
-            { name:'Last Name', field: 'student_lastname' , enableCellEdit:true},
+                cellTemplate: expandStudentTemplate},
+            { name:'Teacher', field: 'lastname' , enableCellEdit:false},
+            { name:'First Name', field: 'student_firstname' , enableCellEdit:false},
+            { name:'Last Name', field: 'student_lastname' , enableCellEdit:false},
             { name:'Phone 1', field: 'phone1' , enableCellEdit:true},
             { name:'Call Status', field: 'contact_status' ,   cellTemplate: notCalledTemplate , enableCellEdit:true,
                 editableCellTemplate: 'ui-grid/dropdownEditor',
@@ -58,11 +60,10 @@ myApp.controller('preworkCtrl', ['$scope', '$http', '$location','DataService', f
 
 
     $scope.getDetails = function(student){
-        console.log(student);
-        //$http.get('/student', {params: {who: student}}).then(function(response){
-        //    console.log(response.data);
-        //    $scope.dataService.setData(response.data);
-        //
+        //THIS IS BEYOND SCOPE OF PROJECT, will need new route, html, etc
+        //$scope.dataService.setData(student);
+        //$location.path('/');
+
         //});
     }
 
