@@ -37,6 +37,8 @@ module.exports = function (app, req, res, next) {
         })
     });
 
+
+
     app.put('/updateStudent/inline', isLoggedIn, function (req, res) {
         console.log("This is req.body", req.body);
         res.send(true);
@@ -48,21 +50,23 @@ module.exports = function (app, req, res, next) {
             });
         });
 
-        app.put('/updateStudent', isLoggedIn, function (req, res) {
-            console.log("This is req.body", req.body);
-            var column = req.body['params']['column'];
-            var value = req.body['params']['value'];
-            var id = req.body['params']['id'];
 
-            pg.connect(connectionString.url, function (err, client, done) {
-                client.query("UPDATE attendance SET " + column + "=$1 WHERE id=$2", [value, id], function (err) {
-                    if (err) console.log(err);
-                    client.end();
-                    res.send(true);
-                });
+
+    });
+
+    app.put('/updateStudent', isLoggedIn, function (req, res) {
+        console.log("This is req.body", req.body);
+        var column = req.body['params']['column'];
+        var value = req.body['params']['value'];
+        var id = req.body['params']['id'];
+
+        pg.connect(connectionString.url, function (err, client, done) {
+            client.query("UPDATE attendance SET " + column + "=$1 WHERE id=$2", [value, id], function (err) {
+                if (err) console.log(err);
+                client.end();
+                res.send(true);
             });
         });
-
     });
 };
 

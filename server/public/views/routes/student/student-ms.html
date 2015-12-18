@@ -8,21 +8,21 @@
                 <div layout="column" flex>
                     <md-input-container>
                         <label>First Name</label>
-                        <input type="text" value={{student.student_firstname}}>
+                        <input type="text" ng-model="student.student_firstname">
                     </md-input-container>
                     <md-input-container>
                         <label>Last Name</label>
-                        <input type="text" value={{student.student_lastname}}>
+                        <input type="text" ng-model="student.student_lastname">
                     </md-input-container>
                 </div>
                 <div layout="column" flex>
                     <md-input-container>
                         <label>Phone 1</label>
-                        <input type="text" value={{student.student_phone1}}>
+                        <input type="text" ng-model="student.student_phone1">
                     </md-input-container>
                     <md-input-container>
                         <label>Phone 2</label>
-                        <input type="text" value={{student.student_phone2}}>
+                        <input type="text" ng-model="student.student_phone2">
                     </md-input-container>
                 </div>
             </section>
@@ -31,21 +31,21 @@
                 <div layout="column" >
                     <md-input-container>
                         <label>Street</label>
-                        <input type="text" value={{student.street}}>
+                        <input type="text" ng-model="student.street">
                     </md-input-container>
                 </div>
                 <div layout="column">
                     <md-input-container>
                         <label>City</label>
-                        <input type="text" value={{student.city}}>
+                        <input type="text" ng-model="student.city">
                     </md-input-container>
                     <md-input-container>
                         <label>State</label>
-                        <input type="text" value={{student.state}}>
+                        <input type="text" ng-model="student.state"/>
                     </md-input-container>
                     <md-input-container>
                         <label>Zip</label>
-                        <input type="text" value={{student.zip}}>
+                        <input type="text" ng-model="student.zip"/>
                     </md-input-container>
                 </div>
             </div>
@@ -56,19 +56,19 @@
         <section class="student-form-section" layout="column" >
             <md-input-container>
                 <label>Bus Route</label>
-                <input type="text" value={{student.bus_route}}>
+                <input type="text" ng-model="student.bus_route"/>
             </md-input-container>
             <md-input-container>
                 <label>Bus Stop</label>
-                <input type="text" value={{student.bus_stop}}>
+                <input type="text" ng-model="student.bus_stop"/>
             </md-input-container>
             <md-input-container>
                 <label>Pick Up</label>
-                <input type="text" value={{student.pick_up}}>
+                <input type="text" ng-model="student.pick_up"/>
             </md-input-container>
             <md-input-container>
                 <label>Drop Off</label>
-                <input type="text" value={{student.drop_off}}>
+                <input type="text" ng-model="student.drop_off"/>
             </md-input-container>
         </section>
 
@@ -77,31 +77,31 @@
             <div layout="column">
                 <md-input-container>
                     <label>Contact Status</label>
-                    <input type="text" ng-blur="updateContactStatus(contact_status)" ng-model="contact_status" value={{student.contact_status}}>
+                    <input type="text" ng-blur="updateNotes('contact_status', student.contact_status)" ng-model="student.contact_status"/>
                 </md-input-container>
             </div>
             <div layout="column">
                 <md-input-container>
                     <label>Administration Notes</label>
-                    <textarea ng-blur="updateAdminNotes(adminNotes)" ng-model="adminNotes">{{student.admin_notes}}</textarea>
+                    <textarea ng-blur="updateNotes('admin_notes', student.admin_notes)" ng-model="student.admin_notes"></textarea>
                 </md-input-container>
             </div>
             <div layout="column">
                 <md-input-container>
                     <label>Attendance Notes</label>
-                    <textarea ng-blur="updateAttendanceNotes(attendanceNotes)" ng-model="attendanceNotes">{{student.attedance_notes}}</textarea>
+                    <textarea ng-blur="updateNotes('attendance_notes',student.attendance_notes)" ng-model="student.attendance_notes"></textarea>
                 </md-input-container>
             </div>
             <section layout="column">
                 <md-input-container>
                     <label>Confirmed For Saturday</label>
-                    <input type="text" ng-blur="updateConfirm(saturday_attendance)" ng-model="saturday_attendance" value={{student.saturday_attendance}}>
+                    <input type="text" ng-blur="updateNotes('saturday_attendance',student.saturday_attendance)" ng-model="student.saturday_attendance"/>
                 </md-input-container>
             </section>
         </section>
         <div class="header-button" flex="30">
             <md-input-container >
-                <md-button  href="save()" class="md-raised md-primary" >
+                <md-button  class="md-raised md-primary" >
                     Update Student
                 </md-button>
             </md-input-container>
