@@ -17,6 +17,8 @@ myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', function($scop
     var notCalledTemplate = '<div ng-if="row.entity.contact_status">{{row.entity.contact_status}}</div>' +
         '<div ng-if="!row.entity.contact_status">Not Yet Called</div>';
 
+    var excusedCheckbox = "<md-checkbox ng-model='excused.yes' ng-true-value='1' ng-false-value='0' class='md-warn md-hue2' type='checkbox' name='excused' >Yes</md-checkbox>"; 
+    var homeworkCheckbox = "<md-checkbox  ng-model='homework_sent.yes' ng-true-value='1' ng-false-value='0' class='md-warn md-hue2' type='checkbox' name='homework_sent' >Yes</md-checkbox>";
 
     $scope.gridOptions = {
         enableSorting: true,
@@ -35,6 +37,8 @@ myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', function($scop
                     { id: 'Reached', contact_status: 'Reached' },
                     { id: 'Left Message', contact_status: 'Left Message' }
                 ]},
+            { name:'Homework Sent', field: 'homework_sent' , cellTemplate: homeworkCheckbox, enableCellEdit:true},
+            { name:'Excused', field: 'excused' , cellTemplate: excusedCheckbox, enableCellEdit:true},
             { name:'Attendance Notes', field: 'attendance_notes' , enableCellEdit:true}
         ]
     };
@@ -43,7 +47,7 @@ myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', function($scop
 
 
     $scope.saveRow = function( rowEntity ) {
-        var promise = $http.put('/updateStudent/inline', rowEntity).then(function(response){
+        var promise = $http.put('/updateAbsent', rowEntity).then(function(response){
             console.log(response);
         });
         $scope.gridApi.rowEdit.setSavePromise( rowEntity, promise);

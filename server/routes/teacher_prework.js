@@ -43,7 +43,7 @@ module.exports = function (app, req, res, next) {
 
 // route middleware to ensure user is logged in
 function isLoggedIn(req, res, next) {
-    console.log('prework loggin')
+    console.log('prework loggin');
     if (req.isAuthenticated())
         return next();
 

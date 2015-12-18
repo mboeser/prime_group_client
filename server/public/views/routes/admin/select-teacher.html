@@ -1,6 +1,10 @@
 <section>
     <h3>Select A Teacher</h3>
-    <div ng-repeat="teacher in teachers track by $index" ng-click="selectTeacher(teacher)">
-        <p>{{teacher.firstname}} , {{teacher.teacher_email}}</p>
-    </div>
+    <md-content>
+        <md-input-container>
+            <div ng-repeat="teacher in teachers track by $index" ng-click="selectTeacher(teacher)">
+                <md-button class="md-raised md-primary"><strong>{{teacher.firstname  }}</strong>&nbsp;(&nbsp;{{teacher.teacher_email | lowercase }}&nbsp;)&nbsp;|&nbsp;Class Date:&nbsp;{{teacher.class_date | date }}</md-button>
+            </div>
+        </md-input-container>
+    </md-content>
 </section>

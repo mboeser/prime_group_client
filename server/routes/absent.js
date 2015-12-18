@@ -11,7 +11,7 @@ module.exports = function (app, req, res, next) {
 
         console.log('absent', req.query.date);
 
-        var date = '2015-01-09';
+        var date = req.query.date;
         var results = [];
 
         pg.connect(connectionString.url, function (err, client, done) {
@@ -39,7 +39,53 @@ module.exports = function (app, req, res, next) {
                 console.log(err);
             }
         })
-    })
+    });
+
+    app.put('/updateAbsent', isLoggedIn, function(req, res){
+
+        console.log("req.body in adminPrework", req.body);
+        var teachername = req.body.lastname;
+        console.log(teachername);
+        var studentID = req.body.id;
+        var sfirstname = req.body.student_firstname;
+        var slastname = req.body.student_lastname;
+        var phone = req.body.phone1;
+        var contact_status = req.body.contact_status;
+        var attendance_notes = req.body.attendance_notes;
+        var excused = req.body.excused;
+        var homework = req.body.homework_sent;
+
+
+        pg.connect(connectionString.url, function(err, client){
+            //update the users table if firstname of teacher is changed
+            client.query("UPDATE users " +
+                "SET lastname='" + teachername +
+                "' FROM students " +
+                "WHERE students.id=$1 " +
+                "AND users.email=students.teacher_email", [studentID],
+                function(err){
+                    if (err) console.log(err);
+                });
+
+            //update the students table if student information is changed.
+            client.query("UPDATE students " +
+                "SET (student_firstname, student_lastname, phone1) = ($1, $2, $3) " +
+                "WHERE id=$4;", [sfirstname, slastname, phone, studentID],
+                function(err){
+                    if (err) console.log(err);
+                });
+
+            //update the attendance table.
+            client.query("UPDATE attendance " +
+                "SET (contact_status, homework_sent, excused, attendance_notes) = ($1, $2, $3, $4) " +
+                "WHERE id=$3;", [contact_status, homework, excused, attendance_notes, studentID],
+                function(err){
+                    if (err) console.log(err);
+                    client.end();
+                });
+        });
+        res.send(true);
+    });
 };
 
 // route middleware to ensure user is logged in

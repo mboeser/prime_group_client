@@ -1,5 +1,5 @@
 //TEACHER APP
-var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMessages']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMessages', 'ui.grid', 'ui.grid.edit', 'ui.grid.rowEdit', 'ui.grid.resizeColumns', 'ui.grid.moveColumns']);
 
 myApp.config(['$routeProvider', function($routeProvider){
     $routeProvider

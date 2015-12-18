@@ -4,6 +4,7 @@ myApp.controller('preworkCtrl', ['$scope', '$http', '$location','DataService', f
     $scope.dataService = DataService;
     $scope.user = {};
     $scope.date = $scope.dataService.getDate();
+    console.log("This is the date you are asking for", $scope.date);
 
     $scope.user = $scope.dataService.peopleData();
 
@@ -17,7 +18,7 @@ myApp.controller('preworkCtrl', ['$scope', '$http', '$location','DataService', f
     var notCalledTemplate = '<div ng-if="row.entity.contact_status">{{row.entity.contact_status}}</div>' +
         '<div ng-if="!row.entity.contact_status">Not Yet Called</div>';
 
-    var expandStudentTemplate = '<div class="ui-grid-cell-contents" ng-click="grid.appScope.getDetails(row.entity)">{{row.entity.id}}</div>'
+    var expandStudentTemplate = '<div class="ui-grid-cell-contents" ng-click="grid.appScope.getDetails(row.entity)">{{row.entity.id}}</div>';
 
 
     $scope.gridOptions = {
