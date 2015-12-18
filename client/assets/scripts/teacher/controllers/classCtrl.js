@@ -18,6 +18,51 @@ myApp.controller('classCtrl', ['$scope', '$http', 'DataService', '$location', fu
         });
     }
 
+
+    var notCalledTemplate = '<div ng-if="row.entity.contact_status">{{row.entity.contact_status}}</div>' +
+        '<div ng-if="!row.entity.contact_status">Not Yet Called</div>';
+
+    var expandStudentTemplate = '<div class="ui-grid-cell-contents" ng-click="grid.appScope.selectStudent(row.entity.id)">{{row.entity.id}}</div>';
+
+
+    $scope.gridOptions = {
+        enableSorting: true,
+
+        columnDefs: [
+            { name:'id', field: 'id', enableCellEdit: false,
+                cellTemplate: expandStudentTemplate},
+            { name:'First Name', field: 'student_firstname' , enableCellEdit:false},
+            { name:'Last Name', field: 'student_lastname' , enableCellEdit:false},
+            { name:'Phone 1', field: 'phone1' , enableCellEdit:true},
+            { name:'Call Status', field: 'contact_status' ,   cellTemplate: notCalledTemplate , enableCellEdit:true,
+                editableCellTemplate: 'ui-grid/dropdownEditor',
+                editDropdownValueLabel: 'contact_status',
+                editDropdownOptionsArray: [
+                    { id: 'Not Yet Called', contact_status: 'Not Yet Called' },
+                    { id: 'Reached', contact_status: 'Reached' },
+                    { id: 'Left Message', contact_status: 'Left Message' }
+                ]},
+            { name:'Administration Notes', field: 'admin_notes' , enableCellEdit:true}
+        ]
+    };
+
+    $scope.gridOptions.data = $scope.dataService.getData();
+
+
+    $scope.saveRow = function( rowEntity ) {
+        var promise = $http.put('/adminPrework', rowEntity).then(function(response){
+            console.log(response);
+        });
+        $scope.gridApi.rowEdit.setSavePromise( rowEntity, promise);
+    };
+
+    $scope.gridOptions.onRegisterApi = function(gridApi){
+        //set gridApi on scope
+        $scope.gridApi = gridApi;
+        gridApi.rowEdit.on.saveRow($scope, $scope.saveRow);
+    };
+
+
     //This will retrieve the student information of the student the user clicked on.
     $scope.selectStudent = function(studentID){
         $http.get('/student', {params: {'student': studentID}}).then(function(response){
@@ -33,6 +78,9 @@ myApp.controller('classCtrl', ['$scope', '$http', 'DataService', '$location', fu
             }
         });
     };
+
+
+
 
     //$scope.selectStudent('bgates');//hard coded for now
 
