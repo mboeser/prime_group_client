@@ -17,6 +17,8 @@ myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', function($scop
     var notCalledTemplate = '<div ng-if="row.entity.contact_status">{{row.entity.contact_status}}</div>' +
         '<div ng-if="!row.entity.contact_status">Not Yet Called</div>';
 
+    var excusedCheckbox = '<input type="checkbox" name="excused" value="Yes">Yes';
+    var homeworkCheckbox = '<input type="checkbox" name="homework_sent" value="Yes">Yes';
 
     $scope.gridOptions = {
         enableSorting: true,
@@ -35,6 +37,8 @@ myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', function($scop
                     { id: 'Reached', contact_status: 'Reached' },
                     { id: 'Left Message', contact_status: 'Left Message' }
                 ]},
+            { name:'Homework Sent', field: 'homework_sent' , cellTemplate: homeworkCheckbox, enableCellEdit:true},
+            { name:'Excused', field: 'excused' , cellTemplate: excusedCheckbox, enableCellEdit:true},
             { name:'Attendance Notes', field: 'attendance_notes' , enableCellEdit:true}
         ]
     };
