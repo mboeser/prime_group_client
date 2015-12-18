@@ -37,9 +37,6 @@ module.exports = function (app, req, res, next) {
 
     app.post('/roles', isLoggedIn, function (req, res) {
 
-        console.log('post' ,req.body);
-
-        var results = [];
         var email = req.body.email;
         var firstname = req.body.firstname;
         var lastname = req.body.lastname;
