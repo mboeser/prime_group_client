@@ -17,8 +17,9 @@ myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', function($scop
     var notCalledTemplate = '<div ng-if="row.entity.contact_status">{{row.entity.contact_status}}</div>' +
         '<div ng-if="!row.entity.contact_status">Not Yet Called</div>';
 
-    var excusedCheckbox = '<input type="checkbox" name="excused" value="Yes">Yes';
-    var homeworkCheckbox = '<input type="checkbox" name="homework_sent" value="Yes">Yes';
+    var excusedCheckbox = '<md-checkbox ng-true-value="Yes" ng-false-value="No" type="checkbox" name="excused" >Yes</md-checkbox>';
+    var homeworkCheckbox = '<md-checkbox ng-true-value="Yes" ng-false-value="No" type="checkbox" name="homework_sent" >Yes</md-checkbox>';
+
 
     $scope.gridOptions = {
         enableSorting: true,
@@ -47,7 +48,7 @@ myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', function($scop
 
 
     $scope.saveRow = function( rowEntity ) {
-        var promise = $http.put('/updateStudent/inline', rowEntity).then(function(response){
+        var promise = $http.put('/updateAbsent', rowEntity).then(function(response){
             console.log(response);
         });
         $scope.gridApi.rowEdit.setSavePromise( rowEntity, promise);
