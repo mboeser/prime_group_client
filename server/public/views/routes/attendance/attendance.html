@@ -1,52 +1,88 @@
 <section>
     <md-content>
-    <h3>
-        <md-icon ng-style="{color: font.color}" md-svg-src="../../../images/svg/checkbox-icon.svg" class="attendance-icon" aria-label="Attendance"></md-icon>
-        &nbsp;Attendance</h3>
+        <h3>
+            <md-icon ng-style="{color: font.color}" md-svg-src="../../../images/svg/checkbox-icon.svg"
+                     class="attendance-icon" aria-label="Attendance"></md-icon>
+            &nbsp;Attendance
+        </h3>
 
-    <h5>Select Class</h5>
-    <div>
-        List Of Classes to select
-    </div>
+        <h5>Select Class</h5>
 
-    <div class="spacer">
-        <md-input-container>
-            <md-divider md-inset></md-divider>
-        </md-input-container>
-    </div>
+        <div>
+            List Of Classes to select
+        </div>
 
-    <h3>Attendance App Test:</h3>
-    <div class="inset"  ng-cloak>
-        <md-switch ng-model="attendance.name1" aria-label="Batman" ng-true-value="'Present'" ng-false-value="'Absent'" class="md-hue-1">
-            Batman <strong>{{ attendance.name1 }}</strong>
-        </md-switch>
-        <md-switch ng-model="attendance.name2" aria-label="Iron Man" ng-true-value="'Present'" ng-false-value="'Absent'" class="md-hue-1">
-            Iron Man  <strong>{{ attendance.name2 }}</strong>
-        </md-switch>
-        <md-switch ng-model="attendance.name3" aria-label="Superman" ng-true-value="'Present'" ng-false-value="'Absent'" class="md-hue-1">
-            Superman  <strong>{{ attendance.name3 }}</strong>
-        </md-switch>
-        <md-switch ng-model="attendance.name4" aria-label=" Hulk" ng-true-value="'Present'" ng-false-value="'Absent'" class="md-hue-1">
-            Hulk  <strong>{{ attendance.name4 }}</strong>
-        </md-switch>
-        <md-switch ng-model="attendance.name5" aria-label="Thor" ng-true-value="'Present'" ng-false-value="'Absent'" class="md-hue-1">
-            Thor  <strong>{{ attendance.name5 }}</strong>
-        </md-switch>
-        <md-switch ng-model="attendance.name6" aria-label="Hawkeye" ng-true-value="'Present'" ng-false-value="'Absent'" class="md-hue-1">
-            Captain America  <strong>{{ attendance.name6 }}</strong>
-        </md-switch>
-        <md-switch ng-model="attendance.name7" aria-label="Wolverine" ng-true-value="'Present'" ng-false-value="'Absent'" class="md-hue-1">
-            Wolverine  <strong>{{ attendance.name7 }}</strong>
-        </md-switch>
-        <md-switch ng-model="attendance.name8" aria-label="Wonder Woman" ng-true-value="'Present'" ng-false-value="'Absent'" class="md-hue-1">
-            Wonder Woman <strong>{{ attendance.name8 }}</strong>
-        </md-switch>
-        <md-switch ng-model="attendance.name9" aria-label="Aquaman" ng-true-value="'Present'" ng-false-value="'Absent'" class="md-hue-1">
-            Aquaman <strong>{{ attendance.name9 }}</strong>
-        </md-switch>
-        <md-switch ng-model="attendance.name10" aria-label="The Flash" ng-true-value="'Present'" ng-false-value="'Absent'" class="md-hue-1">
-            The Flash <strong>{{ attendance.name10 }}</strong>
-        </md-switch>
-    </div>
+        <div class="spacer">
+            <md-input-container>
+                <md-divider></md-divider>
+            </md-input-container>
+        </div>
+
+        <h3>Attendance App Test:</h3>
+
+        <div layout="row">
+            <div class="inset" ng-cloak dir="rtl" flex="none">
+                <md-checkbox ng-model="attendance.name1" aria-label="Batman" ng-true-value="'Present'"
+                             ng-false-value="'Absent'" class="green">
+                    Batman Smith
+                </md-checkbox>
+                <md-divider></md-divider>
+                <md-checkbox ng-model="attendance.name2" aria-label="Iron Man" ng-true-value="'Present'"
+                           ng-false-value="'Absent'" class="green">
+                    Iron Man
+                </md-checkbox>
+                <md-divider></md-divider>
+
+                <md-checkbox ng-model="attendance.name3" aria-label="Superman" ng-true-value="'Present'"
+                           ng-false-value="'Absent'" class="green">
+                    Superman Anderson
+                </md-checkbox>
+                <md-divider></md-divider>
+
+                <md-checkbox ng-model="attendance.name4" aria-label=" Hulk" ng-true-value="'Present'"
+                           ng-false-value="'Absent'" class="green">
+                    Hulk Whitterspoon
+                </md-checkbox>
+                <md-divider></md-divider>
+
+                <md-checkbox ng-model="attendance.name5" aria-label="Thor" ng-true-value="'Present'"
+                           ng-false-value="'Absent'" class="green">
+                    Thor Double Check
+                </md-checkbox>
+                <md-divider></md-divider>
+
+                <md-checkbox ng-model="attendance.name6" aria-label="Hawkeye" ng-true-value="'Present'"
+                           ng-false-value="'Absent'" class="green">
+                    Captain America
+                </md-checkbox>
+                <md-divider></md-divider>
+
+                <md-checkbox ng-model="attendance.name7" aria-label="Wolverine" ng-true-value="'Present'"
+                           ng-false-value="'Absent'" class="green">
+                    Wolverine YouBetcha
+                </md-checkbox>
+                <md-divider></md-divider>
+
+                <md-checkbox ng-model="attendance.name8" aria-label="Wonder Woman" ng-true-value="'Present'"
+                           ng-false-value="'Absent'" class="green">
+                    Wonder Woman
+                </md-checkbox>
+                <md-divider></md-divider>
+
+                <md-checkbox ng-model="attendance.name9" aria-label="Aquaman" ng-true-value="'Present'"
+                           ng-false-value="'Absent'" class="green">
+                    Aquaman Laughland
+                </md-checkbox>
+                <md-divider></md-divider>
+
+                <md-checkbox ng-model="attendance.name10" aria-label="The Flash" ng-true-value="'Present'"
+                           ng-false-value="'Absent'" class="green">
+                    The Flash Donderson
+                </md-checkbox>
+                <div layout="row" layout-align="center center">
+                <md-button class="md-raised md-primary">SUBMIT</md-button>
+                </div>
+            </div>
+        </div>
     </md-content>
 </section>
