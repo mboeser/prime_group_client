@@ -18,7 +18,7 @@ myApp.controller('classCtrl', ['$scope', '$http', 'DataService', '$location', fu
         });
     }
 
-    //This will retrive the student information of the student the user clicked on.
+    //This will retrieve the student information of the student the user clicked on.
     $scope.selectStudent = function(studentID){
         $http.get('/student', {params: {'student': studentID}}).then(function(response){
             $scope.dataService.setStudent(response.data[0]);
@@ -34,6 +34,6 @@ myApp.controller('classCtrl', ['$scope', '$http', 'DataService', '$location', fu
         });
     };
 
-    $scope.selectStudent('bgates');//hard coded for now
+    //$scope.selectStudent('bgates');//hard coded for now
 
 }]);

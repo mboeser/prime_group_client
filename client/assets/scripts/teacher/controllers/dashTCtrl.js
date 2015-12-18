@@ -28,7 +28,7 @@ myApp.controller('dashTCtrl', ['$scope', '$http', 'DataService', '$location', fu
     };
 
 //Teacher selects a class. DataService form data reset to match incoming students for next page.
-    $scope.selectClass = function(date){
+    $scope.getPrework = function(date){
         console.log("This is date", date);
         $http.get('/teacher_prework', {params: {'date': date}}).then(function(response){
             $scope.dataService.setData(response.data);
@@ -36,6 +36,7 @@ myApp.controller('dashTCtrl', ['$scope', '$http', 'DataService', '$location', fu
             $location.path('/class');
         });
     };
+
 
 
     $scope.getAttendance = function(){
