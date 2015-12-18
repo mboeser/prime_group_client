@@ -65,9 +65,6 @@ module.exports = function (app, req, res, next) {
     // UPDATE
 
     app.put('/roles', isLoggedIn, function (req, res) {
-        console.log(req.body);
-        var results = [];
-
         var email = req.body.email;
         var firstname = req.body.firstname;
         var lastname = req.body.lastname;
@@ -77,17 +74,16 @@ module.exports = function (app, req, res, next) {
         //SQL Query > SELECT data from table
         pg.connect(connectionString.url, function (err, client, done) {
             if (err) {
-                console.log(err);
-                res.send(false);
+                return res.status(500).json({success: false, data: err});
             }
             client.query("UPDATE users SET email=$1, firstname=$2, lastname=$3, role=$4 " +
                 "WHERE id=$5", [email, firstname, lastname, role, id], function(err, response){
                     if (err) {
                         console.log ('error inserting to db', err);
-                        res.send(false);
-                    } else if (!err) {
-                        res.send(true);
+                        return res.status(500).json({success: false, data: err});
                     }
+                res.send(true);
+
             });
         });
 
@@ -103,7 +99,6 @@ module.exports = function (app, req, res, next) {
         pg.connect(connectionString.url, function (err, client, done) {
 
             if (err) {
-                done();
                 console.log(err);
                 return res.status(500).json({success: false, data: err});
             }
@@ -111,6 +106,7 @@ module.exports = function (app, req, res, next) {
             client.query("DELETE FROM users WHERE email=$1", [id], function (err) {
                 if (err) {
                     console.log(err);
+                    return res.status(500).json({success: false, data: err})
                 }
                 client.end();
                 return res.send(true);
