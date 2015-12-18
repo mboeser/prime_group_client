@@ -31,7 +31,7 @@ myApp.config(['$routeProvider', function($routeProvider){
 myApp.directive('classProfile',
     function(){
         return{
-            controller: 'dashTCtrl',
+
             restrict: 'E',
             scope: {
                 info: '='
