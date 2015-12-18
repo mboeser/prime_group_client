@@ -74,7 +74,7 @@ module.exports = function (app, req, res, next) {
             });
 
             //update the attendance table.
-            client.query("UPDATe attendance " +
+            client.query("UPDATE attendance " +
             "SET (contact_status, admin_notes) = ($1, $2) " +
             "WHERE id=$3;", [contact_status, admin_notes, studentID],
             function(err){
