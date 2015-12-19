@@ -18,12 +18,12 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', fun
     $scope.newUser = {};
 
     $scope.gridOptions = {
-        enableSorting: true,
-        enableColumnResizing: true,
+
+
 
         columnDefs: [
 
-            {name: 'First Name', field: 'firstname', width: '20%', enableCellEdit: true},
+            {name: 'First Name', field: 'firstname', width: '20%',enableSorting: true, enableColumnResizing: true, enableCellEdit: true},
             {name: 'Last Name', field: 'lastname', width: '20%', enableCellEdit: true},
 
             {
@@ -41,19 +41,43 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', fun
                 ]
             },
 
-            { name: 'Email', field: 'email', minWidth: 200, maxWidth: 350, enableCellEdit: true},
-            {  name: '', field: 'DeleteUser',  enableSorting: false, enableHiding: false, enableColumnResizing: false,
-                cellTemplate:'<button style="margin-left: 40%; " class="delete-button" ng-click="grid.appScope.deleteUser(person)">Delete</button>' }
-        ]
+            {name: 'Email', field: 'email', minWidth: 320, maxWidth: 350, enableCellEdit: true},
+            {
+                name: ' ', field: 'DeleteUser', enableSorting: false, enableColumnMenu: false, enableHiding: false, enableColumnResizing: false,
+                cellTemplate: '<button style="margin-left: 20%; "class="delete-button" ng-click="grid.appScope.deleteUser(person)">Delete</button>'
+            }
+        ],
+        enableGridMenu: true,
+        enableSelectAll: true,
+        exporterCsvFilename: 'myFile.csv',
+        exporterPdfDefaultStyle: {fontSize: 9},
+        exporterPdfTableStyle: {margin: [30, 30, 30, 30]},
+        exporterPdfTableHeaderStyle: {fontSize: 10, bold: true, italics: true, color: 'red'},
+        exporterPdfHeader: {text: "My Header", style: 'headerStyle'},
+        exporterPdfFooter: function (currentPage, pageCount) {
+            return {text: currentPage.toString() + ' of ' + pageCount.toString(), style: 'footerStyle'};
+        },
+        exporterPdfCustomFormatter: function (docDefinition) {
+            docDefinition.styles.headerStyle = {fontSize: 22, bold: true};
+            docDefinition.styles.footerStyle = {fontSize: 10, bold: true};
+            return docDefinition;
+        },
+        exporterPdfOrientation: 'portrait',
+        exporterPdfPageSize: 'LETTER',
+        exporterPdfMaxGridWidth: 500,
+        exporterCsvLinkElement: angular.element(document.querySelectorAll(".custom-csv-link-location")),
+        onRegisterApi: function (gridApi) {
+            $scope.gridApi = gridApi;
+        }
     };
-    $scope.saveRow = function( rowEntity ) {
-        var promise = $http.put('/roles', rowEntity).then(function(response){
+    $scope.saveRow = function (rowEntity) {
+        var promise = $http.put('/roles', rowEntity).then(function (response) {
             console.log(response);
         });
-        $scope.gridApi.rowEdit.setSavePromise( rowEntity, promise);
+        $scope.gridApi.rowEdit.setSavePromise(rowEntity, promise);
     };
 
-    $scope.gridOptions.onRegisterApi = function(gridApi){
+    $scope.gridOptions.onRegisterApi = function (gridApi) {
         //set gridApi on scope
         $scope.gridApi = gridApi;
         gridApi.rowEdit.on.saveRow($scope, $scope.saveRow);

@@ -36,6 +36,7 @@
     "passport-google-oauth": "^0.2.0",
     "passport-local": "^1.0.0",
     "path": "^0.11.14",
+    "pdfmake": "^0.1.18",
     "pg": "^4.4.3",
     "pg-copy-streams": "^0.3.0"
   },
