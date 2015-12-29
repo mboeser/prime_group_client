@@ -27,6 +27,13 @@ myApp.controller('attendanceTCtrl', ['$scope', '$http', 'DataService', function 
             console.log('here ATT response', response.data);
         })
     };
+    $scope.putAttendance = function(){
+      $http.put('/attendance', $scope.students).then(function(response){
+          console.log(response);
+          //$scope.getAttendance()
+      })
+    };
+
 
     $scope.getAttendance();
 

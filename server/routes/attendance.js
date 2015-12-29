@@ -45,13 +45,13 @@ module.exports = function (app, req, res, next) {
 
     app.put('/attendance', isLoggedIn, function (req, res) {
 
-        console.log('admin', req.query.date);
-
+        console.log('at put attendance', req.body);
+        //REQ.BODY IS AN ARRAY OF OBJECTS
         var studentId = 'sbaker';
         var attendanceStatus = 'present';
 
         pg.connect(connectionString.url, function (err, client, done) {
-
+            //NEED NEW QUERY FOR MULTIPLE PEOPLE, MAYBE FOR LOOP,
             client.query("UPDATE attendance " +
                 "SET attendance_status = $2" +
                 "WHERE id = $1;", [studentId, attendanceStatus], function (err) {
