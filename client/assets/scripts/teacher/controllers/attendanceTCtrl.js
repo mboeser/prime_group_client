@@ -8,13 +8,27 @@ myApp.controller('attendanceTCtrl', ['$scope', '$http', 'DataService', function 
 
     $scope.user = $scope.dataService.peopleData();
 
+    $scope.students = [];
+
     if($scope.dataService.peopleData() === undefined){
         $scope.dataService.retrieveData().then(function(){
             $scope.user = $scope.dataService.peopleData();
             console.log($scope.user);
         });
     }
+//, {params: {date: $scope.date, who: $scope.user}}
+    $scope.getAttendance = function(){
+        $http.get('/attendance').then(function(response){
 
+            $scope.students = response.data;
+
+            console.log($scope.students[1]);
+
+            console.log('here ATT response', response.data);
+        })
+    };
+
+    $scope.getAttendance();
 
 
 }]);

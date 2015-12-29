@@ -15,7 +15,7 @@ module.exports = function (app, req, res, next) {
         console.log('admin', req.query.date);
 
         var date = '2015-01-09';
-        var teacherEmail = 'hlutz@breakthroughtwincities.com';
+        var teacherEmail = 'dsmith@breakthroughtwincities.org';
         var results = [];
 
         pg.connect(connectionString.url, function (err, client, done) {
