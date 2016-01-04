@@ -90,8 +90,8 @@ module.exports = function (app, req, res, next) {
     // DELETE
 
     app.delete('/roles', function (req, res) {
-        console.log(req.query);
-        var email = req.query.id;
+        console.log(req);
+        var email = req.query.deleteMe;
         pg.connect(connectionString.url, function (err, client, done) {
 
             if (err) {

@@ -43,8 +43,8 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', fun
 
             {name: 'Email', field: 'email', minWidth: 320, maxWidth: 350, enableCellEdit: true},
             {
-                name: ' ', field: 'DeleteUser', enableSorting: false, enableColumnMenu: false, enableHiding: false, enableColumnResizing: false,
-                cellTemplate: '<button style="margin-left: 20%; "class="delete-button" ng-click="grid.appScope.deleteUser(person)">Delete</button>'
+                name: ' ', field: 'id', enableSorting: false, enableColumnMenu: false, enableHiding: false, enableColumnResizing: false,
+                cellTemplate: '<button style="margin-left: 20%; "class="delete-button" ng-click="grid.appScope.deleteUser(row.entity.email)">Delete</button>'
             }
         ],
         enableGridMenu: true,
@@ -110,6 +110,7 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', fun
     };
 
     $scope.deleteUser = function (person) {
+        console.log(person);
         $http.delete('/roles', {params: {deleteMe: person}}).then(function (response) {
             console.log('delete response :', response);
             $scope.getUserList();
