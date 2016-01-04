@@ -31,5 +31,13 @@ myApp.config(['$routeProvider', function($routeProvider){
             templateUrl: "/views/routes/admin/upload-csv.html",
             controller: "uploadCtrl"
         })
+        .when('/highschool', {
+            templateUrl: "/views/routes/student/student-hs.html",
+            controller: "studentCtrl"
+        })
+        .when('/middleschool', {
+            templateUrl: "/views/routes/student/student-ms.html",
+            controller: "studentCtrl"
+        })
         .otherwise('dashboard');
 }]);
