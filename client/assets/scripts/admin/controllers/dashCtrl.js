@@ -18,16 +18,16 @@ myApp.controller('dashCtrl',['$scope', '$http', '$location','DataService', '$fil
     $scope.absent = {};
 
     $scope.getAbsences = function(){
-        $scope.absent.date = $filter('date')(($scope.absent.date), 'yyyy-MM-dd');
-        $http.get('/absent', {params: {date: $scope.absent.date }}).then(function(response){
+        $scope.absentDate = $filter('date')(($scope.absent.date), 'yyyy-MM-dd');
+        $http.get('/absent', {params: {date: $scope.absentDate }}).then(function(response){
             $scope.dataService.setData(response.data);
             $location.path('/absent');
         });
     };
 
     $scope.getPrework = function(){
-        $scope.prework.date = $filter('date')(($scope.prework.date), 'yyyy-MM-dd');
-        $http.get('/prework', {params: {date: $scope.prework.date}}).then(function(response) {
+        $scope.preworkDate = $filter('date')(($scope.prework.date), 'yyyy-MM-dd');
+        $http.get('/prework', {params: {date: $scope.preworkDate}}).then(function(response) {
             $scope.dataService.setData(response.data);
             $location.path('/prework');
         });
