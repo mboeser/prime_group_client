@@ -55,7 +55,7 @@ module.exports = function (app, req, res, next) {
             for (var i = 0; i < req.body.length; i++) {
                 console.log(req.body[i].id, req.body[i].attendance_status);
                 client.query("UPDATE attendance " +
-                    "SET attendance status = $2" +
+                    "SET attendance_status = $2" +
                     "WHERE id = $1;", [req.body[i].id, req.body[i].attendance_status], function (err) {
 
                     //client.query("UPDATE attendance " +
