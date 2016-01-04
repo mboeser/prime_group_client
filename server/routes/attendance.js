@@ -7,7 +7,7 @@
 var pg = require('pg');
 var connectionString = require('../config/database.js');
 
-module.exports = function (app, req, res, next) {
+module.exports = function (app) {
 
 
     app.get('/attendance', isLoggedIn, function (req, res) {
@@ -55,19 +55,19 @@ module.exports = function (app, req, res, next) {
 
 
         pg.connect(connectionString.url, function (err, client, done) {
-                client.query(attendanceQuery, function (err) {
+            client.query(attendanceQuery, function (err) {
 
-                    if (err) {
-                        console.log('att err', err);
-                        return res.send(false);
-                    }else {
-                        client.end();
-                        return res.send(true);
-                    }
-                });
-            })
+                if (err) {
+                    console.log('att err', err);
+                    return res.send(false);
+                } else {
+                    client.end();
+                    return res.send(true);
+                }
+            });
+        })
 
-        });
+    });
 
 };
 

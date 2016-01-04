@@ -8,7 +8,7 @@ module.exports = function (app, req, res, next) {
 
         var studentId = req.query.student;
         var results = [];
-        console.log("This is req.query", req.query);
+        //console.log("This is req.query", req.query);
 
         pg.connect(connectionString.url, function (err, client, done) {
 
