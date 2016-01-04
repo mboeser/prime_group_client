@@ -42,7 +42,7 @@ myApp.controller('classCtrl', ['$scope', '$http', 'DataService', '$location', fu
                     { id: 'Reached', contact_status: 'Reached' },
                     { id: 'Left Message', contact_status: 'Left Message' }
                 ]},
-            { name:'Administration Notes', field: 'admin_notes' , enableCellEdit:true}
+            { name:'Attendance Notes', field: 'attendance_notes' , enableCellEdit:true}
         ]
     };
 
