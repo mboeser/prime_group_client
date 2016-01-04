@@ -45,7 +45,6 @@ module.exports = function (app, req, res, next) {
 
         console.log("req.body in adminPrework", req.body);
         var teachername = req.body.lastname;
-        console.log("This is teachername", teachername);
         var studentID = req.body.id;
         var sfirstname = req.body.student_firstname;
         var slastname = req.body.student_lastname;
@@ -58,14 +57,17 @@ module.exports = function (app, req, res, next) {
 
         pg.connect(connectionString.url, function(err, client){
             //update the users table if firstname of teacher is changed
-            client.query("UPDATE users " +
-                "SET lastname='" + teachername +
-                "' FROM students " +
-                "WHERE students.id=$1 " +
-                "AND users.email=students.teacher_email", [studentID],
-                function(err){
-                    if (err) console.log(err);
-                });
+            if(teachername != undefined) {
+                client.query("UPDATE users " +
+                    "SET lastname='" + teachername +
+                    "' FROM students " +
+                    "WHERE students.id=$1 " +
+                    "AND users.email=students.teacher_email", [studentID],
+                    function (err) {
+                        if (err) console.log(err);
+                    });
+            }
+
 
             //update the students table if student information is changed.
             client.query("UPDATE students " +
@@ -93,4 +95,4 @@ function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();
     res.redirect('/');
-};
+}
