@@ -12,10 +12,10 @@ module.exports = function (app, req, res, next) {
 
     app.get('/attendance', isLoggedIn, function (req, res) {
 
-        console.log('admin', req.query.date);
+        console.log('admin', req.query.who);
 
         var date = req.query.date;
-        var teacherEmail = 'dsmith@breakthroughtwincities.org';
+        var teacherEmail = req.query.who;
         var results = [];
 
         pg.connect(connectionString.url, function (err, client, done) {
