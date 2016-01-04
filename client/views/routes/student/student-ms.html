@@ -56,19 +56,19 @@
         <section class="student-form-section" layout="column" >
             <md-input-container>
                 <label>Bus Route</label>
-                <input type="text" ng-model="student.bus_route"/>
+                <input type="text" ng-blur="updateBus('bus_route', student.bus_route)" ng-model="student.bus_route"/>
             </md-input-container>
             <md-input-container>
                 <label>Bus Stop</label>
-                <input type="text" ng-model="student.bus_stop"/>
+                <input type="text" ng-blur="updateBus('bus_stop', student.bus_stop)" ng-model="student.bus_stop"/>
             </md-input-container>
             <md-input-container>
                 <label>Pick Up</label>
-                <input type="text" ng-model="student.pick_up"/>
+                <input type="text" ng-blur="updateBus('pick_up', student.pick_up)" ng-model="student.pick_up"/>
             </md-input-container>
             <md-input-container>
                 <label>Drop Off</label>
-                <input type="text" ng-model="student.drop_off"/>
+                <input type="text" ng-blur="updateBus('drop_off', student.drop_off)" ng-model="student.drop_off"/>
             </md-input-container>
         </section>
 

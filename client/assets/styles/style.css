@@ -186,3 +186,12 @@ md-switch.md-default-theme.md-hue-1.md-checked, md-switch.md-hue-1.md-checked .m
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
 
 }
+md-checkbox.md-checked.green .md-icon {
+    /*background-color: rgba(0, 255, 0, 0.87);*/
+    background-color: #8DC73F;
+
+}
+
+.why-red {
+    color: red;
+}

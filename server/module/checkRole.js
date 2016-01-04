@@ -19,12 +19,13 @@ module.exports = function (req, res, next) {
         query.on('end', function () {
             client.end();
             console.log(results);
-            if (results[0].role === 'admin') {
+            if (results.length > 0 && results[0].role === 'admin') {
                 res.redirect('/views/routes/admin/admin.html');
-            } else if (results[0].role === 'teacher') {
+            } else if (results.length > 0 && results[0].role === 'teacher') {
                 res.redirect('/views/routes/teacher/teacher.html');
             } else {
-                res.redirect('/');
+                //req.flash('messages', {'err' : 'INVALID LOGIN'});
+                res.redirect('/views/error.html');
             }
         });
 
