@@ -45,10 +45,6 @@ module.exports = function (app, req, res, next) {
 
     app.put('/attendance', isLoggedIn, function (req, res) {
 
-        //console.log('at put attendance', req.body);
-        //REQ.BODY IS AN ARRAY OF OBJECTS
-        var studentId = 'sbaker';
-        var attendanceStatus = 'present';
         var attendanceQuery = "";
         for (var i = 0; i < req.body.length; i++) {
             attendanceQuery += "UPDATE attendance " +
