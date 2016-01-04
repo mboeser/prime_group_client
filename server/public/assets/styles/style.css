@@ -140,7 +140,6 @@ md-input-container {
 }
 
 #mainLogo {
-    width: 50%;
     margin-bottom: -25px;
 }
 
@@ -174,9 +173,7 @@ md-switch.md-default-theme.md-hue-1.md-checked, md-switch.md-hue-1.md-checked .m
     text-align: center;
 }
 
-#sign-in-google-logo {
-    width: 50%;
-}
+
 
 .delete-button {
     color: #fff;
