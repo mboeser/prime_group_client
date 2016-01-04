@@ -3,14 +3,12 @@ var connectionString = require('../config/database.js');
 
 module.exports = function (app, req, res, next) {
 
+    app.get('/prework', isLoggedIn, function (req, res) {
 
-
-    app.get('/prework', isLoggedIn,  function (req, res) {
-
-        console.log('admin',req.query.date);
+        console.log('admin', req.query.date);
 
         var date = req.query.date;
-        console.log("This is the date you requested",date);
+        console.log("This is the date you requested", date);
         var results = [];
 
         pg.connect(connectionString.url, function (err, client, done) {
@@ -39,9 +37,9 @@ module.exports = function (app, req, res, next) {
                 console.log(err);
             }
         })
-    })
+    });
 
-    app.put('/adminPrework', isLoggedIn, function(req, res){
+    app.put('/adminPrework', isLoggedIn, function (req, res) {
 
         console.log("req.body in adminPrework", req.body);
         var teachername = req.body.lastname;
@@ -54,38 +52,37 @@ module.exports = function (app, req, res, next) {
         var admin_notes = req.body.admin_notes;
 
 
-        pg.connect(connectionString.url, function(err, client){
+        pg.connect(connectionString.url, function (err, client) {
             //update the users table if firstname of teacher is changed
             client.query("UPDATE users " +
-            "SET lastname='" + teachername +
-            "' FROM students " +
-            "WHERE students.id=$1 " +
-            "AND users.email=students.teacher_email", [studentID],
-                function(err){
-                if (err) console.log(err);
-            });
+                "SET lastname='" + teachername +
+                "' FROM students " +
+                "WHERE students.id=$1 " +
+                "AND users.email=students.teacher_email", [studentID],
+                function (err) {
+                    if (err) console.log(err);
+                });
 
             //update the students table if student information is changed.
             client.query("UPDATE students " +
-            "SET (student_firstname, student_lastname, phone1) = ($1, $2, $3) " +
-            "WHERE id=$4;", [sfirstname, slastname, phone, studentID],
-            function(err){
-                if (err) console.log(err);
-            });
+                "SET (student_firstname, student_lastname, phone1) = ($1, $2, $3) " +
+                "WHERE id=$4;", [sfirstname, slastname, phone, studentID],
+                function (err) {
+                    if (err) console.log(err);
+                });
 
             //update the attendance table.
             client.query("UPDATE attendance " +
-            "SET (contact_status, admin_notes) = ($1, $2) " +
-            "WHERE id=$3;", [contact_status, admin_notes, studentID],
-            function(err){
-                if (err) console.log(err);
-                client.end();
-            });
+                "SET (contact_status, admin_notes) = ($1, $2) " +
+                "WHERE id=$3;", [contact_status, admin_notes, studentID],
+                function (err) {
+                    if (err) console.log(err);
+                    client.end();
+                });
         });
         res.send(true);
     });
 };
-
 
 
 // route middleware to ensure user is logged in

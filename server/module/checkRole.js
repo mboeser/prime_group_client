@@ -2,7 +2,7 @@ var pg = require('pg');
 var connectionString = require('../config/database.js');
 
 module.exports = function (req, res, next) {
-    console.log('module LOG', req.user.emails[0].value);
+    //console.log('module LOG', req.user.emails[0].value);
 
     var role = req.user.emails[0].value;
     var results = [];

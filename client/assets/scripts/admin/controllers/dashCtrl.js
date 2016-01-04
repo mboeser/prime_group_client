@@ -1,4 +1,4 @@
-myApp.controller('dashCtrl',['$scope', '$http', '$location','DataService', function ($scope, $http, $location, DataService) {
+myApp.controller('dashCtrl',['$scope', '$http', '$location','DataService', '$filter', function ($scope, $http, $location, DataService, $filter) {
 
     $scope.dataService = DataService;
     $scope.user = {};
@@ -18,6 +18,7 @@ myApp.controller('dashCtrl',['$scope', '$http', '$location','DataService', funct
     $scope.absent = {};
 
     $scope.getAbsences = function(){
+        $scope.absent.date = $filter('date')(($scope.absent.date), 'yyyy-MM-dd');
         $http.get('/absent', {params: {date: $scope.absent.date }}).then(function(response){
             $scope.dataService.setData(response.data);
             $location.path('/absent');
@@ -25,6 +26,7 @@ myApp.controller('dashCtrl',['$scope', '$http', '$location','DataService', funct
     };
 
     $scope.getPrework = function(){
+        $scope.prework.date = $filter('date')(($scope.prework.date), 'yyyy-MM-dd');
         $http.get('/prework', {params: {date: $scope.prework.date}}).then(function(response) {
             $scope.dataService.setData(response.data);
             $location.path('/prework');

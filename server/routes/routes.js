@@ -36,7 +36,6 @@ module.exports = function (app, path, passport) {
     require('./student.js', isLoggedIn)(app);
 
 
-
     // LOGOUT ==============================
     app.get('/logout', function (req, res) {
         req.logout();
