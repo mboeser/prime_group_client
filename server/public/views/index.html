@@ -11,27 +11,30 @@
     <script src="/vendors/angular/angular.min.js"></script>
 </head>
 <body ng-controller="loginCtrl">
-<header ng-include="'/views/templates/header.html'">
-</header>
+<section id="login-page" flex>
+    <header ng-include="'/views/templates/header.html'" layout="column">
+    </header>
 
-<section id="login-form" ng-cloak="">
-    <div>
-        Welcome To Breakthrough Twin Cities
-    </div>
-    <div class="spacer">
-        <md-input-container>
-            <md-divider></md-divider>
-        </md-input-container>
-    </div>
-    <div>
-        <a href="/auth/google">
-            <img id="sign-in-google-logo" src="../images/google-sign-in-dk.svg"/>
-        </a>
-    </div>
+    <section id="login-form" ng-cloak="" layout="column">
+        <div>
+            Welcome To Breakthrough Twin Cities
+        </div>
+        <div class="spacer">
+            <md-input-container>
+                <md-divider></md-divider>
+            </md-input-container>
+        </div>
+        <div>
+            <a href="/auth/google">
+                <img id="sign-in-google-logo" src="../images/google-sign-in-dk.svg"/>
+            </a>
+        </div>
+    </section>
+    <footer ng-include="'/views/templates/footer.html'" layout="column">
+
+    </footer>
 </section>
-<footer ng-include="'/views/templates/footer.html'">
 
-</footer>
 
 <script src="/vendors/angular-animate/angular-animate.min.js"></script>
 <script src="/vendors/angular-material/angular-material.min.js"></script>
