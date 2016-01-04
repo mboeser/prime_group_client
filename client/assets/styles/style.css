@@ -36,7 +36,6 @@ section {
 
 #login-form {
     padding: 20px;
-    width: 400px;
     border-radius: 5px;
     margin-left: auto;
     margin-right: auto;
@@ -141,8 +140,7 @@ md-input-container {
 }
 
 #mainLogo {
-    width: 310px;
-    margin-bottom: -25px;
+    margin-top: 25px;
 }
 
 .page-header-text {
@@ -171,13 +169,14 @@ md-switch.md-default-theme.md-hue-1.md-checked, md-switch.md-hue-1.md-checked .m
 }
 
 .spacer {
-    padding: 30px;
+    padding: 20px;
     text-align: center;
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-#sign-in-google-logo {
-    width: 75%;
-}
+
 
 .delete-button {
     color: #fff;
