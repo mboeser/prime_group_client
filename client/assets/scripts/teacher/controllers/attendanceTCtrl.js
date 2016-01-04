@@ -18,7 +18,7 @@ myApp.controller('attendanceTCtrl', ['$scope', '$http', 'DataService', function 
     }
 
     $scope.getAttendance = function(){
-        $http.get('/attendance', {params: {date: $scope.date, who: $scope.user}}).then(function(response){
+        $http.get('/attendance', {params: {date: $scope.date, who: $scope.user.emails[0]}}).then(function(response){
 
             $scope.students = response.data;
 
