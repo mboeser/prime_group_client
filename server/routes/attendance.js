@@ -12,9 +12,9 @@ module.exports = function (app, req, res, next) {
 
     app.get('/attendance', isLoggedIn, function (req, res) {
 
-        console.log('admin', req.query);
+        console.log('admin', req.query.date);
 
-        var date = '2015-01-09';
+        var date = req.query.date;
         var teacherEmail = 'dsmith@breakthroughtwincities.org';
         var results = [];
 
