@@ -12,7 +12,7 @@ module.exports = function (app, req, res, next) {
 
     app.get('/attendance', isLoggedIn, function (req, res) {
 
-        console.log('admin', req.query.date);
+        console.log('admin', req.query);
 
         var date = '2015-01-09';
         var teacherEmail = 'dsmith@breakthroughtwincities.org';
@@ -73,9 +73,7 @@ module.exports = function (app, req, res, next) {
 
 // route middleware to ensure user is logged in
 function isLoggedIn(req, res, next) {
-    console.log('prework loggin');
     if (req.isAuthenticated())
         return next();
-
     res.redirect('/');
 }

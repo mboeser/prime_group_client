@@ -9,7 +9,7 @@ module.exports = function (app, req, res, next) {
 
     app.get('/absent', isLoggedIn, function (req, res) {
 
-        console.log('absent', req.query.date);
+        //console.log('absent', req.query.date);
 
         var date = req.query.date;
         var results = [];
