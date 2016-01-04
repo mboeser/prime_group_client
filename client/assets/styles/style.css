@@ -169,8 +169,11 @@ md-switch.md-default-theme.md-hue-1.md-checked, md-switch.md-hue-1.md-checked .m
 }
 
 .spacer {
-    padding: 30px;
+    padding: 20px;
     text-align: center;
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
