@@ -45,31 +45,29 @@ module.exports = function (app, req, res, next) {
 
     app.put('/attendance', isLoggedIn, function (req, res) {
 
-        console.log('at put attendance', req.body);
-        //REQ.BODY IS AN ARRAY OF OBJECTS
-        var studentId = 'sbaker';
-        var attendanceStatus = 'present';
+        var attendanceQuery = "";
+        for (var i = 0; i < req.body.length; i++) {
+            attendanceQuery += "UPDATE attendance " +
+                "SET attendance_status = '" + req.body[i].attendance_status + "' " +
+                "WHERE id = '" + req.body[i].id + "'; ";
+        }
+        console.log(attendanceQuery);
+
 
         pg.connect(connectionString.url, function (err, client, done) {
-            //NEED NEW QUERY FOR MULTIPLE PEOPLE, MAYBE FOR LOOP,
-            //for(var i = 0, i < req.body.length, i++) {
-/*
-                client.query("UPDATE attendance " +
-                        "SET attendance status = $2" +
-                        "WHERE id = $1;", [req.body[i].id, req.body[i].attendance_status]
-*/
-            client.query("UPDATE attendance " +
-                "SET attendance_status = $2" +
-                "WHERE id = $1;", [studentId, attendanceStatus], function (err) {
+                client.query(attendanceQuery, function (err) {
 
-                if (err) {
-                    console.log(err);
-                }
-                client.end();
-                return res.send(true);
+                    if (err) {
+                        console.log('att err', err);
+                        return res.send(false);
+                    }else {
+                        client.end();
+                        return res.send(true);
+                    }
+                });
             })
-        })
-    })
+
+        });
 
 };
 
