@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -46,6 +46,13 @@ module.exports = function(grunt) {
                 "dest": "server/public/vendors/"
             },
 
+            pdfmake: {
+                expand: true,
+                cwd: "client/assets/pdfmake",
+                src: "**",
+                "dest": "server/public/vendors/pdfmake"
+            },
+
             css: {
                 // STYLES
                 expand: true,
@@ -53,7 +60,7 @@ module.exports = function(grunt) {
                 src: "style.css",
                 "dest": "server/public/assets/styles"
             },
-                // IMAGES
+            // IMAGES
             images: {
                 expand: true,
                 cwd: "client/images/",
@@ -83,12 +90,11 @@ module.exports = function(grunt) {
                 spawn: false
             },
             scripts: {
-                files: ['client/**/*.html','client/**/*.js','client/**/*.css'],
+                files: ['client/**/*.html', 'client/**/*.js', 'client/**/*.css'],
                 tasks: ['copy', 'uglify']
             }
         }
     });
-
 
 
     grunt.loadNpmTasks('grunt-contrib-copy');
