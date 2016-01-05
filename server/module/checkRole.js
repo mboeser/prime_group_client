@@ -8,7 +8,13 @@ module.exports = function (req, res, next) {
     var results = [];
 
     pg.connect(connectionString.url, function (err, client, done) {
+
+        if (err) {
+            console.log('db err', err);
+        }
+
         var query = client.query("SELECT role FROM users WHERE email = $1;", [role]);
+
 
         // Stream results back one row at a time, push into results array
         query.on('row', function (row) {
