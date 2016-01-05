@@ -15,8 +15,8 @@ myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', function($scop
         });
     }
 
-    var notCalledTemplate = '<div ng-if="row.entity.contact_status">{{row.entity.contact_status}}</div>' +
-        '<div ng-if="!row.entity.contact_status">Not Yet Called</div>';
+    var notCalledTemplate = "<div class='grid-dropdown-item' ng-if='row.entity.contact_status'>{{row.entity.contact_status}}</div>" +
+        "<div ng-if='!row.entity.contact_status'>Not Yet Called</div>";
 
 
     var excusedCheckbox = "<md-checkbox ng-model='row.entity.excused' class='md-warn md-hue2' type='checkbox' name='excused' ng-change='grid.appScope.saveRow(row.entity)'></md-checkbox>"; 
