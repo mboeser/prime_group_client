@@ -133,7 +133,7 @@ a.md-button.md-primary.md-fab:not([disabled]).md-button:active,
 .md-button.md-primary.md-fab:not([disabled]) md-button:active {
     background-color: #FAA333;
     color: #FFF;
-    /*color:#0082C8;*/
+
 }
 
 md-input-container {
