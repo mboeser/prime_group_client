@@ -80,8 +80,4 @@ myApp.controller('classCtrl', ['$scope', '$http', 'DataService', '$location', fu
     };
 
 
-
-
-    //$scope.selectStudent('bgates');//hard coded for now
-
 }]);

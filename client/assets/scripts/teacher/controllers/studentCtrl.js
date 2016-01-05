@@ -16,6 +16,8 @@ myApp.controller('studentCtrl', ['$scope', '$http', 'DataService', function ($sc
         });
     }
 
+    $scope.dropdown = ['Not Yet Called','Reached','Left Message'];
+
     $scope.updateNotes = function(col, note){
         $http.put('/updateStudent', {params: {'column': col, 'value': note, 'id': $scope.student.id}}).then(function(){
             console.log("student data updated");

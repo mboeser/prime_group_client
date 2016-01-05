@@ -5,21 +5,21 @@
             <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>First Name</label>
-                    <input ng-model="newUser.firstname">
+                    <input required ng-model="newUser.firstname">
                 </md-input-container>
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Last Name</label>
-                    <input ng-model="newUser.lastname">
+                    <input required ng-model="newUser.lastname">
                 </md-input-container>
             </div>
             <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Email</label>
-                    <input ng-model="newUser.email">
+                    <input required ng-model="newUser.email">
                 </md-input-container>
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Select Role</label>
-                    <md-select ng-model="newUser.role">
+                    <md-select required ng-model="newUser.role">
                         <md-option>Admin</md-option>
                         <md-option>Teacher</md-option>
                     </md-select>

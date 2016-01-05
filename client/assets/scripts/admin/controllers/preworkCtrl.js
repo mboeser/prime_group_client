@@ -7,18 +7,19 @@ myApp.controller('preworkCtrl', ['$scope', '$http', '$location','DataService', f
     console.log("This is the date you are asking for", $scope.date);
 
     $scope.user = $scope.dataService.peopleData();
+    console.log("$scope.dataService.peopleData", $scope.dataService.peopleData());
 
     if($scope.dataService.peopleData() === undefined){
         $scope.dataService.retrieveData().then(function(){
             $scope.user = $scope.dataService.peopleData();
-            console.log($scope.user);
+            console.log("This is $scope.user", $scope.user);
         });
     }
 
     var notCalledTemplate = '<div ng-if="row.entity.contact_status">{{row.entity.contact_status}}</div>' +
         '<div ng-if="!row.entity.contact_status">Not Yet Called</div>';
 
-    var expandStudentTemplate = '<div class="ui-grid-cell-contents" ng-click="grid.appScope.getDetails(row.entity)">{{row.entity.id}}</div>';
+    var expandStudentTemplate = '<div class="ui-grid-cell-contents"  ng-click="grid.appScope.selectStudent(row.entity.id)">{{row.entity.id}}</div>';
 
 
     $scope.gridOptions = {
@@ -60,12 +61,21 @@ myApp.controller('preworkCtrl', ['$scope', '$http', '$location','DataService', f
     };
 
 
-    $scope.getDetails = function(student){
-        //THIS IS BEYOND SCOPE OF PROJECT, will need new route, html, etc
-        //$scope.dataService.setData(student);
-        //$location.path('/');
 
-        //});
-    }
+    $scope.selectStudent = function(studentID){
+        $http.get('/student', {params: {'student': studentID}}).then(function(response){
+            $scope.dataService.setStudent(response.data[0]);
+            $scope.dataService.getStudent();
+            console.log("This is response.data", response.data[0]);
+            console.log("This is the student in the factory", $scope.dataService.getStudent());
+            $scope.student=$scope.dataService.getStudent();
+                if($scope.student.grade < 9){
+                    $location.path('/middleschool');
+                }else {
+                    $location.path('/highschool');
+                }
+        });
+    };
+
 
 }]);

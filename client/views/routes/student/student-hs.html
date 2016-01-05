@@ -52,13 +52,13 @@
             <div layout="column">
                 <md-input-container>
                     <label>Administration Notes</label>
-                    <textarea>{{student.admin_notes}}</textarea>
+                    <textarea ng-blur="updateNotes('admin_notes', student.admin_notes)" ng-model="student.admin_notes" ></textarea>
                 </md-input-container>
             </div>
             <div layout="column">
                 <md-input-container>
                     <label>Attendance Notes</label>
-                    <textarea>{{student.attendance_notes}}</textarea>
+                    <textarea ng-blur="updateNotes('attendance_notes', student.attendance_notes)" ng-model="student.attendance_notes"></textarea>
                 </md-input-container>
             </div>
         </div>
@@ -71,41 +71,41 @@
         <div layout="column">
             <md-input-container>
                 <label>Made Contact</label>
-                <input type="text" value={{student.contact_1st}}>
+                <input type="text" ng-model="student.contact_1st" ng-blur="updateNotes('contact_1st', student.contact_1st)"/>
             </md-input-container>
         </div>
         <div layout="column">
             <md-input-container>
                 <label>Medium Of Contact</label>
-                <input type="text" value={{student.medium_1st}}>
+                <input type="text" ng-model="student.medium_1st" ng-blur="updateNotes('medium_1st', student.medium_1st)">
             </md-input-container>
         </div>
         <div layout="column">
             <md-input-container>
                 <label>Questions / Concerns</label>
-                <textarea>{{student.questions_1st}}</textarea>
+                <textarea ng-blur="updateNotes('questions_1st', student.questions_1st)" ng-model="student.questions_1st"></textarea>
             </md-input-container>
         </div>
     </section>
     <section class="student-form-section" id="second-half-contact">
         <h5>Second Half Of The Month</h5>
 
-        <div  layout="column" >
+        <div layout="column">
             <md-input-container>
                 <label>Made Contact</label>
-                <input type="text" value={{student.contact_2nd}}>
+                <input type="text" ng-model="student.contact_2nd" ng-blur="updateNotes('contact_2nd', student.contact_2nd)"/>
             </md-input-container>
         </div>
-        <div  layout="column" >
+        <div layout="column">
             <md-input-container>
                 <label>Medium Of Contact</label>
-                <input type="text" value={{student.medium_2nd}}>
+                <input type="text" ng-model="student.medium_2nd" ng-blur="updateNotes('medium_2nd', student.medium_2nd)">
             </md-input-container>
         </div>
-        <div  layout="column">
+        <div layout="column">
             <md-input-container>
                 <label>Questions / Concerns</label>
-                <textarea>{{student.questions_2nd}}</textarea>
+                <textarea ng-blur="updateNotes('questions_2nd', student.questions_2nd)" ng-model="student.questions_2nd"></textarea>
             </md-input-container>
         </div>
     </section>

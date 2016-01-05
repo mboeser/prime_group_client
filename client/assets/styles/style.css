@@ -141,6 +141,7 @@ md-input-container {
 
 #mainLogo {
     margin-top: 25px;
+    width: 250px;
 }
 
 .page-header-text {
@@ -193,4 +194,7 @@ md-checkbox.md-checked.green .md-icon {
 
 .why-red {
     color: red;
+}
+#sign-in-google-logo {
+    width: 250px;
 }
