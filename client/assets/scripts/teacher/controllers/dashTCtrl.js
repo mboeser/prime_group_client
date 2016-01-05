@@ -18,12 +18,9 @@ myApp.controller('dashTCtrl', ['$scope', '$http', 'DataService', '$location', fu
 //Get the initial classes listed on the teacher dashboard.
     $scope.getClasses = function(){
         $http.get('/teacher').then(function(response){
-            console.log("Get classes function");
-            console.log("response from server", response.data);
             for (var i=0; i<response.data.length; i++){
                 $scope.classes.push((response.data[i].class_date).slice(0, 10));
             }
-            console.log("This is classes", $scope.classes);
         });
     };
 

@@ -42,8 +42,18 @@ myApp.service('DataService', ['$http', '$filter', function($http, $filter){
         },
         getStudent: function(){
             return selectedStudent;
-        }
+        },
+        getClasses: function(){
+            return $http.get('/teacher').then(function(response){
+                var classes = [];
+                for (var i=0; i<response.data.length; i++){
+                    classes.push((response.data[i].class_date).slice(0, 10));
+                }
+               return classes;
 
+
+            });
+        }
 
 
     };
