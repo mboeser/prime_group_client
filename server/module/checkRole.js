@@ -1,7 +1,5 @@
 var pg = require('pg');
-//var connectionString = require('../config/database.js');
-
-var connectionString = process.env.DATABASE_URL;
+var connectionString = require('../config/database.js');
 
 module.exports = function (req, res, next) {
     //console.log('module LOG', req.user.emails[0].value);
