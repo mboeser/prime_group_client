@@ -1,4 +1,4 @@
-myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', function ($scope, $http, $location, DataService) {
+myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', '$mdToast', function ($scope, $http, $location, DataService, $mdToast) {
     console.log('on admin user controller--userCtrl.js');
 
     $scope.dataService = DataService;
@@ -20,10 +20,16 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', fun
     $scope.gridOptions = {
 
 
-
         columnDefs: [
 
-            {name: 'First Name', field: 'firstname', width: '20%',enableSorting: true, enableColumnResizing: true, enableCellEdit: true},
+            {
+                name: 'First Name',
+                field: 'firstname',
+                width: '20%',
+                enableSorting: true,
+                enableColumnResizing: true,
+                enableCellEdit: true
+            },
             {name: 'Last Name', field: 'lastname', width: '20%', enableCellEdit: true},
 
             {
@@ -43,7 +49,12 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', fun
 
             {name: 'Email', field: 'email', minWidth: 320, maxWidth: 350, enableCellEdit: true},
             {
-                name: ' ', field: 'id', enableSorting: false, enableColumnMenu: false, enableHiding: false, enableColumnResizing: false,
+                name: ' ',
+                field: 'id',
+                enableSorting: false,
+                enableColumnMenu: false,
+                enableHiding: false,
+                enableColumnResizing: false,
                 cellTemplate: '<button style="margin-left: 20%; "class="delete-button" ng-click="grid.appScope.deleteUser(row.entity.email)">Delete</button>'
             }
         ],
@@ -89,6 +100,9 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', fun
             console.log('post response :', response);
             $scope.getUserList();
             $scope.newUser = {};
+            $scope.addUserForm.$setPristine();
+            $scope.addUserForm.$setUntouched();
+            $scope.openToast();
         });
     };
 
@@ -116,5 +130,10 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', fun
             $scope.getUserList();
         });
     };
+
+    $scope.openToast = function () {
+        $mdToast.show($mdToast.simple().content('User Added!'));
+    };
+
     $scope.getUserList();
 }]);

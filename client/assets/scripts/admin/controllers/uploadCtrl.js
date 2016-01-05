@@ -23,6 +23,7 @@ myApp.controller('uploadCtrl', ['$scope', '$http', 'Upload', 'DataService', func
             url: '/upload',
             data: {file: file}
         }).then(function (resp) {
+            openToast();
             console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
         }, function (resp) {
             console.log('Error status: ' + resp.status);
@@ -30,6 +31,10 @@ myApp.controller('uploadCtrl', ['$scope', '$http', 'Upload', 'DataService', func
             var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
             console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
         });
+    };
+
+    $scope.openToast = function() {
+        $mdToast.show($mdToast.simple().content('Upload Complete!'));
     };
 
 }]);
