@@ -46,6 +46,13 @@ module.exports = function (grunt) {
                 "dest": "server/public/vendors/"
             },
 
+            font: {
+                expand: true,
+                cwd: "node_modules/angular-ui-grid/",
+                src: ["ui-grid.ttf", "ui-grid.woff"],
+                "dest": "server/public/vendors/angular-ui-grid/"
+            },
+
             pdfmake: {
                 expand: true,
                 cwd: "client/assets/pdfmake",
