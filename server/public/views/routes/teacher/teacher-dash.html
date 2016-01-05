@@ -1,0 +1,16 @@
+<section>
+    <h3>Teacher Dashboard</h3>
+    <main>
+        Classes
+        <hr/>
+        <div>List Of Upcoming Classes Here </div>
+        <div ng-repeat="class in classes | orderBy: '+'" ng-click="getPrework(class)">
+            <md-input-container>
+                <class-profile info="class"></class-profile>
+            </md-input-container>
+        </div>
+        <div>
+
+        </div>
+    </main>
+</section>
