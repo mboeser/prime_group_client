@@ -15,6 +15,7 @@ myApp.controller('studentCtrl', ['$scope', '$http', 'DataService', function ($sc
         });
     }
 
+    console.log("This is the student", $scope.student);
 
     $scope.dropdown = ['Not Yet Called','Reached','Left Message'];
 

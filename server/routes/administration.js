@@ -50,7 +50,7 @@ module.exports = function (app, req, res, next) {
         var phone = req.body.phone1;
         var contact_status = req.body.contact_status;
         var admin_notes = req.body.admin_notes;
-
+        var attend_notes = req.body.attendance_notes;
 
         pg.connect(connectionString.url, function (err, client) {
             //update the users table if firstname of teacher is changed
@@ -73,8 +73,8 @@ module.exports = function (app, req, res, next) {
 
             //update the attendance table.
             client.query("UPDATE attendance " +
-                "SET (contact_status, admin_notes) = ($1, $2) " +
-                "WHERE id=$3;", [contact_status, admin_notes, studentID],
+                "SET (contact_status, admin_notes, attendance_notes) = ($1, $2, $3) " +
+                "WHERE id=$4;", [contact_status, admin_notes, attend_notes, studentID],
                 function (err) {
                     if (err) console.log(err);
                     client.end();
