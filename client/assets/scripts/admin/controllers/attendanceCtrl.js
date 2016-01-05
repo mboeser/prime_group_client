@@ -39,6 +39,37 @@ myApp.controller('attendanceCtrl', ['$scope', '$http', '$location', 'DataService
         })
     };
 
+    $scope.showActionToast = function () {
+        //console.log($scope.students);
+
+        var absent = 0;
+        var present = 0;
+
+        $scope.students.forEach(function(obj){
+            if (obj.attendance_status == 'absent'){
+                absent++;
+            } else if (obj.attendance_status == 'present'){
+                present++;
+            }
+
+        });
+
+        var el = angular.element(document.getElementById('attBtn'));
+
+        var toast = $mdToast.simple()
+            .content('Absent: ' + absent + '\nPresent: ' + present)
+            .action('OK')
+            .highlightAction(false)
+            .hideDelay(2000)
+            .parent(el)
+            .position('bottom');
+
+        $mdToast.show(toast).then(function (response) {
+            $location.path('/dashboard');
+        });
+    };
+
+
     $scope.getAttendance();
 
 }]);
