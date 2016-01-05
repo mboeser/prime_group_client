@@ -20,23 +20,22 @@
 
         <h3>Attendance App Test:</h3>
 
-        <div layout="row">
+        <div layout-fill="" layout="column">
 
 
-            <div class="inset" ng-cloak dir="rtl" flex="none">
+            <div id="attBtn" class="inset" ng-cloak dir="rtl" flex="none">
                 <div ng-repeat="student in students">
-                <md-checkbox ng-model="student.attendance_status" ng-true-value="'present'"
-                             ng-false-value="'absent'" class="green">
-                    {{student.student_firstname +' '+ student.student_lastname }}
-                </md-checkbox>
-                <md-divider></md-divider>
-
+                    <md-checkbox ng-model="student.attendance_status" ng-true-value="'present'"
+                                 ng-false-value="'absent'" class="green">
+                        {{student.student_firstname +' '+ student.student_lastname }}
+                    </md-checkbox>
+                    <md-divider></md-divider>
                 </div>
-                <div layout="row" layout-align="center center">
-                    <md-button class="md-raised md-primary" ng-click="putAttendance()">SUBMIT</md-button>
-                </div>
-
             </div>
+            <md-input-container>
+                <md-button class="md-raised md-primary" ng-click="showActionToast()">SUBMIT</md-button>
+            </md-input-container>
+
         </div>
 
     </md-content>

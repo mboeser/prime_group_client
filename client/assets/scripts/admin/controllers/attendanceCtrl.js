@@ -1,4 +1,4 @@
-myApp.controller('attendanceCtrl', ['$scope', '$http', '$location','DataService', function ($scope, $http, $location, DataService) {
+myApp.controller('attendanceCtrl', ['$scope', '$http', '$location', 'DataService', '$mdToast', '$document', function ($scope, $http, $location, DataService, $mdToast, $document) {
     console.log('on admin attendance controller--attendanceCtrl.js');
     $scope.dataService = DataService;
     $scope.user = {};
@@ -8,15 +8,20 @@ myApp.controller('attendanceCtrl', ['$scope', '$http', '$location','DataService'
 
     $scope.students = [];
 
-    if($scope.dataService.peopleData() === undefined){
-        $scope.dataService.retrieveData().then(function(){
+    if ($scope.dataService.peopleData() === undefined) {
+        $scope.dataService.retrieveData().then(function () {
             $scope.user = $scope.dataService.peopleData();
             console.log($scope.user);
         });
     }
 
-    $scope.getAttendance = function(){
-        $http.get('/attendance', {params: {date: $scope.date, who: $scope.user.emails[0].value}}).then(function(response){
+    $scope.getAttendance = function () {
+        $http.get('/attendance', {
+            params: {
+                date: $scope.date,
+                who: $scope.user.emails[0].value
+            }
+        }).then(function (response) {
 
             $scope.students = response.data;
 
@@ -26,13 +31,13 @@ myApp.controller('attendanceCtrl', ['$scope', '$http', '$location','DataService'
             console.log('here ATT response', response.data);
         })
     };
-    $scope.putAttendance = function(){
-        $http.put('/attendance', $scope.students).then(function(response){
+    $scope.putAttendance = function () {
+        $http.put('/attendance', $scope.students).then(function (response) {
             console.log(response);
-            //$scope.getAttendance()
+            $scope.showActionToast();
+            $scope.getAttendance();
         })
     };
-
 
     $scope.getAttendance();
 
