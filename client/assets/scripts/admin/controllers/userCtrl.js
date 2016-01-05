@@ -19,6 +19,7 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', '$m
 
     $scope.gridOptions = {
 
+        rowEditWaitInterval: 1000,
 
         columnDefs: [
 
@@ -93,6 +94,7 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', '$m
     };
     $scope.saveRow = function (rowEntity) {
         var promise = $http.put('/roles', rowEntity).then(function (response) {
+            $scope.editUserToast();
             console.log(response);
         });
         $scope.gridApi.rowEdit.setSavePromise(rowEntity, promise);
@@ -129,6 +131,7 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', '$m
     $scope.updateUser = function (person) {
         $http.put('/roles', person).then(function (response) {
             console.log('put response :', response);
+            $scope.editUserToast();
             $scope.getUserList();
         });
     };
@@ -137,12 +140,21 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', '$m
         console.log(person);
         $http.delete('/roles', {params: {deleteMe: person}}).then(function (response) {
             console.log('delete response :', response);
+            $scope.deleteUserToast();
             $scope.getUserList();
         });
     };
 
     $scope.openToast = function () {
         $mdToast.show($mdToast.simple().content('User Added!'));
+    };
+
+    $scope.deleteUserToast = function () {
+        $mdToast.show($mdToast.simple().content('User Deleted!'));
+    };
+
+    $scope.editUserToast = function () {
+        $mdToast.show($mdToast.simple().content('User Edited!'));
     };
 
     $scope.getUserList();

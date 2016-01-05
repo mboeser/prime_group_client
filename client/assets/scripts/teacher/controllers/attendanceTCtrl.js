@@ -13,8 +13,10 @@ myApp.controller('attendanceTCtrl', ['$scope', '$http', 'DataService', '$mdToast
     if ($scope.dataService.peopleData() === undefined) {
         $scope.dataService.retrieveData().then(function () {
             $scope.user = $scope.dataService.peopleData();
-            console.log($scope.user);
+            $scope.getAttendance();
         });
+    } else {
+        $scope.getAttendance();
     }
 
     $scope.getAttendance = function () {
@@ -27,10 +29,6 @@ myApp.controller('attendanceTCtrl', ['$scope', '$http', 'DataService', '$mdToast
 
             $scope.students = response.data;
 
-            console.log($scope.students[1]);
-            console.log($scope.user.emails[0]);
-
-            console.log('here ATT response', response.data);
         })
     };
     $scope.putAttendance = function () {
@@ -72,7 +70,7 @@ myApp.controller('attendanceTCtrl', ['$scope', '$http', 'DataService', '$mdToast
         });
     };
 
-    $scope.getAttendance();
+
 
 
 }]);
