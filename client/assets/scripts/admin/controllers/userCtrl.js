@@ -26,18 +26,23 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', '$m
             {
                 name: 'First Name',
                 field: 'firstname',
-                width: '20%',
+                width: '13%',
                 enableSorting: true,
                 enableColumnResizing: true,
                 enableCellEdit: true
             },
-            {name: 'Last Name', field: 'lastname', width: '20%', enableCellEdit: true},
+            {
+                name: 'Last Name',
+                field: 'lastname',
+                width: '13%',
+                enableCellEdit: true
+            },
 
             {
                 name: 'role',
                 field: 'role',
-                minWidth: 80,
-                width: 90,
+                minWidth: 60,
+                width: 60,
                 enableColumnResizing: false,
                 editableCellTemplate: 'ui-grid/dropdownEditor',
                 editDropdownValueLabel: 'role',
@@ -48,7 +53,11 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', '$m
                 ]
             },
 
-            {name: 'Email', field: 'email', minWidth: 320, maxWidth: 350, enableCellEdit: true},
+            {   name: 'Email',
+                field: 'email',
+                width: '37%',
+                enableCellEdit: true
+            },
             {
                 name: ' ',
                 field: 'id',
@@ -56,6 +65,7 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', '$m
                 enableColumnMenu: false,
                 enableHiding: false,
                 enableColumnResizing: false,
+                width: '20%',
                 cellTemplate: '<button style="margin-left: 20%; "class="delete-button" ng-click="grid.appScope.deleteUser(row.entity.email)">Delete</button>'
             }
         ],
