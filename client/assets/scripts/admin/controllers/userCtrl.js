@@ -47,7 +47,7 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', '$m
                 ]
             },
 
-            {name: 'Email', field: 'email', minWidth: 320, maxWidth: 350, enableCellEdit: true},
+            {name: 'Email', field: 'email', width: '20%', enableCellEdit: true},
             {
                 name: ' ',
                 field: 'id',
