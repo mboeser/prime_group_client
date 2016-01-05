@@ -1,4 +1,4 @@
-myApp.controller('attendanceTCtrl', ['$scope', '$http', 'DataService', '$mdToast', '$document', function ($scope, $http, DataService, $mdToast, $document) {
+myApp.controller('attendanceTCtrl', ['$scope', '$http', 'DataService', '$mdToast', '$location', function ($scope, $http, DataService, $mdToast, $location) {
     console.log('on teacher attendance controller--attendanceTCtrl.js');
 
 
@@ -63,14 +63,12 @@ myApp.controller('attendanceTCtrl', ['$scope', '$http', 'DataService', '$mdToast
             .content('Absent: ' + absent + '\nPresent: ' + present)
             .action('OK')
             .highlightAction(false)
-            .hideDelay(false)
+            .hideDelay(2000)
             .parent(el)
             .position('bottom');
 
         $mdToast.show(toast).then(function (response) {
-            if (response == 'ok') {
-                alert('You clicked \'OK\'.');
-            }
+                $location.path('/dashboard');
         });
     };
 
