@@ -1,8 +1,7 @@
 /server/public
 /server/config/auth.js
 /server/config/database.js
-.DS_STORE/
+**/.DS_STORE
 node_modules/
 .idea/
-.DS_Store/
 uploads/
