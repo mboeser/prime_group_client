@@ -4,6 +4,6 @@
 
 module.exports = {
 
-    'url' : process.env.DATABASE_URL
+    'url' : process.env.DATABASE_URL || 'postgres://postgres://jrdrsnbmfyqizq:zsLV-PjznaWmIZoJwsaGsus30G@ec2-54-83-59-110.compute-1.amazonaws.com:5432/df49f2ss2cebe5?ssl=true'
 
 };
