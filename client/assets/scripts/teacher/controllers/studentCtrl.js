@@ -7,8 +7,6 @@ myApp.controller('studentCtrl', ['$scope', '$http', 'DataService', function ($sc
 
     $scope.user = $scope.dataService.peopleData();
     $scope.student = $scope.dataService.getStudent();
-    console.log("This is the student that was selected", $scope.student);
-    console.log("Date upon entry", $scope.date);
 
     if($scope.dataService.peopleData() === undefined){
         $scope.dataService.retrieveData().then(function(){
@@ -17,32 +15,33 @@ myApp.controller('studentCtrl', ['$scope', '$http', 'DataService', function ($sc
         });
     }
 
+
     $scope.dropdown = ['Not Yet Called','Reached','Left Message'];
 
     $scope.updateNotes = function(col, note){
         $http.put('/updateStudent', {params: {'column': col, 'value': note, 'id': $scope.student.id}}).then(function(){
             console.log("student data updated");
-            $scope.setPrework($scope.date);
+            $scope.setPrework();
         });
     };
 
     $scope.updateBus = function(col, note){
       $http.put('/updateBus', {params: {'column': col, 'value': note, 'id': $scope.student.id}}).then(function(){
           console.log("student data updated");
-          $scope.setPrework($scope.date);
+          $scope.setPrework();
       });
     };
 
     $scope.updateInfo = function(col, note){
         $http.put('/updateStudentInfo', {params: {'column': col, 'value': note, 'id': $scope.student.id}}).then(function(){
-            console.log("student data updated");
-            $scope.setPrework($scope.date);
+            $scope.setPrework();
+            console.log("Student data updated");
         });
     };
 
     //before switching to the next page, don't forget to update the student factory information?
-    $scope.setPrework = function(date) {
-        console.log("This is date", date);
+    $scope.setPrework = function() {
+        var date=$scope.student.class_date.slice(0,10);
         $http.get('/teacher_prework', {params: {'date': date}}).then(function (response) {
             $scope.dataService.setData(response.data);
         });
