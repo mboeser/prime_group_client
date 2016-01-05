@@ -5,7 +5,9 @@
         <hr/>
         <div>List Of Upcoming Classes Here </div>
         <div ng-repeat="class in classes | orderBy: '+'" ng-click="getPrework(class)">
-           <class-profile info="class"></class-profile>
+            <md-input-container>
+                <class-profile info="class"></class-profile>
+            </md-input-container>
         </div>
         <div>
 

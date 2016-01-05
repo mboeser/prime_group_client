@@ -199,3 +199,9 @@ md-checkbox.md-checked.green .md-icon {
 #sign-in-google-logo {
     width: 250px;
 }
+.ui-grid-cell-contents{
+    font-size: 13px;
+}
+.ui-grid-cell-contents.ui-grid-header-cell-primary-focus{
+    font-size: 13px;
+}
