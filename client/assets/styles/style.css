@@ -118,6 +118,7 @@ a.md-button.md-primary.md-fab,
 }
 
 a.md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover, a.md-button.md-primary.md-raised:not([disabled]):hover, a.md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover, a.md-button.md-primary.md-fab:not([disabled]):hover, .md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover, .md-button.md-primary.md-raised:not([disabled]):hover, .md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover, .md-button.md-primary.md-fab:not([disabled]):hover {
+    /*Orange*/
     background-color: #FAA333;
     color: #FFF;
 }
@@ -130,7 +131,7 @@ a.md-button.md-primary.md-fab:not([disabled]).md-button:active,
 .md-button.md-primary.md-raised:not([disabled]) md-button:active,
 .md-button.md-default-theme.md-primary.md-fab:not([disabled]).md-button:active,
 .md-button.md-primary.md-fab:not([disabled]) md-button:active {
-    background-color: #8DC73F;
+    background-color: #FAA333;
     color: #FFF;
     /*color:#0082C8;*/
 }

@@ -9,7 +9,7 @@
         </div>
         <form  name="preworkForm" ng-submit="getPrework()">
             <div>
-                <md-datepicker name="date" ng-model="prework.date" ng-required ></md-datepicker>
+                <md-datepicker name="date" ng-model="prework.date" md-placeholder="Select Date" ng-required ></md-datepicker>
 
 
             </div>
@@ -28,7 +28,7 @@
         <div>Absent Report</div>
         <form   name="absentForm" ng-submit="getAbsences()">
             <div>
-                <md-datepicker name="date" ng-model="absent.date" ng-required ></md-datepicker>
+                <md-datepicker name="date" ng-model="absent.date" md-placeholder="Select Date" ng-required ></md-datepicker>
             </div>
             <div>
                 <md-button ng-disabled="!absentForm.date.$modelValue" class="md-raised md-primary">Absent Report</md-button>

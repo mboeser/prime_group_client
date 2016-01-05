@@ -48,6 +48,5 @@ myApp.controller('dashTCtrl', ['$scope', '$http', 'DataService', '$location', fu
 
     $scope.getClasses();
 
-
 }]);
 

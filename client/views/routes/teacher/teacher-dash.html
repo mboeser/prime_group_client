@@ -4,13 +4,11 @@
         Classes
         <hr/>
         <div>List Of Upcoming Classes Here </div>
-        <div ng-repeat="class in classes" ng-click="getPrework(class)">
+        <div ng-repeat="class in classes | orderBy: '+'" ng-click="getPrework(class)">
            <class-profile info="class"></class-profile>
         </div>
         <div>
-            <md-input-container>
-                <md-button href="#attendance"  class="md-raised md-primary" >Today's Attendance</md-button>
-            </md-input-container>
+
         </div>
     </main>
 </section>
