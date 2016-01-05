@@ -51,7 +51,7 @@ module.exports = function (app, req, res, next) {
                         console.log("Error inserting data: ", err);
                         res.send(false);
                     }
-
+                    client.end();
                     res.send(true);
                 });
 
@@ -79,6 +79,7 @@ module.exports = function (app, req, res, next) {
                         console.log ('error inserting to db', err);
                         return res.status(500).json({success: false, data: err});
                     }
+                client.end();
                 res.send(true);
 
             });

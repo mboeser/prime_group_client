@@ -19,24 +19,30 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', '$m
 
     $scope.gridOptions = {
 
+        rowEditWaitInterval: 1000,
 
         columnDefs: [
 
             {
                 name: 'First Name',
                 field: 'firstname',
-                width: '20%',
+                width: '13%',
                 enableSorting: true,
                 enableColumnResizing: true,
                 enableCellEdit: true
             },
-            {name: 'Last Name', field: 'lastname', width: '20%', enableCellEdit: true},
+            {
+                name: 'Last Name',
+                field: 'lastname',
+                width: '13%',
+                enableCellEdit: true
+            },
 
             {
                 name: 'role',
                 field: 'role',
-                minWidth: 80,
-                width: 90,
+                minWidth: 60,
+                width: 60,
                 enableColumnResizing: false,
                 editableCellTemplate: 'ui-grid/dropdownEditor',
                 editDropdownValueLabel: 'role',
@@ -47,7 +53,11 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', '$m
                 ]
             },
 
-            {name: 'Email', field: 'email', minWidth: 320, maxWidth: 350, enableCellEdit: true},
+            {   name: 'Email',
+                field: 'email',
+                width: '37%',
+                enableCellEdit: true
+            },
             {
                 name: ' ',
                 field: 'id',
@@ -55,6 +65,7 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', '$m
                 enableColumnMenu: false,
                 enableHiding: false,
                 enableColumnResizing: false,
+                width: '20%',
                 cellTemplate: '<button style="margin-left: 20%; "class="delete-button" ng-click="grid.appScope.deleteUser(row.entity.email)">Delete</button>'
             }
         ],
@@ -83,6 +94,7 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', '$m
     };
     $scope.saveRow = function (rowEntity) {
         var promise = $http.put('/roles', rowEntity).then(function (response) {
+            $scope.editUserToast();
             console.log(response);
         });
         $scope.gridApi.rowEdit.setSavePromise(rowEntity, promise);
@@ -119,6 +131,7 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', '$m
     $scope.updateUser = function (person) {
         $http.put('/roles', person).then(function (response) {
             console.log('put response :', response);
+            $scope.editUserToast();
             $scope.getUserList();
         });
     };
@@ -127,12 +140,21 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', '$m
         console.log(person);
         $http.delete('/roles', {params: {deleteMe: person}}).then(function (response) {
             console.log('delete response :', response);
+            $scope.deleteUserToast();
             $scope.getUserList();
         });
     };
 
     $scope.openToast = function () {
         $mdToast.show($mdToast.simple().content('User Added!'));
+    };
+
+    $scope.deleteUserToast = function () {
+        $mdToast.show($mdToast.simple().content('User Deleted!'));
+    };
+
+    $scope.editUserToast = function () {
+        $mdToast.show($mdToast.simple().content('User Edited!'));
     };
 
     $scope.getUserList();
