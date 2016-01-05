@@ -77,7 +77,7 @@
             <div layout="column">
                 <md-input-container>
                     <label>Contact Status</label>
-                    <input type="text" ng-blur="updateNotes('contact_status', student.contact_status)" ng-model="student.contact_status"/>
+                    <select ng-options="option for option in dropdown" ng-change="updateNotes('contact_status', student.contact_status)" ng-model="student.contact_status" placeholder="not yet called"/>
                 </md-input-container>
             </div>
             <div layout="column">
