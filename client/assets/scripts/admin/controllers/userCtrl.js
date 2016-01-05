@@ -25,12 +25,12 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', '$m
             {
                 name: 'First Name',
                 field: 'firstname',
-                width: '20%',
+                width: '10%',
                 enableSorting: true,
                 enableColumnResizing: true,
                 enableCellEdit: true
             },
-            {name: 'Last Name', field: 'lastname', width: '20%', enableCellEdit: true},
+            {name: 'Last Name', field: 'lastname', width: '15%', enableCellEdit: true},
 
             {
                 name: 'role',
@@ -55,6 +55,7 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', '$m
                 enableColumnMenu: false,
                 enableHiding: false,
                 enableColumnResizing: false,
+                width: '10%',
                 cellTemplate: '<button style="margin-left: 20%; "class="delete-button" ng-click="grid.appScope.deleteUser(row.entity.email)">Delete</button>'
             }
         ],
