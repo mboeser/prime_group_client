@@ -32,9 +32,6 @@ myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', function($scop
             { name:'Phone 1', field: 'phone1' , enableCellEdit:true},
 
             { name:'Call Status', field: 'contact_status' , enableCellEdit:true,
-
-            { name:'Call Status', field: 'contact_status' ,   enableCellEdit:true,
-
                 editableCellTemplate: 'ui-grid/dropdownEditor',
                 editDropdownValueLabel: 'contact_status',
                 editDropdownOptionsArray: [
