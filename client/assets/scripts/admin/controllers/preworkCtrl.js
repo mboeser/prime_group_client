@@ -16,9 +16,6 @@ myApp.controller('preworkCtrl', ['$scope', '$http', '$location','DataService', f
         });
     }
 
-    var notCalledTemplate = "<div class='grid-dropdown-item' ng-if='row.entity.contact_status'>{{row.entity.contact_status}}</div>" +
-        "<div ng-if='!row.entity.contact_status'>Not Yet Called</div>";
-
     var expandStudentTemplate = '<div class="ui-grid-cell-contents"  ng-click="grid.appScope.selectStudent(row.entity.id)">{{row.entity.id}}</div>';
 
 
@@ -32,7 +29,8 @@ myApp.controller('preworkCtrl', ['$scope', '$http', '$location','DataService', f
             { name:'First Name', field: 'student_firstname' , enableCellEdit:false},
             { name:'Last Name', field: 'student_lastname' , enableCellEdit:false, sort: {direction: 'asc'}},
             { name:'Phone 1', field: 'phone1' , enableCellEdit:true},
-            { name:'Call Status', field: 'contact_status' ,   cellTemplate: notCalledTemplate , enableCellEdit:true,
+            { name:'Call Status', field: 'contact_status' , enableCellEdit:true,
+
                 editableCellTemplate: 'ui-grid/dropdownEditor',
                 editDropdownValueLabel: 'contact_status',
                 editDropdownOptionsArray: [
