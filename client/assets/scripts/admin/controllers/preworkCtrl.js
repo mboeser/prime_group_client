@@ -45,6 +45,7 @@ myApp.controller('preworkCtrl', ['$scope', '$http', '$location','DataService', f
     };
 
     $scope.gridOptions.data = $scope.dataService.getData();
+    console.log();
 
 
     $scope.saveRow = function( rowEntity ) {
@@ -76,6 +77,8 @@ myApp.controller('preworkCtrl', ['$scope', '$http', '$location','DataService', f
                 }
         });
     };
+
+
 
 
 }]);

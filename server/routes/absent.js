@@ -17,9 +17,10 @@ module.exports = function (app, req, res, next) {
         pg.connect(connectionString.url, function (err, client, done) {
 
             var query = client.query("SELECT students.id, students.student_firstname, " +
-                "students.student_lastname, students.teacher_email, students.class_date, students.phone1, attendance.* " +
+                "students.student_lastname, students.teacher_email, students.class_date, students.phone1, users.lastname, attendance.* " +
                 "FROM students " +
                 "JOIN attendance ON (students.id = attendance.id) " +
+                "JOIN users ON (students.teacher_email = users.email) " +
                 "WHERE students.class_date = $1 AND attendance.attendance_status='absent'", [date]);
 
             // Stream results back one row at a time, push into results array

@@ -10,16 +10,22 @@ myApp.controller('attendanceTCtrl', ['$scope', '$http', 'DataService', '$mdToast
 
     $scope.students = [];
 
+    console.log("This is user", $scope.user);
+    console.log("This is date", $scope.date);
+
     if ($scope.dataService.peopleData() === undefined) {
         $scope.dataService.retrieveData().then(function () {
             $scope.user = $scope.dataService.peopleData();
+            console.log("If statement right before getAttendance");
             $scope.getAttendance();
         });
     } else {
-        $scope.getAttendance();
+        console.log("Else statement right before get attendance");
+        //$scope.getAttendance();
     }
 
     $scope.getAttendance = function () {
+        console.log("In getAttendance function");
         $http.get('/attendance', {
             params: {
                 date: $scope.date,
@@ -70,7 +76,7 @@ myApp.controller('attendanceTCtrl', ['$scope', '$http', 'DataService', '$mdToast
         });
     };
 
-
+    $scope.getAttendance();
 
 
 }]);

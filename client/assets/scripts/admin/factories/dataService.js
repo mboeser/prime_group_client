@@ -10,10 +10,12 @@ myApp.service('DataService', ['$http', '$filter', function($http, $filter){
         getData: function () {
             //You could also return specific attribute of the form data instead
             //of the entire data
+            console.log('this is form data saved in factory', formData);
             return formData;
         },
         setData: function (newFormData) {
             //You could also set specific attribute of the form data instead
+            console.log('setData Called in factory', newFormData);
             formData = newFormData
         },
         resetData: function () {

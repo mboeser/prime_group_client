@@ -54,14 +54,16 @@ module.exports = function (app, req, res, next) {
 
         pg.connect(connectionString.url, function (err, client) {
             //update the users table if firstname of teacher is changed
-            client.query("UPDATE users " +
-                "SET lastname='" + teachername +
-                "' FROM students " +
-                "WHERE students.id=$1 " +
-                "AND users.email=students.teacher_email", [studentID],
-                function (err) {
-                    if (err) console.log(err);
-                });
+            if (teachername){
+                client.query("UPDATE users " +
+                    "SET lastname='" + teachername +
+                    "' FROM students " +
+                    "WHERE students.id=$1 " +
+                    "AND users.email=students.teacher_email", [studentID],
+                    function (err) {
+                        if (err) console.log(err);
+                    });
+            }
 
             //update the students table if student information is changed.
             client.query("UPDATE students " +

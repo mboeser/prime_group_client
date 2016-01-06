@@ -11,7 +11,6 @@ myApp.controller('dashTCtrl', ['$scope', '$http', 'DataService', '$location', fu
     if($scope.dataService.peopleData() === undefined){
         $scope.dataService.retrieveData().then(function(){
             $scope.user = $scope.dataService.peopleData();
-            console.log($scope.user);
         });
     }
 
@@ -26,10 +25,8 @@ myApp.controller('dashTCtrl', ['$scope', '$http', 'DataService', '$location', fu
 
 //Teacher selects a class. DataService form data reset to match incoming students for next page.
     $scope.getPrework = function(date){
-        console.log("This is date", date);
         $http.get('/teacher_prework', {params: {'date': date}}).then(function(response){
             $scope.dataService.setData(response.data);
-            console.log("This is getData", $scope.dataService.getData());
             $location.path('/class');
         });
     };
