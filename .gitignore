@@ -1,5 +1,4 @@
 /.idea
-/server/public
 /server/config/auth.js
 /sever/config/database.js
 **/.DS_STORE
