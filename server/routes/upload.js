@@ -22,7 +22,7 @@ module.exports = function (app, path, req, res, next) {
             fs.writeFile('uploads/students.csv', data, function (err) {
                 //pg.connect is in the callback of the write to make certain that all of the database calls occur after the
                 //fs has written all of the files.
-                pg.connect(connectionString.url, function(err, client, done) {
+                pg.connect(connectionString, function(err, client, done) {
                     if (err) console.log(err);
                     //Drop new vals if it exists. Create a new newvals table.
                     client.query("DROP TABLE IF EXISTS newvals;" +

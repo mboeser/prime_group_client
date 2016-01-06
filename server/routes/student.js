@@ -40,7 +40,7 @@ module.exports = function (app, req, res, next) {
         console.log("This is req.body", req.body);
         res.send(true);
 
-        pg.connect(connectionString.url, function (err, client, done) {
+        pg.connect(connectionString, function (err, client, done) {
             client.query("UPDATE attendance SET (*)=$1 WHERE id=$2", [value, id], function (err) {
                 if (err) console.log(err);
                 client.end();
@@ -54,7 +54,7 @@ module.exports = function (app, req, res, next) {
         var value = req.body['params']['value'];
         var id = req.body['params']['id'];
 
-        pg.connect(connectionString.url, function (err, client, done) {
+        pg.connect(connectionString, function (err, client, done) {
             client.query("UPDATE attendance SET " + column + "=$1 WHERE id=$2", [value, id], function (err) {
                 if (err) console.log(err);
                 client.end();
@@ -68,7 +68,7 @@ module.exports = function (app, req, res, next) {
         var value = req.body['params']['value'];
         var id = req.body['params']['id'];
 
-        pg.connect(connectionString.url, function (err, client, done) {
+        pg.connect(connectionString, function (err, client, done) {
             client.query("UPDATE busses SET " + column + "=$1 WHERE id=$2", [value, id], function (err) {
                 if (err) console.log(err);
                 client.end();
@@ -82,7 +82,7 @@ module.exports = function (app, req, res, next) {
         var value = req.body['params']['value'];
         var id = req.body['params']['id'];
 
-        pg.connect(connectionString.url, function (err, client, done) {
+        pg.connect(connectionString, function (err, client, done) {
             client.query("UPDATE students SET " + column + "=$1 WHERE id=$2", [value, id], function (err) {
                 if (err) console.log(err);
                 client.end();

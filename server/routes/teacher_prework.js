@@ -8,7 +8,7 @@ module.exports = function (app, req, res, next) {
 
         console.log('teacher prework',req.query.date);
 
-        pg.connect(connectionString.url, function (err, client, done) {
+        pg.connect(connectionString, function (err, client, done) {
 
             var date = req.query.date;
             var teacherEmail = req.user.emails[0]['value'];

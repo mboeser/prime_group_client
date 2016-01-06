@@ -5,7 +5,7 @@ module.exports = function (app, req, res, next) {
 
     app.get('/prework', isLoggedIn, function (req, res) {
 
-        console.log('admin', req.query.date);
+        //console.log('admin', req.query.date);
 
         var date = req.query.date;
         console.log("This is the date you requested", date);
@@ -41,9 +41,9 @@ module.exports = function (app, req, res, next) {
 
     app.put('/adminPrework', isLoggedIn, function (req, res) {
 
-        console.log("req.body in adminPrework", req.body);
+        //console.log("req.body in adminPrework", req.body);
         var teachername = req.body.lastname;
-        console.log(teachername);
+        //console.log(teachername);
         var studentID = req.body.id;
         var sfirstname = req.body.student_firstname;
         var slastname = req.body.student_lastname;
@@ -52,7 +52,7 @@ module.exports = function (app, req, res, next) {
         var admin_notes = req.body.admin_notes;
         var attend_notes = req.body.attendance_notes;
 
-        pg.connect(connectionString.url, function (err, client) {
+        pg.connect(connectionString, function (err, client) {
             //update the users table if firstname of teacher is changed
             client.query("UPDATE users " +
                 "SET lastname='" + teachername +
