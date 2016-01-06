@@ -1,7 +1,7 @@
 var pg = require('pg');
 var connectionString = process.env.DATABASE_URL;
 
-module.exports = function (app, req, res, next) {
+module.exports = function (app) {
 
     // GET ALL
 
@@ -10,7 +10,7 @@ module.exports = function (app, req, res, next) {
         var results = [];
 
         //SQL Query > SELECT data from table
-        pg.connect(connectionString, function (err, client, done) {
+        pg.connect(connectionString, function (err, client) {
             var query = client.query("SELECT id, email, firstname, lastname, role FROM users ORDER BY lastname ASC");
 
             // Stream results back one row at a time, push into results array
@@ -29,8 +29,6 @@ module.exports = function (app, req, res, next) {
                 console.log(err);
             }
         });
-
-
     });
 
     // NEW
@@ -43,7 +41,7 @@ module.exports = function (app, req, res, next) {
         var role = req.body.role;
 
         //SQL Query > SELECT data from table
-        pg.connect(connectionString, function (err, client, done) {
+        pg.connect(connectionString, function (err, client) {
             client.query("INSERT INTO users (email, firstname, lastname, role) " +
                 "VALUES ($1, $2, $3, $4)", [email, firstname, lastname, role],
                 function (err, result) {
@@ -69,7 +67,7 @@ module.exports = function (app, req, res, next) {
         var id = req.body.id;
 
         //SQL Query > SELECT data from table
-        pg.connect(connectionString, function (err, client, done) {
+        pg.connect(connectionString, function (err, client) {
             if (err) {
                 return res.status(500).json({success: false, data: err});
             }
@@ -93,7 +91,7 @@ module.exports = function (app, req, res, next) {
     app.delete('/roles', function (req, res) {
         console.log(req);
         var email = req.query.deleteMe;
-        pg.connect(connectionString, function (err, client, done) {
+        pg.connect(connectionString, function (err, client) {
 
             if (err) {
                 console.log(err);
