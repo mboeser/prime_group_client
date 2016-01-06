@@ -15,6 +15,10 @@ myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', function($scop
         });
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> local
 
     var excusedCheckbox = "<md-checkbox ng-model='row.entity.excused' class='md-warn md-hue2' type='checkbox' name='excused' ng-change='grid.appScope.saveRow(row.entity)'></md-checkbox>"; 
     var homeworkCheckbox = "<md-checkbox ng-model='row.entity.homework_sent' class='md-warn md-hue2' type='checkbox' name='homework_sent'  ng-change='grid.appScope.saveRow(row.entity)'></md-checkbox>";
@@ -29,7 +33,11 @@ myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', function($scop
             { name:'First Name', field: 'student_firstname' , enableCellEdit:true},
             { name:'Last Name', field: 'student_lastname' , enableCellEdit:true},
             { name:'Phone 1', field: 'phone1' , enableCellEdit:true},
+<<<<<<< HEAD
             { name:'Call Status', field: 'contact_status' , enableCellEdit:true,
+=======
+            { name:'Call Status', field: 'contact_status' ,   enableCellEdit:true,
+>>>>>>> local
                 editableCellTemplate: 'ui-grid/dropdownEditor',
                 editDropdownValueLabel: 'contact_status',
                 editDropdownOptionsArray: [
