@@ -14,7 +14,7 @@ module.exports = function (app, req, res, next) {
         var date = req.query.date;
         var results = [];
 
-        pg.connect(connectionString.url, function (err, client, done) {
+        pg.connect(connectionString, function (err, client, done) {
 
             var query = client.query("SELECT students.id, students.student_firstname, " +
                 "students.student_lastname, students.teacher_email, students.class_date, students.phone1, users.lastname, attendance.* " +
@@ -56,7 +56,7 @@ module.exports = function (app, req, res, next) {
         var homework = req.body.homework_sent;
 
 
-        pg.connect(connectionString.url, function(err, client){
+        pg.connect(connectionString, function(err, client){
             //update the users table if firstname of teacher is changed
             if(teachername != undefined) {
                 client.query("UPDATE users " +

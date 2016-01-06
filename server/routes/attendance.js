@@ -18,7 +18,7 @@ module.exports = function (app) {
         var teacherEmail = req.query.who;
         var results = [];
 
-        pg.connect(connectionString.url, function (err, client, done) {
+        pg.connect(connectionString, function (err, client, done) {
 
             var query = client.query("SELECT students.id, students.student_firstname, students.student_lastname, attendance.* FROM students " +
                 "JOIN attendance ON (students.id = attendance.id) " +
@@ -54,7 +54,7 @@ module.exports = function (app) {
         console.log(attendanceQuery);
 
 
-        pg.connect(connectionString.url, function (err, client, done) {
+        pg.connect(connectionString, function (err, client, done) {
             client.query(attendanceQuery, function (err) {
 
                 if (err) {

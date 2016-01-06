@@ -11,7 +11,7 @@ module.exports = function (app, req, res, next) {
         var date = req.query.date;
         var results = [];
 
-        pg.connect(connectionString.url, function (err, client, done) {
+        pg.connect(connectionString, function (err, client, done) {
 
             var query = client.query("SELECT DISTINCT students.class_date, students.teacher_email, users.firstname FROM students " +
                 "JOIN users ON (students.teacher_email=users.email) " +

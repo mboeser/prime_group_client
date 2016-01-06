@@ -43,7 +43,7 @@ module.exports = function (app, req, res, next) {
         var role = req.body.role;
 
         //SQL Query > SELECT data from table
-        pg.connect(connectionString.url, function (err, client, done) {
+        pg.connect(connectionString, function (err, client, done) {
             client.query("INSERT INTO users (email, firstname, lastname, role) " +
                 "VALUES ($1, $2, $3, $4)", [email, firstname, lastname, role],
                 function (err, result) {
@@ -69,7 +69,7 @@ module.exports = function (app, req, res, next) {
         var id = req.body.id;
 
         //SQL Query > SELECT data from table
-        pg.connect(connectionString.url, function (err, client, done) {
+        pg.connect(connectionString, function (err, client, done) {
             if (err) {
                 return res.status(500).json({success: false, data: err});
             }
@@ -93,7 +93,7 @@ module.exports = function (app, req, res, next) {
     app.delete('/roles', function (req, res) {
         console.log(req);
         var email = req.query.deleteMe;
-        pg.connect(connectionString.url, function (err, client, done) {
+        pg.connect(connectionString, function (err, client, done) {
 
             if (err) {
                 console.log(err);
@@ -111,7 +111,6 @@ module.exports = function (app, req, res, next) {
 
         });
     });
-
 };
 
 // route middleware to ensure user is logged in
