@@ -33,11 +33,11 @@ myApp.config(['$routeProvider', function($routeProvider){
         })
         .when('/highschool', {
             templateUrl: "/views/routes/student/student-hs.html",
-            controller: "studentCtrl"
+            controller: "studentACtrl"
         })
         .when('/middleschool', {
             templateUrl: "/views/routes/student/student-ms.html",
-            controller: "studentCtrl"
+            controller: "studentACtrl"
         })
         .otherwise('dashboard');
 }]);
