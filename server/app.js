@@ -5,16 +5,10 @@ var app      = express();
 var path     = require('path');
 var port     = process.env.PORT || 5000;
 var passport = require('passport');
-var flash    = require('connect-flash');
 
 var morgan       = require('morgan');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
-
-//var connectionString = require('./config/database.js'); //PLACE HOLDER VAR FOR PAGES THAT ONLY NEED IT THEN DELETE THIS LINE FROM APP.JS
-
-// configuration ===============================================================
-//pg.connect(connectionString.url); // connect to our database PLACE HOLDER VAR FOR PAGES THAT ONLY NEED IT THEN DELETE THIS LINE FROM APP.JS
 
 require('./config/passport')(passport); // pass passport for configuration
 

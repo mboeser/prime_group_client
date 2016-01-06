@@ -1,20 +1,18 @@
 var pg = require('pg');
-var connectionString = require('../config/database.js');
+var connectionString = process.env.DATABASE_URL;
 
 module.exports = function (req, res, next) {
-    //console.log('module LOG', req.user.emails[0].value);
 
     var role = req.user.emails[0].value;
     var results = [];
 
-    pg.connect(connectionString.url, function (err, client, done) {
+    pg.connect(connectionString, function (err, client, done) {
 
         if (err) {
             console.log('db err', err);
         }
 
         var query = client.query("SELECT role FROM users WHERE email = $1;", [role]);
-
 
         // Stream results back one row at a time, push into results array
         query.on('row', function (row) {
@@ -34,7 +32,6 @@ module.exports = function (req, res, next) {
                 res.redirect('/views/error.html');
             }
         });
-
 
         // Handle Errors
         if (err) {

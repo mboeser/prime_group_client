@@ -1,5 +1,5 @@
 var pg = require('pg');
-var connectionString = require('../config/database.js');
+var connectionString = process.env.DATABASE_URL;
 
 module.exports = function (app, req, res, next) {
 
@@ -10,7 +10,7 @@ module.exports = function (app, req, res, next) {
         var results = [];
 
         //SQL Query > SELECT data from table
-        pg.connect(connectionString.url, function (err, client, done) {
+        pg.connect(connectionString, function (err, client, done) {
             var query = client.query("SELECT id, email, firstname, lastname, role FROM users ORDER BY lastname ASC");
 
             // Stream results back one row at a time, push into results array

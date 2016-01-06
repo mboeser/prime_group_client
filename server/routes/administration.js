@@ -1,5 +1,5 @@
 var pg = require('pg');
-var connectionString = require('../config/database.js');
+var connectionString = process.env.DATABASE_URL;
 
 module.exports = function (app, req, res, next) {
 
@@ -11,7 +11,7 @@ module.exports = function (app, req, res, next) {
         console.log("This is the date you requested", date);
         var results = [];
 
-        pg.connect(connectionString.url, function (err, client, done) {
+        pg.connect(connectionString, function (err, client, done) {
 
             var query = client.query("SELECT students.class_date, students.student_firstname, " +
                 "students.student_lastname, students.phone1, students.teacher_email, attendance.*, users.firstname, users.lastname " +

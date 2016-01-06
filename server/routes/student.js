@@ -1,8 +1,7 @@
 var pg = require('pg');
-var connectionString = require('../config/database.js');
+var connectionString = process.env.DATABASE_URL;
 
 module.exports = function (app, req, res, next) {
-
 
     app.get('/student', isLoggedIn, function (req, res) {
 
@@ -10,7 +9,7 @@ module.exports = function (app, req, res, next) {
         var results = [];
         //console.log("This is req.query", req.query);
 
-        pg.connect(connectionString.url, function (err, client, done) {
+        pg.connect(connectionString, function (err, client, done) {
 
             var query = client.query("SELECT students.*, busses.*, attendance.* " +
                 "FROM students " +
@@ -37,8 +36,6 @@ module.exports = function (app, req, res, next) {
         })
     });
 
-
-
     app.put('/updateStudent/inline', isLoggedIn, function (req, res) {
         console.log("This is req.body", req.body);
         res.send(true);
@@ -49,9 +46,6 @@ module.exports = function (app, req, res, next) {
                 client.end();
             });
         });
-
-
-
     });
 
     app.put('/updateStudent', isLoggedIn, function (req, res) {
@@ -96,8 +90,6 @@ module.exports = function (app, req, res, next) {
             });
         });
     });
-
-
 
 };
 

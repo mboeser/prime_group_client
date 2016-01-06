@@ -1,8 +1,7 @@
 var pg = require('pg');
-var connectionString = require('../config/database.js');
+var connectionString = process.env.DATABASE_URL;
 
 module.exports = function (app, req, res, next) {
-
 
     app.get('/teacher', isLoggedIn, function (req, res) {
 
@@ -12,7 +11,7 @@ module.exports = function (app, req, res, next) {
         var teacherEmail = req.user.emails[0]['value'];
         var results = [];
 
-        pg.connect(connectionString.url, function (err, client, done) {
+        pg.connect(connectionString, function (err, client, done) {
 
             var query = client.query("SELECT DISTINCT class_date FROM students " +
                 "WHERE teacher_email = $1;", [teacherEmail]);

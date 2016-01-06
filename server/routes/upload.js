@@ -1,5 +1,5 @@
 var pg = require('pg');
-var connectionString = require('../config/database.js');
+var connectionString = process.env.DATABASE_URL;
 
 var multer = require('multer');
 var upload = multer({dest: 'uploads/'});

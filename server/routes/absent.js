@@ -3,7 +3,7 @@
 // put update fields as needed
 
 var pg = require('pg');
-var connectionString = require('../config/database.js');
+var connectionString = process.env.DATABASE_URL;
 
 module.exports = function (app, req, res, next) {
 
