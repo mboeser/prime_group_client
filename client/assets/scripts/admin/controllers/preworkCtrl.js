@@ -16,11 +16,6 @@ myApp.controller('preworkCtrl', ['$scope', '$http', '$location','DataService', f
         });
     }
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> local
     var expandStudentTemplate = '<div class="ui-grid-cell-contents"  ng-click="grid.appScope.selectStudent(row.entity.id)">{{row.entity.id}}</div>';
 
 
@@ -32,13 +27,10 @@ myApp.controller('preworkCtrl', ['$scope', '$http', '$location','DataService', f
                 cellTemplate: expandStudentTemplate},
             { name:'Teacher', field: 'lastname' , enableCellEdit:false},
             { name:'First Name', field: 'student_firstname' , enableCellEdit:false},
-            { name:'Last Name', field: 'student_lastname' , enableCellEdit:false},
+            { name:'Last Name', field: 'student_lastname' , enableCellEdit:false, sort: {direction: 'asc'}},
             { name:'Phone 1', field: 'phone1' , enableCellEdit:true},
-<<<<<<< HEAD
             { name:'Call Status', field: 'contact_status' , enableCellEdit:true,
-=======
-            { name:'Call Status', field: 'contact_status' ,  enableCellEdit:true,
->>>>>>> local
+
                 editableCellTemplate: 'ui-grid/dropdownEditor',
                 editDropdownValueLabel: 'contact_status',
                 editDropdownOptionsArray: [

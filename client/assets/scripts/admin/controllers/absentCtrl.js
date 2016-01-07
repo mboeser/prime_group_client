@@ -28,7 +28,7 @@ myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', function($scop
             { name:'id', field: 'id', enableCellEdit: false },
             { name:'Teacher', field: 'lastname' , enableCellEdit:true},
             { name:'First Name', field: 'student_firstname' , enableCellEdit:true},
-            { name:'Last Name', field: 'student_lastname' , enableCellEdit:true},
+            { name:'Last Name', field: 'student_lastname' , enableCellEdit:true, sort: {direction: 'asc'}},
             { name:'Phone 1', field: 'phone1' , enableCellEdit:true},
 
             { name:'Call Status', field: 'contact_status' , enableCellEdit:true,
