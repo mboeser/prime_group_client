@@ -1,4 +1,4 @@
-myApp.controller('uploadCtrl', ['$scope', '$http', 'Upload', 'DataService', function($scope, $http, Upload, DataService){
+myApp.controller('uploadCtrl', ['$scope', '$http', 'Upload', 'DataService', '$mdToast', function($scope, $http, Upload, DataService, $mdToast){
     console.log('on admin upload controller--uploadCtrl.js');
 
     $scope.dataService = DataService;
@@ -23,7 +23,7 @@ myApp.controller('uploadCtrl', ['$scope', '$http', 'Upload', 'DataService', func
             url: '/upload',
             data: {file: file}
         }).then(function (resp) {
-            openToast();
+            $scope.openToast();
             console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
         }, function (resp) {
             console.log('Error status: ' + resp.status);
@@ -32,6 +32,12 @@ myApp.controller('uploadCtrl', ['$scope', '$http', 'Upload', 'DataService', func
             console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
         });
     };
+
+   $scope.download = function() {
+       $http.get('/download').then(function(res){
+          console.log(res);
+       });
+   };
 
     $scope.openToast = function() {
         $mdToast.show($mdToast.simple().content('Upload Complete!'));
