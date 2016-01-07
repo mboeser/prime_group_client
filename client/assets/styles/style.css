@@ -207,6 +207,7 @@ md-checkbox.md-checked.green .md-icon {
 }
 .ui-grid-cell-contents:hover {
     cursor: pointer;
+    background-color: rgb(204, 202, 202);
 }
 .ui-grid-cell{
     font-size: 13px;
