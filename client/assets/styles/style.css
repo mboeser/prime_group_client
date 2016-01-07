@@ -212,3 +212,14 @@ md-checkbox.md-checked.green .md-icon {
 .ui-grid-cell{
     font-size: 13px;
 }
+
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+    display: none !important;
+}
+.student-name{
+    text-align: left;
+}
