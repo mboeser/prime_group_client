@@ -56,19 +56,19 @@
         <section class="student-form-section" layout="column" >
             <md-input-container>
                 <label>Bus Route</label>
-                <input type="text" ng-change="updateBus('bus_route', student.bus_route)" ng-model="student.bus_route"/>
+                <input type="text" ng-change="updateBus('bus_route', student.bus_route)" ng-model="student.bus_route" ng-model-options="{updateOn: 'blur'}"/>
             </md-input-container>
             <md-input-container>
                 <label>Bus Stop</label>
-                <input type="text" ng-change="updateBus('bus_stop', student.bus_stop)" ng-model="student.bus_stop"/>
+                <input type="text" ng-change="updateBus('bus_stop', student.bus_stop)" ng-model="student.bus_stop" ng-model-options="{updateOn: 'blur'}"/>
             </md-input-container>
             <md-input-container>
                 <label>Pick Up</label>
-                <input type="text" ng-change="updateBus('pick_up', student.pick_up)" ng-model="student.pick_up"/>
+                <input type="text" ng-change="updateBus('pick_up', student.pick_up)" ng-model="student.pick_up" ng-model-options="{updateOn: 'blur'}"/>
             </md-input-container>
             <md-input-container>
                 <label>Drop Off</label>
-                <input type="text" ng-change="updateBus('drop_off', student.drop_off)" ng-model="student.drop_off"/>
+                <input type="text" ng-change="updateBus('drop_off', student.drop_off)" ng-model="student.drop_off" ng-model-options="{updateOn: 'blur'}"/>
             </md-input-container>
         </section>
 
@@ -77,25 +77,29 @@
             <div layout="column">
 
                     <label>Contact Status</label>
-                    <select ng-options="option for option in dropdown" ng-change="updateNotes('contact_status', student.contact_status)" ng-model="student.contact_status" placeholder="not yet called"></select>
+                    <select ng-options="option for option in dropdown" ng-change="updateNotes('contact_status', student.contact_status)"
+                            ng-model="student.contact_status" placeholder="not yet called" ng-model-options="{updateOn: 'blur'}"></select>
 
             </div>
             <div layout="column">
                 <md-input-container>
                     <label>Administration Notes</label>
-                    <textarea ng-blur="updateNotes('admin_notes', student.admin_notes)" ng-model="student.admin_notes"></textarea>
+                    <textarea ng-change="updateNotes('admin_notes', student.admin_notes)" ng-model="student.admin_notes"
+                              ng-model-options="{updateOn: 'blur'}"></textarea>
                 </md-input-container>
             </div>
             <div layout="column">
                 <md-input-container>
                     <label>Attendance Notes</label>
-                    <textarea ng-blur="updateNotes('attendance_notes', student.attendance_notes)" ng-model="student.attendance_notes"></textarea>
+                    <textarea ng-change="updateNotes('attendance_notes', student.attendance_notes)" ng-model="student.attendance_notes"
+                              ng-model-options="{updateOn: 'blur'}"></textarea>
                 </md-input-container>
             </div>
             <section layout="column">
                 <md-input-container>
                     <label>Confirmed For Saturday</label>
-                    <input type="text" ng-blur="updateNotes('saturday_attendance',student.saturday_attendance)" ng-model="student.saturday_attendance"/>
+                    <input type="text" ng-change="updateNotes('saturday_attendance',student.saturday_attendance)"
+                           ng-model="student.saturday_attendance" ng-model-options="{updateOn: 'blur'}"/>
                 </md-input-container>
             </section>
         </section>
