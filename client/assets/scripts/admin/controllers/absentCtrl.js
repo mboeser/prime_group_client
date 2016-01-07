@@ -1,4 +1,4 @@
-myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', function($scope, $http, DataService){
+myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', '$mdToast', function($scope, $http, DataService, $mdToast){
     console.log('on admin absent controller--absentCtrl.js');
 
     $scope.dataService = DataService;
@@ -23,6 +23,9 @@ myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', function($scop
 
     $scope.gridOptions = {
         enableSorting: true,
+
+        rowEditWaitInterval: 500,
+
 
         columnDefs: [
             { name:'id', field: 'id', enableCellEdit: false },
@@ -52,6 +55,7 @@ myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', function($scop
         console.log("in save row");
         console.log("rowEntity", rowEntity);
         var promise = $http.put('/updateAbsent', rowEntity).then(function(response){
+            $scope.editUserToast();
             console.log(response);
             console.log(promise);
         });
@@ -71,8 +75,9 @@ myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', function($scop
             $scope.dataService.setData(response.data);
 
         });
-    }
-
-
+    };
+    $scope.editUserToast = function () {
+        $mdToast.show($mdToast.simple().content('Student Edited!'));
+    };
 
 }]);

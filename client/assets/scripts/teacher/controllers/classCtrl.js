@@ -1,4 +1,4 @@
-myApp.controller('classCtrl', ['$scope', '$http', 'DataService', '$location', function ($scope, $http, DataService, $location) {
+myApp.controller('classCtrl', ['$scope', '$http', 'DataService', '$location', '$mdToast', function ($scope, $http, DataService, $location, $mdToast) {
     console.log('on teacher class controller--classCtrl.js');
 
     $scope.dataService = DataService;
@@ -28,6 +28,9 @@ myApp.controller('classCtrl', ['$scope', '$http', 'DataService', '$location', fu
     $scope.gridOptions = {
         enableSorting: true,
 
+        rowEditWaitInterval: 500,
+
+
         columnDefs: [
             { name:'id', field: 'id', enableCellEdit: false,
                 cellTemplate: expandStudentTemplate},
@@ -51,6 +54,7 @@ myApp.controller('classCtrl', ['$scope', '$http', 'DataService', '$location', fu
 
     $scope.saveRow = function( rowEntity ) {
         var promise = $http.put('/adminPrework', rowEntity).then(function(response){
+            $scope.editUserToast();
             console.log(response);
         });
         $scope.gridApi.rowEdit.setSavePromise( rowEntity, promise);
@@ -77,6 +81,9 @@ myApp.controller('classCtrl', ['$scope', '$http', 'DataService', '$location', fu
                 $location.path('/highschool');
             }
         });
+    };
+    $scope.editUserToast = function () {
+        $mdToast.show($mdToast.simple().content('Student Edited!'));
     };
 
 

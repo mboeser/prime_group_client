@@ -19,7 +19,7 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', '$m
 
     $scope.gridOptions = {
 
-        rowEditWaitInterval: 1000,
+        rowEditWaitInterval: 500,
 
         columnDefs: [
 

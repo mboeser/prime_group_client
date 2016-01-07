@@ -1,4 +1,4 @@
-myApp.controller('studentCtrl', ['$scope', '$http', 'DataService', function ($scope, $http, DataService) {
+myApp.controller('studentCtrl', ['$scope', '$http', 'DataService', '$mdToast', function ($scope, $http, DataService, $mdToast) {
     console.log('on student controller--studentCtrl.js');
 
     $scope.dataService = DataService;
@@ -21,6 +21,7 @@ myApp.controller('studentCtrl', ['$scope', '$http', 'DataService', function ($sc
 
     $scope.updateNotes = function(col, note){
         $http.put('/updateStudent', {params: {'column': col, 'value': note, 'id': $scope.student.id}}).then(function(){
+            $scope.editUserToast();
             console.log("student data updated");
             $scope.setPrework();
         });
@@ -28,6 +29,7 @@ myApp.controller('studentCtrl', ['$scope', '$http', 'DataService', function ($sc
 
     $scope.updateBus = function(col, note){
       $http.put('/updateBus', {params: {'column': col, 'value': note, 'id': $scope.student.id}}).then(function(){
+          $scope.editUserToast();
           console.log("student data updated");
           $scope.setPrework();
       });
@@ -35,6 +37,7 @@ myApp.controller('studentCtrl', ['$scope', '$http', 'DataService', function ($sc
 
     $scope.updateInfo = function(col, note){
         $http.put('/updateStudentInfo', {params: {'column': col, 'value': note, 'id': $scope.student.id}}).then(function(){
+            $scope.editUserToast();
             $scope.setPrework();
             console.log("Student data updated");
         });
@@ -46,6 +49,9 @@ myApp.controller('studentCtrl', ['$scope', '$http', 'DataService', function ($sc
         $http.get('/teacher_prework', {params: {'date': date}}).then(function (response) {
             $scope.dataService.setData(response.data);
         });
-    }
+    };
+    $scope.editUserToast = function () {
+        $mdToast.show($mdToast.simple().content('Student Edited!'));
+    };
 
 }]);
