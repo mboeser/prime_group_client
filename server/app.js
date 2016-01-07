@@ -18,7 +18,7 @@ app.use(bodyParser.json()); // get information from html forms
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // send down static files
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname + '/public'));
 
 // required for passport
 app.use(session({ secret: 'teambreakthrough', resave: false, saveUninitialized: true })); // session secret
