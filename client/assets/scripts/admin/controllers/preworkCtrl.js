@@ -80,7 +80,6 @@ myApp.controller('preworkCtrl', ['$scope', '$http', '$location', 'DataService', 
             }
         });
     };
-
     $scope.editUserToast = function () {
         $mdToast.show($mdToast.simple().content('Student Edited!'));
     };

@@ -118,6 +118,7 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', '$m
         });
     };
 
+
     $scope.getUserList = function () {
         $http.get('/roles').then(function (response) {
             $scope.gridOptions.data = response.data;

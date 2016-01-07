@@ -33,6 +33,12 @@ myApp.controller('uploadCtrl', ['$scope', '$http', 'Upload', 'DataService', '$md
         });
     };
 
+   $scope.download = function() {
+       $http.get('/download').then(function(res){
+          console.log(res);
+       });
+   };
+
     $scope.openToast = function() {
         $mdToast.show($mdToast.simple().content('Upload Complete!'));
     };

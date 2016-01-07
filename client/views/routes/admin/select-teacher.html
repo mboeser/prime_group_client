@@ -3,7 +3,7 @@
     <md-content>
         <md-input-container>
             <div ng-repeat="teacher in teachers track by $index" ng-click="selectTeacher(teacher)">
-                <md-button href="#attendance" class="md-raised md-primary"><strong>{{teacher.firstname  }}</strong>&nbsp;(&nbsp;{{teacher.teacher_email | lowercase }}&nbsp;)&nbsp;|&nbsp;Class Date:&nbsp;{{teacher.class_date | date }}</md-button>
+                <md-button href="#attendance" class="md-raised md-primary"><strong>{{teacher.firstname  }}</strong>&nbsp;(&nbsp;{{teacher.teacher_email | lowercase }}&nbsp;)&nbsp;|&nbsp;Class Date:&nbsp;{{teacher.class_date.slice(0,10)}}</md-button>
             </div>
         </md-input-container>
     </md-content>
