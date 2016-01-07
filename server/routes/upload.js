@@ -6,6 +6,7 @@ var upload = multer({dest: 'uploads/'});
 var type = upload.single('file');
 var fs = require('fs');
 var copyFrom = require('pg-copy-streams').from;
+var copyTo = require('pg-copy-streams').to;
 
 
 module.exports = function (app, path, req, res, next) {
@@ -117,4 +118,25 @@ module.exports = function (app, path, req, res, next) {
         });
 
     });
+
+    app.get('/download', function (req, res, next){
+        console.log('at /download');
+        pg.connect(connectionString, function(err, client, done) {
+            console.log('at pg connect');
+           if (err) console.log(err);
+
+            var stream = client.query(copyTo("COPY (SELECT *" +
+            "FROM students " +
+            "LEFT JOIN busses ON students.id=busses.id " +
+            "INNER JOIN attendance ON students.id=attendance.id) TO STDOUT DELIMITER ',' CSV HEADER;"));
+            console.log(stream);
+
+            res.setHeader('Content-disposition', 'attachment; filename=testing.csv');
+            res.set('Content-Type', 'text/csv');
+            stream.pipe(res);
+
+            });
+
+        });
+
 };
