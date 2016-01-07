@@ -131,7 +131,7 @@ module.exports = function (app, path, req, res, next) {
             "INNER JOIN attendance ON students.id=attendance.id) TO STDOUT DELIMITER ',' CSV HEADER;"));
             console.log(stream);
 
-            res.setHeader('Content-disposition', 'attachment; filename=testing.csv');
+            res.setHeader('Content-disposition', 'attachment; filename=database.csv');
             res.set('Content-Type', 'text/csv');
             stream.pipe(res);
 
