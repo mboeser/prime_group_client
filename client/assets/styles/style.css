@@ -223,3 +223,6 @@ md-checkbox.md-checked.green .md-icon {
 .student-name{
     text-align: left;
 }
+.delete-wrapper{
+    padding: 5px;
+}

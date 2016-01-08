@@ -60,12 +60,13 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', '$m
             },
             {
                 name: ' ',
-                field: 'id',
+                field: 'id' ,
+                cellClass: 'delete-wrapper',
                 enableSorting: false,
                 enableColumnMenu: false,
                 enableHiding: false,
                 enableColumnResizing: false,
-                cellTemplate: '<button style="margin-left: 20%; "class="delete-button" ng-click="grid.appScope.deleteUser(row.entity.email)">Delete</button>'
+                cellTemplate: '<button style="margin-left: 40%; "class="delete-button" ng-click="grid.appScope.deleteUser(row.entity.email)">Delete</button>'
             }
         ],
         enableGridMenu: true,
