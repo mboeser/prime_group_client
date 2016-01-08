@@ -6,9 +6,9 @@
             <md-input-container >
                 <h4>Upload CSV</h4>
                 <input  type="file" ngf-select="" ngf-pattern="'.csv'"ng-model="picFile" name="file" required/>
-                <div ng-show="form.file.$error.pattern">Please attach a .csv file.</div>
-            </md-input-container>
 
+            </md-input-container>
+            <div ng-show="form.file.$error.pattern">Please attach a .csv file.</div>
             <md-input-container >
                 <md-button flex="30" class="md-raised md-primary"  ng-click="upload(picFile)">Start Upload&nbsp;&nbsp;<md-icon ng-style="{color: font.color}" md-svg-src="../../../images/svg/upload-icon.svg" class="upload-icon" aria-label="Upload"></md-icon></md-button>
             </md-input-container>
