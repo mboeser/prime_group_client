@@ -1,10 +1,11 @@
-myApp.controller('preworkCtrl', ['$scope', '$http', '$location', 'DataService', '$mdToast', function ($scope, $http, $location, DataService, $mdToast) {
+myApp.controller('preworkCtrl', ['$scope', '$http', '$location', 'DataService', '$mdToast', '$filter', function ($scope, $http, $location, DataService, $mdToast, $filter) {
     console.log('on admin prework controller--preworkCtrl.js');
 
     $scope.dataService = DataService;
     $scope.user = {};
     $scope.date = $scope.dataService.getDate();
     console.log("This is the date you are asking for", $scope.date);
+
 
     $scope.user = $scope.dataService.peopleData();
     console.log("$scope.dataService.peopleData", $scope.dataService.peopleData());
@@ -31,7 +32,7 @@ myApp.controller('preworkCtrl', ['$scope', '$http', '$location', 'DataService', 
             {name: 'Teacher', field: 'lastname', enableCellEdit: false},
             {name: 'First Name', field: 'student_firstname', enableCellEdit: false},
             {name: 'Last Name', field: 'student_lastname', enableCellEdit: false, sort: {direction: 'asc'}},
-            {name: 'Phone 1', field: 'phone1', enableCellEdit: true},
+            {name: 'Phone 1', field: 'phone1', enableCellEdit: true, cellFilter:'tel'},
             {
                 name: 'Call Status', field: 'contact_status', enableCellEdit: true,
 
@@ -100,4 +101,45 @@ myApp.controller('preworkCtrl', ['$scope', '$http', '$location', 'DataService', 
     $scope.editUserToast = function () {
         $mdToast.show($mdToast.simple().content('Student Edited!'));
     };
+
 }]);
+
+    myApp.filter('tel', function(){
+        return function(tel){
+            if (!tel){ return '';}
+            var value=tel.toString().trim().replace(/^\+/, '');
+
+            if (value.match(/[^0-9]/)) {
+                return tel;
+            }
+
+            var city, number;
+
+            switch(value.length){
+                case 12:
+                    city = value.slice(0,3);
+                    number = value.slice(4);
+                    break;
+
+                case 10:
+                    city = value.slice(0,3);
+                    number = value.slice(3);
+                    break;
+
+                case 13:
+                    console.log("at 13");
+                    return value;
+
+                default:
+                    city = value.slice(0,3);
+                    number = value.slice(4);
+                    console.log(city);
+                    console.log(number);
+                    return value;
+            }
+
+            number = number.slice(0,3) + '-' + number.slice(3);
+
+            return ("(" + city + ") " + number).trim();
+        };
+    });
