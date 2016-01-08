@@ -55,7 +55,7 @@ myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', '$mdToast', '$
         exporterPdfDefaultStyle: {fontSize: 9},
         exporterPdfTableStyle: {margin: [30, 30, 30, 30]},
         exporterPdfTableHeaderStyle: {fontSize: 10, bold: true, italics: true, color: 'red'},
-        exporterPdfHeader: {text: "My Header", style: 'headerStyle'},
+        exporterPdfHeader: {text: "Breakthrough Twin Cities", style: 'headerStyle'},
         exporterPdfFooter: function (currentPage, pageCount) {
             return {text: currentPage.toString() + ' of ' + pageCount.toString(), style: 'footerStyle'};
         },
