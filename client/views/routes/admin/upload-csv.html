@@ -4,7 +4,7 @@
             &nbsp;Import A CSV File</h3>
         <form name="form" method="post" enctype="multipart/form-data">
             <md-input-container >
-                <input  type="file" ngf-select="" ng-model="picFile" name="file" required/>
+                <input  type="file" ngf-select="" ngf-pattern="'.csv'"ng-model="picFile" name="file" required/>
             </md-input-container>
             <md-input-container >
                 <md-button flex="30" class="md-raised md-primary"  ng-click="upload(picFile)">Start Upload</md-button>
@@ -14,4 +14,6 @@
             </md-input-container>
         </form>
     </md-content>
+
+    <div ng-show="form.file.$error.pattern">Please attach a .csv file.</div>
 </section>
