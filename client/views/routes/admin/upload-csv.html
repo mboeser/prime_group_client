@@ -1,19 +1,20 @@
 <section>
     <md-content class="import-button">
-        <h3> <md-icon ng-style="{color: font.color}" md-svg-src="../../../images/svg/upload-icon.svg" class="upload-icon" aria-label="Upload"></md-icon>
-            &nbsp;Import A CSV File</h3>
+        <h3>   Import / Export File</h3>
         <form name="form" method="post" enctype="multipart/form-data">
             <md-input-container >
                 <input  type="file" ngf-select="" ngf-pattern="'.csv'"ng-model="picFile" name="file" required/>
+                <div ng-show="form.file.$error.pattern">Please attach a .csv file.</div>
+            </md-input-container>
+
+            <md-input-container >
+                <md-button flex="30" class="md-raised md-primary"  ng-click="upload(picFile)">Start Upload&nbsp;&nbsp;<md-icon ng-style="{color: font.color}" md-svg-src="../../../images/svg/upload-icon.svg" class="upload-icon" aria-label="Upload"></md-icon></md-button>
             </md-input-container>
             <md-input-container >
-                <md-button flex="30" class="md-raised md-primary"  ng-click="upload(picFile)">Start Upload</md-button>
-            </md-input-container>
-            <md-input-container >
-                <md-button flex="30" class="md-raised md-primary"  href="/download">Download</md-button>
+                <md-button flex="30" class="md-raised md-primary"  href="/download">Download &nbsp;&nbsp;<md-icon ng-style="{color: font.color}" md-svg-src="../../../images/svg/download-icon.svg" class="download-icon" aria-label="Download"></md-icon></md-button>
             </md-input-container>
         </form>
     </md-content>
 
-    <div ng-show="form.file.$error.pattern">Please attach a .csv file.</div>
+
 </section>
