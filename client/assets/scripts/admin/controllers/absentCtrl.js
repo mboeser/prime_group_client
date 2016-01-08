@@ -1,4 +1,5 @@
-myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', '$mdToast', function($scope, $http, DataService, $mdToast){
+myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', '$mdToast', '$location',
+    function($scope, $http, DataService, $mdToast, $location){
     console.log('on admin absent controller--absentCtrl.js');
 
     $scope.dataService = DataService;
@@ -19,16 +20,17 @@ myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', '$mdToast', fu
 
     var excusedCheckbox = "<md-checkbox ng-model='row.entity.excused' class='md-warn md-hue2' type='checkbox' name='excused' ng-change='grid.appScope.saveRow(row.entity)'></md-checkbox>"; 
     var homeworkCheckbox = "<md-checkbox ng-model='row.entity.homework_sent' class='md-warn md-hue2' type='checkbox' name='homework_sent'  ng-change='grid.appScope.saveRow(row.entity)'></md-checkbox>";
+    var expandStudentTemplate = '<div class="ui-grid-cell-contents"  ng-click="grid.appScope.selectStudent(row.entity.id)">{{row.entity.id}}</div>';
 
 
     $scope.gridOptions = {
         enableSorting: true,
-
         rowEditWaitInterval: 500,
-
-
         columnDefs: [
-            { name:'id', field: 'id', enableCellEdit: false },
+            {
+                name: 'id', field: 'id', enableCellEdit: false,
+                cellTemplate: expandStudentTemplate
+            },
             { name:'Teacher', field: 'lastname' , enableCellEdit:true},
             { name:'First Name', field: 'student_firstname' , enableCellEdit:true},
             { name:'Last Name', field: 'student_lastname' , enableCellEdit:true, sort: {direction: 'asc'}},
@@ -90,11 +92,16 @@ myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', '$mdToast', fu
     };
 
 
-    $scope.openStudent = function(student){
-        $http.get('/student', {params: {who: student}}).then(function(response){
-            console.log(response.data);
-            $scope.dataService.setData(response.data);
-
+    $scope.selectStudent = function(studentID){
+        $http.get('/student', {params: {'student': studentID}}).then(function(response){
+            $scope.dataService.setStudent(response.data[0]);
+            $scope.dataService.getStudent();
+            $scope.student = $scope.dataService.getStudent();
+            if ($scope.student.grade < 9) {
+                $location.path('/middleschool');
+            } else {
+                $location.path('/highschool');
+            }
         });
     };
     $scope.editUserToast = function () {

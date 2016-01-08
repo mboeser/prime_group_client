@@ -88,8 +88,6 @@ myApp.controller('preworkCtrl', ['$scope', '$http', '$location', 'DataService', 
         $http.get('/student', {params: {'student': studentID}}).then(function (response) {
             $scope.dataService.setStudent(response.data[0]);
             $scope.dataService.getStudent();
-            console.log("This is response.data", response.data[0]);
-            console.log("This is the student in the factory", $scope.dataService.getStudent());
             $scope.student = $scope.dataService.getStudent();
             if ($scope.student.grade < 9) {
                 $location.path('/middleschool');
