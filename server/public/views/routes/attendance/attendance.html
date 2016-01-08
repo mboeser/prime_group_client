@@ -23,7 +23,7 @@
                 </div>
             </div>
             <md-input-container>
-                <md-button class="md-raised md-primary" ng-click="putAttendance()">SUBMIT</md-button>
+                <md-button ng-if="students.length > 0" class="md-raised md-primary" ng-click="putAttendance()">SUBMIT</md-button>
             </md-input-container>
         </div>
     </md-content>
