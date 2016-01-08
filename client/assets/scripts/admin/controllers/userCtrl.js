@@ -65,7 +65,6 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', '$m
                 enableColumnMenu: false,
                 enableHiding: false,
                 enableColumnResizing: false,
-                width: '20%',
                 cellTemplate: '<button style="margin-left: 20%; "class="delete-button" ng-click="grid.appScope.deleteUser(row.entity.email)">Delete</button>'
             }
         ],
