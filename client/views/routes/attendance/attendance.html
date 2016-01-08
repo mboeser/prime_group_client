@@ -1,6 +1,6 @@
 <section>
     <md-content>
-        <h3 >
+        <h3>
             <md-icon ng-style="{color: font.color}" md-svg-src="../../../images/svg/checkbox-icon.svg"
                      class="attendance-icon" aria-label="Attendance"></md-icon>
             &nbsp;Attendance
@@ -13,7 +13,7 @@
 
 
             <div id="attBtn" class="inset" dir="ltr" flex="none">
-                <div   ng-repeat="student in students">
+                <div ng-repeat="student in students">
                     <md-checkbox ng-model="student.attendance_status" ng-true-value="'present'"
                                  ng-false-value="'absent'" class="green">
                         <span class="student-name">{{student.student_firstname +' '+ student.student_lastname }}</span>
@@ -25,8 +25,6 @@
             <md-input-container>
                 <md-button class="md-raised md-primary" ng-click="putAttendance()">SUBMIT</md-button>
             </md-input-container>
-
         </div>
-
     </md-content>
 </section>
