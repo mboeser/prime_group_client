@@ -1,8 +1,8 @@
 <!--Controller is defined by routes, do not declare in each html-->
 <section>
-    <h3>Pre-Work Report</h3>
+    <h3>Pre-Work Report: {{gridOptions.data[0].class_date.slice(0,10)}}</h3>
     <div>
         <!--<div ng-repeat='student in studentList track by $index' ng-click='openStudent(student)></div> -->
-        <div id="grid1" ui-grid="gridOptions" ui-grid-edit ui-grid-row-edit class="grid"></div>
+        <div id="grid1" ui-grid="gridOptions" ui-grid-selection ui-grid-exporter ui-grid-edit ui-grid-row-edit ui-grid-resize-columns="true"></div>
     </div>
 </section>

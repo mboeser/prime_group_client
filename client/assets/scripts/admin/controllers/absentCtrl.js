@@ -45,8 +45,29 @@ myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', '$mdToast', fu
             { name:'Homework Sent', field: 'homework_sent' , cellTemplate: homeworkCheckbox, enableCellEdit:true},
             { name:'Excused', field: 'excused' , cellTemplate: excusedCheckbox, enableCellEdit:true},
             { name:'Attendance Notes', field: 'attendance_notes' , enableCellEdit:true}
-        ]
+        ],
+
+        enableGridMenu: true,
+        enableSelectAll: true,
+        exporterCsvFilename: 'myFile.csv',
+        exporterPdfDefaultStyle: {fontSize: 9},
+        exporterPdfTableStyle: {margin: [30, 30, 30, 30]},
+        exporterPdfTableHeaderStyle: {fontSize: 10, bold: true, italics: true, color: 'red'},
+        exporterPdfHeader: {text: "My Header", style: 'headerStyle'},
+        exporterPdfFooter: function (currentPage, pageCount) {
+            return {text: currentPage.toString() + ' of ' + pageCount.toString(), style: 'footerStyle'};
+        },
+        exporterPdfCustomFormatter: function (docDefinition) {
+            docDefinition.styles.headerStyle = {fontSize: 22, bold: true};
+            docDefinition.styles.footerStyle = {fontSize: 10, bold: true};
+            return docDefinition;
+        },
+        exporterPdfOrientation: 'portrait',
+        exporterPdfPageSize: 'LETTER',
+        exporterPdfMaxGridWidth: 500,
+        exporterCsvLinkElement: angular.element(document.querySelectorAll(".custom-csv-link-location")),
     };
+
     console.log($scope.dataService.getData());
     $scope.gridOptions.data = $scope.dataService.getData();
 
