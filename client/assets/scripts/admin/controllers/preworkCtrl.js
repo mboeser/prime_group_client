@@ -67,8 +67,6 @@ myApp.controller('preworkCtrl', ['$scope', '$http', '$location', 'DataService', 
     };
 
     $scope.gridOptions.data = $scope.dataService.getData();
-    console.log();
-
 
     $scope.saveRow = function (rowEntity) {
         var promise = $http.put('/adminPrework', rowEntity).then(function (response) {
