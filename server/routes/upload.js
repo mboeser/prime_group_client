@@ -11,7 +11,7 @@ var copyTo = require('pg-copy-streams').to;
 
 module.exports = function (app, path, req, res, next) {
 
-    app.post('/upload', type, function (req, res, next) {
+    app.post('/upload', isLoggedIn, type, function (req, res, next) {
         console.log(req.file);
         //The file sent by the client is coming through on type. And being stored in the uploads folder on the root as specified in the required vars above.
         //tmp_path is finding the stored file. Multer is making it available on req.file. The full path to the file + file name is in req.file.path.
@@ -119,7 +119,7 @@ module.exports = function (app, path, req, res, next) {
 
     });
 
-    app.get('/download', function (req, res, next){
+    app.get('/download', isLoggedIn, function (req, res, next){
         pg.connect(connectionString, function(err, client, done) {
            if (err) console.log(err);
 
@@ -137,3 +137,9 @@ module.exports = function (app, path, req, res, next) {
         });
 
 };
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated())
+        return next();
+
+    res.redirect('/');
+}
