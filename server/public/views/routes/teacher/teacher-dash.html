@@ -1,10 +1,14 @@
 <section>
-    <h3>Teacher Dashboard</h3>
+    <div class="page-header-text">
+        <h3>Teacher Dashboard - {{user.displayName}}</h3>
+    </div>
     <main>
         Upcoming Classes
         <hr/>
         <md-input-container ng-repeat="class in classes | orderBy: '+'" ng-click="getPrework(class)">
-            <md-button><class-profile info="class"></class-profile></md-button>
+            <md-button>
+                <class-profile info="class"></class-profile>
+            </md-button>
             <md-divider></md-divider>
         </md-input-container>
     </main>

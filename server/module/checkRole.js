@@ -23,9 +23,9 @@ module.exports = function (req, res, next) {
         query.on('end', function () {
             client.end();
             console.log(results);
-            if (results.length > 0 && results[0].role === 'admin') {
+            if (results.length > 0 && results[0].role === 'admin' || results.length > 0 && results[0].role === 'Admin') {
                 res.redirect('/views/routes/admin/admin.html');
-            } else if (results.length > 0 && results[0].role === 'teacher') {
+            } else if (results.length > 0 && results[0].role === 'teacher' || results.length > 0 && results[0].role ===  'Teacher') {
                 res.redirect('/views/routes/teacher/teacher.html');
             } else {
                 //req.flash('messages', {'err' : 'INVALID LOGIN'});
