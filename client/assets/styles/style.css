@@ -233,3 +233,7 @@ md-checkbox.md-checked.green .md-icon {
 .delete-wrapper{
     padding: 5px;
 }
+.ui-grid-menu-button {
+    height: 27px;
+    margin-right: -1px;
+}
