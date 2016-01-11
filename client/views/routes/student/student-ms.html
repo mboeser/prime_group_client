@@ -8,21 +8,21 @@
                 <div layout="column" flex>
                     <md-input-container>
                         <label>First Name</label>
-                        <input type="text" ng-model="student.student_firstname">
+                        <input type="text" ng-model="student.student_firstname" disabled>
                     </md-input-container>
                     <md-input-container>
                         <label>Last Name</label>
-                        <input type="text" ng-model="student.student_lastname">
+                        <input type="text" ng-model="student.student_lastname" disabled>
                     </md-input-container>
                 </div>
                 <div layout="column" flex>
                     <md-input-container>
                         <label>Phone 1</label>
-                        <input type="text" ng-model="student.phone1">
+                        <input type="tel" ng-model="student.phone1" disabled>
                     </md-input-container>
                     <md-input-container>
                         <label>Phone 2</label>
-                        <input type="text" ng-model="student.phone2">
+                        <input type="tel" ng-model="student.phone2" disabled>
                     </md-input-container>
                 </div>
             </section>
@@ -31,21 +31,21 @@
                 <div layout="column" >
                     <md-input-container>
                         <label>Street</label>
-                        <input type="text" ng-model="student.street">
+                        <input type="text" ng-model="student.street" disabled>
                     </md-input-container>
                 </div>
                 <div layout="column">
                     <md-input-container>
                         <label>City</label>
-                        <input type="text" ng-model="student.city">
+                        <input type="text" ng-model="student.city" disabled>
                     </md-input-container>
                     <md-input-container>
                         <label>State</label>
-                        <input type="text" ng-model="student.state"/>
+                        <input type="text" ng-model="student.state" disabled>
                     </md-input-container>
                     <md-input-container>
                         <label>Zip</label>
-                        <input type="text" ng-model="student.zip"/>
+                        <input type="text" ng-model="student.zip" disabled>
                     </md-input-container>
                 </div>
             </div>
@@ -53,7 +53,7 @@
 
             </div>
         </section>
-        <section class="student-form-section" layout="column" >
+        <section class="student-form-section" layout="column">
             <md-input-container>
                 <label>Bus Route</label>
                 <input type="text" ng-change="updateBus('bus_route', student.bus_route)" ng-model="student.bus_route" ng-model-options="{updateOn: 'blur'}"/>

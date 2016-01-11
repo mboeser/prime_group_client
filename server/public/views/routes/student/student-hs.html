@@ -8,42 +8,42 @@
             <div layout="column"  flex >
                 <md-input-container class="student-form-column">
                     <label>First Name</label>
-                    <input type="text" value={{student.student_firstname}}>
+                    <input type="text" value={{student.student_firstname}} disabled>
                 </md-input-container>
                 <md-input-container class="student-form-column">
                     <label>Last Name</label>
-                    <input type="text" value={{student.student_lastname}}>
+                    <input type="text" value={{student.student_lastname}} disabled>
                 </md-input-container>
             </div>
             <div layout="column"   flex  >
                 <md-input-container class="student-form-column">
                     <label>Phone 1</label>
-                    <input type="text" value={{student.phone1}}>
+                    <input type="tel" value={{student.phone1}} disabled>
                 </md-input-container>
                 <md-input-container class="student-form-column">
                     <label>Phone 2</label>
-                    <input type="text" value={{student.phone2}}>
+                    <input type="tel" value={{student.phone2}} disabled>
                 </md-input-container>
             </div>
         </div>
         <div layout="column" >
             <md-input-container>
                 <label>Street</label>
-                <input type="text" value={{student.street}}>
+                <input type="text" value={{student.street}} disabled>
             </md-input-container>
         </div>
         <div >
             <md-input-container>
                 <label>City</label>
-                <input type="text" value={{student.city}}>
+                <input type="text" value={{student.city}} disabled>
             </md-input-container>
             <md-input-container>
                 <label>State</label>
-                <input type="text" value={{student.state}}>
+                <input type="text" value={{student.state}} disabled>
             </md-input-container>
             <md-input-container>
                 <label>Zip</label>
-                <input type="text" value={{student.zip}}>
+                <input type="text" value={{student.zip}} disabled>
             </md-input-container>
         </div>
     </section>
