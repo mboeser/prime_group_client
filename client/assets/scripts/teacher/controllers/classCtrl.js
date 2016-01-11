@@ -34,8 +34,8 @@ myApp.controller('classCtrl', ['$scope', '$http', 'DataService', '$location', '$
         columnDefs: [
             { name:'id', field: 'id', enableCellEdit: false,
                 cellTemplate: expandStudentTemplate},
-            { name:'First Name', field: 'student_firstname' , enableCellEdit:false},
-            { name:'Last Name', field: 'student_lastname' , enableCellEdit:false, sort: {direction: 'asc'}},
+            { name:'First Name', field: 'student_firstname' , enableCellEdit:false, cellClass: 'cell-default'},
+            { name:'Last Name', field: 'student_lastname' , enableCellEdit:false, cellClass: 'cell-default', sort: {direction: 'asc'}},
             { name:'Phone 1', field: 'phone1' , enableCellEdit:true, cellFilter:'tel'},
             { name:'Call Status', field: 'contact_status' ,   cellTemplate: notCalledTemplate , enableCellEdit:true,
                 editableCellTemplate: 'ui-grid/dropdownEditor',

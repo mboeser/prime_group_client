@@ -29,9 +29,9 @@ myApp.controller('preworkCtrl', ['$scope', '$http', '$location', 'DataService', 
                 name: 'id', field: 'id', enableCellEdit: false,
                 cellTemplate: expandStudentTemplate
             },
-            {name: 'Teacher', field: 'lastname', enableCellEdit: false},
-            {name: 'First Name', field: 'student_firstname', enableCellEdit: false},
-            {name: 'Last Name', field: 'student_lastname', enableCellEdit: false, sort: {direction: 'asc'}},
+            {name: 'Teacher', field: 'lastname', cellClass: 'cell-default', enableCellEdit: false},
+            {name: 'First Name', field: 'student_firstname', cellClass: 'cell-default', enableCellEdit: false},
+            {name: 'Last Name', field: 'student_lastname', cellClass: 'cell-default', enableCellEdit: false, sort: {direction: 'asc'}},
             {name: 'Phone 1', field: 'phone1', enableCellEdit: true, cellFilter:'tel'},
             {
                 name: 'Call Status', field: 'contact_status', enableCellEdit: true,

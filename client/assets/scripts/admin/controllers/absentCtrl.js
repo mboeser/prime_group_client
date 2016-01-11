@@ -31,9 +31,9 @@ myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', '$mdToast', '$
                 name: 'id', field: 'id', enableCellEdit: false,
                 cellTemplate: expandStudentTemplate
             },
-            { name:'Teacher', field: 'lastname' , enableCellEdit:true},
-            { name:'First Name', field: 'student_firstname' , enableCellEdit:true},
-            { name:'Last Name', field: 'student_lastname' , enableCellEdit:true, sort: {direction: 'asc'}},
+            { name:'Teacher', field: 'lastname' , cellClass: 'cell-default', enableCellEdit:true},
+            { name:'First Name', field: 'student_firstname' , cellClass: 'cell-default', enableCellEdit:true},
+            { name:'Last Name', field: 'student_lastname' , cellClass: 'cell-default', enableCellEdit:true, sort: {direction: 'asc'}},
             { name:'Phone 1', field: 'phone1' , enableCellEdit:true, cellFilter:'tel'},
 
             { name:'Call Status', field: 'contact_status' , enableCellEdit:true,
