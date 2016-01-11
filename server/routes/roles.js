@@ -42,15 +42,18 @@ module.exports = function (app) {
 
         //SQL Query > SELECT data from table
         pg.connect(connectionString, function (err, client) {
+
             client.query("INSERT INTO users (email, firstname, lastname, role) " +
                 "VALUES ($1, $2, $3, $4)", [email, firstname, lastname, role],
                 function (err, result) {
                     if (err) {
                         console.log("Error inserting data: ", err);
-                        res.send(false);
+                        client.end();
+                        res.send(err);
+                    } else {
+                        client.end();
+                        res.send(true);
                     }
-                    client.end();
-                    res.send(true);
                 });
 
         });
@@ -72,11 +75,11 @@ module.exports = function (app) {
                 return res.status(500).json({success: false, data: err});
             }
             client.query("UPDATE users SET email=$1, firstname=$2, lastname=$3, role=$4 " +
-                "WHERE id=$5", [email, firstname, lastname, role, id], function(err, response){
-                    if (err) {
-                        console.log ('error inserting to db', err);
-                        return res.status(500).json({success: false, data: err});
-                    }
+                "WHERE id=$5", [email, firstname, lastname, role, id], function (err, response) {
+                if (err) {
+                    console.log('error inserting to db', err);
+                    return res.status(500).json({success: false, data: err});
+                }
                 client.end();
                 res.send(true);
 
