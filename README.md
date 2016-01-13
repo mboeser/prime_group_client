@@ -8,7 +8,7 @@ ATTENDANCE NOTES: This is the field regarding attendance. Teachers, while conduc
 
 #BASIC USER GUIDE
 ##TEACHER
-This will allow you to take attendance and conduct prework from your phone, computer, or mobile device!
+	This will allow you to take attendance and conduct prework from your phone, computer, or mobile device!
  
 1)   Go to breakthroughtwincities.herokuapp.com on a Chrome Browser (other browser may not allow all the features of this application).
 2)   Using your @breakthroughtwincities.org email account, use the Google log in to verify your identity.
