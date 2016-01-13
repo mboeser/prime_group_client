@@ -17,7 +17,7 @@ myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', '$mdToast', '$
     }
 
 
-
+//HTML TEMPLATES FOR GRID
     var excusedCheckbox = "<md-checkbox ng-model='row.entity.excused' class='md-warn md-hue2' type='checkbox' name='excused' ng-change='grid.appScope.saveRow(row.entity)'></md-checkbox>"; 
     var homeworkCheckbox = "<md-checkbox ng-model='row.entity.homework_sent' class='md-warn md-hue2' type='checkbox' name='homework_sent'  ng-change='grid.appScope.saveRow(row.entity)'></md-checkbox>";
     var expandStudentTemplate = '<div class="ui-grid-cell-contents"  ng-click="grid.appScope.selectStudent(row.entity.id)">{{row.entity.id}}</div>';
@@ -70,17 +70,14 @@ myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', '$mdToast', '$
         exporterCsvLinkElement: angular.element(document.querySelectorAll(".custom-csv-link-location")),
     };
 
-    console.log($scope.dataService.getData());
+
+    //GET DATA FROM FACTORY TO POPULATE GRID
     $scope.gridOptions.data = $scope.dataService.getData();
 
-
+    //SAVE BY ROW, PROMISE FUNCTIONALITY REQUIRED
     $scope.saveRow = function( rowEntity ) {
-        console.log("in save row");
-        console.log("rowEntity", rowEntity);
         var promise = $http.put('/updateAbsent', rowEntity).then(function(response){
             $scope.editUserToast();
-            console.log(response);
-            console.log(promise);
         });
         $scope.gridApi.rowEdit.setSavePromise( rowEntity, promise);
     };
@@ -91,7 +88,7 @@ myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', '$mdToast', '$
         gridApi.rowEdit.on.saveRow($scope, $scope.saveRow);
     };
 
-
+    //SAVE INDIVIDUAL STUDENT IN FACTORY, OPEN VIEW BASED ON GRADE
     $scope.selectStudent = function(studentID){
         $http.get('/student', {params: {'student': studentID}}).then(function(response){
             $scope.dataService.setStudent(response.data[0]);

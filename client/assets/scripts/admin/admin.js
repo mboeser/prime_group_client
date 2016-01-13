@@ -1,6 +1,9 @@
 //ADMIN APPLICATION
-var myApp = angular.module('myApp', ['ngTouch', 'ngRoute', 'ngMaterial', 'ngMessages', 'ngFileUpload','ui.grid', 'ui.grid.edit', 'ui.grid.rowEdit','ui.grid.selection', 'ui.grid.exporter', 'ui.grid.resizeColumns', 'ui.grid.moveColumns']);
+var myApp = angular.module('myApp', ['ngTouch', 'ngRoute', 'ngMaterial', 'ngMessages', 'ngFileUpload','ui.grid', 'ui.grid.edit',
+    'ui.grid.rowEdit','ui.grid.selection', 'ui.grid.exporter', 'ui.grid.resizeColumns', 'ui.grid.moveColumns']);
 
+
+//ROUTES
 myApp.config(['$routeProvider', function($routeProvider){
     $routeProvider
         .when('/dashboard', {

@@ -26,11 +26,7 @@ myApp.controller('teacherCtrl', ['$scope', '$http', '$location','DataService', f
     };
 
     $scope.selectTeacher = function(teacher){
-      $http.get('/prework', {params:{date: $scope.date,
-                                      who: teacher}}).then(function(response){
-          console.log("This is the response from selectTeacher", response);
-
-      });
+      $scope.dataService.setTeacher(teacher.teacher_email);
     };
 
     $scope.getTeachers();

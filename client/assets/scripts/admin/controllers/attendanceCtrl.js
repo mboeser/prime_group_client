@@ -11,7 +11,6 @@ myApp.controller('attendanceCtrl', ['$scope', '$http', '$location', 'DataService
     if ($scope.dataService.peopleData() === undefined) {
         $scope.dataService.retrieveData().then(function () {
             $scope.user = $scope.dataService.peopleData();
-            console.log($scope.user);
         });
     }
 
@@ -19,21 +18,16 @@ myApp.controller('attendanceCtrl', ['$scope', '$http', '$location', 'DataService
         $http.get('/attendance', {
             params: {
                 date: $scope.date,
-                who: $scope.user.emails[0].value
+                who: $scope.dataService.getTeacher()
             }
         }).then(function (response) {
 
             $scope.students = response.data;
 
-            console.log($scope.students[1]);
-            console.log($scope.user.emails[0]);
-
-            console.log('here ATT response', response.data);
         })
     };
     $scope.putAttendance = function () {
         $http.put('/attendance', $scope.students).then(function (response) {
-            console.log(response);
             $scope.showActionToast();
             $scope.getAttendance();
         })
@@ -53,7 +47,7 @@ myApp.controller('attendanceCtrl', ['$scope', '$http', '$location', 'DataService
             }
 
         });
-
+        //Helps position toast
         var el = angular.element(document.getElementById('attBtn'));
 
         var toast = $mdToast.simple()

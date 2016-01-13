@@ -1,6 +1,8 @@
 //TEACHER APP
-var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMessages', 'ui.grid', 'ui.grid.edit', 'ui.grid.selection', 'ui.grid.exporter', 'ui.grid.rowEdit', 'ui.grid.resizeColumns', 'ui.grid.moveColumns']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMessages', 'ui.grid', 'ui.grid.edit',
+    'ui.grid.selection', 'ui.grid.exporter', 'ui.grid.rowEdit', 'ui.grid.resizeColumns', 'ui.grid.moveColumns']);
 
+//ROUTES
 myApp.config(['$routeProvider', function($routeProvider){
     $routeProvider
         .when('/dashboard', {
@@ -27,7 +29,7 @@ myApp.config(['$routeProvider', function($routeProvider){
 
         .otherwise('dashboard');
 }]);
-
+//DIRECTIVES
 myApp.directive('classProfile',
     function(){
         return{

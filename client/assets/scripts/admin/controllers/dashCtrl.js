@@ -1,5 +1,6 @@
 myApp.controller('dashCtrl',['$scope', '$http', '$location','DataService', '$filter', function ($scope, $http, $location, DataService, $filter) {
 
+    //FACTORY
     $scope.dataService = DataService;
     $scope.user = {};
     $scope.date = $scope.dataService.getDate();
@@ -17,6 +18,7 @@ myApp.controller('dashCtrl',['$scope', '$http', '$location','DataService', '$fil
     $scope.prework = {};
     $scope.absent = {};
 
+    //FUNCTIONS FOR REPORTS
     $scope.getAbsences = function(){
         $scope.absentDate = $filter('date')(($scope.absent.date), 'yyyy-MM-dd');
         $http.get('/absent', {params: {date: $scope.absentDate }}).then(function(response){

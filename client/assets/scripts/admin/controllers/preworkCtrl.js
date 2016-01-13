@@ -1,6 +1,7 @@
 myApp.controller('preworkCtrl', ['$scope', '$http', '$location', 'DataService', '$mdToast', '$filter', function ($scope, $http, $location, DataService, $mdToast, $filter) {
     console.log('on admin prework controller--preworkCtrl.js');
 
+    //FACTORY
     $scope.dataService = DataService;
     $scope.user = {};
     $scope.date = $scope.dataService.getDate();
@@ -17,6 +18,7 @@ myApp.controller('preworkCtrl', ['$scope', '$http', '$location', 'DataService', 
         });
     }
 
+    //HTML TEMPLATES FOR GRID
     var expandStudentTemplate = '<div class="ui-grid-cell-contents"  ng-click="grid.appScope.selectStudent(row.entity.id)">{{row.entity.id}}</div>';
 
 
@@ -72,7 +74,6 @@ myApp.controller('preworkCtrl', ['$scope', '$http', '$location', 'DataService', 
     $scope.saveRow = function (rowEntity) {
         var promise = $http.put('/adminPrework', rowEntity).then(function (response) {
             $scope.editUserToast();
-            console.log(response);
         });
         $scope.gridApi.rowEdit.setSavePromise(rowEntity, promise);
     };

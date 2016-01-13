@@ -4,18 +4,17 @@ myApp.service('DataService', ['$http', '$filter', function($http, $filter){
     var user = undefined;
     var date = $filter('date')((new Date()), 'yyyy-MM-dd');
     var selectedStudent = {};
+    var selectedTeacher = {};
 
-
+    //PUBLIC KEYS
     return {
         getData: function () {
             //You could also return specific attribute of the form data instead
             //of the entire data
-            console.log('this is form data saved in factory', formData);
             return formData;
         },
         setData: function (newFormData) {
-            //You could also set specific attribute of the form data instead
-            console.log('setData Called in factory', newFormData);
+            //SETS NEW FORM DATA
             formData = newFormData
         },
         resetData: function () {
@@ -44,6 +43,12 @@ myApp.service('DataService', ['$http', '$filter', function($http, $filter){
         },
         getStudent: function(){
             return selectedStudent;
+        },
+        setTeacher: function(newTeacher) {
+            selectedTeacher = newTeacher;
+        },
+        getTeacher: function(){
+            return selectedTeacher;
         },
         getClasses: function(){
             return $http.get('/teacher').then(function(response){
