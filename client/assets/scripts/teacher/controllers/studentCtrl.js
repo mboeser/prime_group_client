@@ -11,18 +11,15 @@ myApp.controller('studentCtrl', ['$scope', '$http', 'DataService', '$mdToast', f
     if($scope.dataService.peopleData() === undefined){
         $scope.dataService.retrieveData().then(function(){
             $scope.user = $scope.dataService.peopleData();
-            console.log($scope.user);
         });
     }
 
-    console.log("This is the student", $scope.student);
 
     $scope.dropdown = ['Not Yet Called','Reached','Left Message'];
 
     $scope.updateNotes = function(col, note){
         $http.put('/updateStudent', {params: {'column': col, 'value': note, 'id': $scope.student.id}}).then(function(){
             $scope.editUserToast();
-            console.log("student data updated");
             $scope.setPrework();
         });
     };
@@ -39,7 +36,6 @@ myApp.controller('studentCtrl', ['$scope', '$http', 'DataService', '$mdToast', f
         $http.put('/updateStudentInfo', {params: {'column': col, 'value': note, 'id': $scope.student.id}}).then(function(){
             $scope.editUserToast();
             $scope.setPrework();
-            console.log("Student data updated");
         });
     };
 

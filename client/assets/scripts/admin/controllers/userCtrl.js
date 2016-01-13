@@ -10,7 +10,6 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', '$m
     if ($scope.dataService.peopleData() === undefined) {
         $scope.dataService.retrieveData().then(function () {
             $scope.user = $scope.dataService.peopleData();
-            console.log($scope.user);
         });
     }
 
@@ -95,7 +94,6 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', '$m
     $scope.saveRow = function (rowEntity) {
         var promise = $http.put('/roles', rowEntity).then(function (response) {
             $scope.editUserToast();
-            console.log(response);
         });
         $scope.gridApi.rowEdit.setSavePromise(rowEntity, promise);
     };
@@ -109,7 +107,7 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', '$m
 
     $scope.submitForm = function () {
         $http.post('/roles', $scope.newUser).then(function (response) {
-            console.log('post response :', response);
+
             $scope.getUserList();
             $scope.newUser = {};
             $scope.addUserForm.$setPristine();
@@ -122,16 +120,12 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', '$m
     $scope.getUserList = function () {
         $http.get('/roles').then(function (response) {
             $scope.gridOptions.data = response.data;
-
-            console.log('this is userList :', $scope.userList);
-
-
         })
     };
 
     $scope.updateUser = function (person) {
         $http.put('/roles', person).then(function (response) {
-            console.log('put response :', response);
+
             $scope.editUserToast();
             $scope.getUserList();
         });
@@ -140,7 +134,6 @@ myApp.controller('userCtrl', ['$scope', '$http', '$location', 'DataService', '$m
     $scope.deleteUser = function (person) {
         console.log(person);
         $http.delete('/roles', {params: {deleteMe: person}}).then(function (response) {
-            console.log('delete response :', response);
             $scope.deleteUserToast();
             $scope.getUserList();
         });

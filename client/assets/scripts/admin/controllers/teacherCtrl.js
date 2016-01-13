@@ -10,7 +10,6 @@ myApp.controller('teacherCtrl', ['$scope', '$http', '$location','DataService', f
     if($scope.dataService.peopleData() === undefined){
         $scope.dataService.retrieveData().then(function(){
             $scope.user = $scope.dataService.peopleData();
-            console.log($scope.user);
         });
     }
 
@@ -21,7 +20,6 @@ myApp.controller('teacherCtrl', ['$scope', '$http', '$location','DataService', f
         //Retrieve all teachers for a classdate for selection
         $http.get('/admin_attendance', {params: {date: $scope.date}}).then(function(response){
             $scope.teachers = response.data;
-            console.log("This is $scope.teachers", $scope.teachers);
         });
     };
 

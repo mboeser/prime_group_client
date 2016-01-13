@@ -34,8 +34,6 @@ myApp.controller('attendanceCtrl', ['$scope', '$http', '$location', 'DataService
     };
 
     $scope.showActionToast = function () {
-        //console.log($scope.students);
-
         var absent = 0;
         var present = 0;
 

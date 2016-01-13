@@ -11,7 +11,6 @@ myApp.controller('dashTCtrl', ['$scope', '$http', 'DataService', '$location', fu
     if($scope.dataService.peopleData() === undefined){
         $scope.dataService.retrieveData().then(function(){
             $scope.user = $scope.dataService.peopleData();
-            console.log($scope.user);
         });
     }
 
@@ -33,9 +32,8 @@ myApp.controller('dashTCtrl', ['$scope', '$http', 'DataService', '$location', fu
     };
 
     $scope.getAttendance = function(){
-        $http.get('/attendance', {params: {date: $scope.date, who: $scope.user}}).then(function(response){
-            console.log(response);
-        })
+        $http.get('/attendance', {params: {date: $scope.date, who: $scope.user}});
+
     };
 
     $scope.getClasses();

@@ -5,7 +5,6 @@ myApp.controller('preworkCtrl', ['$scope', '$http', '$location', 'DataService', 
     $scope.dataService = DataService;
     $scope.user = {};
     $scope.date = $scope.dataService.getDate();
-    console.log("This is the date you are asking for", $scope.date);
 
 
     $scope.user = $scope.dataService.peopleData();
@@ -14,7 +13,6 @@ myApp.controller('preworkCtrl', ['$scope', '$http', '$location', 'DataService', 
     if ($scope.dataService.peopleData() === undefined) {
         $scope.dataService.retrieveData().then(function () {
             $scope.user = $scope.dataService.peopleData();
-            console.log("This is $scope.user", $scope.user);
         });
     }
 

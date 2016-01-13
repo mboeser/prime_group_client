@@ -10,7 +10,6 @@ myApp.controller('uploadCtrl', ['$scope', '$http', 'Upload', 'DataService', '$md
     if($scope.dataService.peopleData() === undefined){
         $scope.dataService.retrieveData().then(function(){
             $scope.user = $scope.dataService.peopleData();
-            console.log($scope.user);
         });
     }
 
@@ -34,9 +33,7 @@ myApp.controller('uploadCtrl', ['$scope', '$http', 'Upload', 'DataService', '$md
     };
 
    $scope.download = function() {
-       $http.get('/download').then(function(res){
-          console.log(res);
-       });
+       $http.get('/download');
    };
 
     $scope.openToast = function() {

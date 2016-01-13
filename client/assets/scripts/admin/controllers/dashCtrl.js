@@ -10,7 +10,6 @@ myApp.controller('dashCtrl',['$scope', '$http', '$location','DataService', '$fil
     if($scope.dataService.peopleData() === undefined){
         $scope.dataService.retrieveData().then(function(){
             $scope.user = $scope.dataService.peopleData();
-            console.log($scope.user);
         });
     }
 
@@ -31,7 +30,6 @@ myApp.controller('dashCtrl',['$scope', '$http', '$location','DataService', '$fil
         $scope.preworkDate = $filter('date')(($scope.prework.date), 'yyyy-MM-dd');
         $http.get('/prework', {params: {date: $scope.preworkDate}}).then(function(response) {
             $scope.dataService.setData(response.data);
-            console.log($scope.dataService.getData());
             $location.path('/prework');
         });
     };

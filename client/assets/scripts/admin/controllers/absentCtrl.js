@@ -12,7 +12,6 @@ myApp.controller('absentCtrl', ['$scope', '$http', 'DataService', '$mdToast', '$
     if($scope.dataService.peopleData() === undefined){
         $scope.dataService.retrieveData().then(function(){
             $scope.user = $scope.dataService.peopleData();
-            console.log($scope.user);
         });
     }
 
